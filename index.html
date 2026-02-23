@@ -48,7 +48,6 @@
             box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9);
         }
 
-        /* --- 🚀 Ultra Modern Cyber Frame --- */
         .logo-wrapper {
             position: relative;
             width: 150px;
@@ -109,7 +108,6 @@
         .name-main { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 0; letter-spacing: 1px; }
         .name-sub { font-size: 18px; color: var(--it-blue); font-weight: 700; margin-bottom: 35px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Animations */
         @keyframes anim-rotate { 100% { transform: rotate(360deg); } }
         @keyframes anim-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
         @keyframes anim-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
@@ -122,8 +120,6 @@
 
         @keyframes phoneShake { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(12deg); } 30% { transform: rotate(-12deg); } }
         .shake-icon { animation: phoneShake 0.8s infinite; display: inline-block; }
-
-        .dynamic-service-btn, .dynamic-contact-btn { overflow: hidden; position: relative; cursor: pointer; }
 
         .dynamic-service-btn {
             background: rgba(255, 255, 255, 0.04);
@@ -159,7 +155,6 @@
         .color-blue { border-color: var(--it-blue) !important; color: var(--it-blue) !important; }
         .color-green { border-color: var(--it-green) !important; color: var(--it-green) !important; }
 
-        /* Social Icons Grid - Centered Design */
         .social-row { 
             display: flex; 
             flex-wrap: wrap;
@@ -171,21 +166,53 @@
         .s-link {
             width: 65px; 
             height: 65px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 14px;
+            background: rgba(255,255,255,0.05);
             display: flex; align-items: center; justify-content: center;
             color: #fff; text-decoration: none; font-size: 22px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s ease;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            position: relative;
         }
-        .s-link:hover { transform: translateY(-8px); border-color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        .s-link.tiktok:hover { background: #000; color: #ff0050; }
-        .s-link.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-        .s-link.facebook:hover { background: #1877F2; }
+
+        .s-link::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: var(--it-dark);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* ئەنیمەیشنێ چاڤەڕێبوونێ */
+        .loading-effect {
+            animation: wait-pulse 0.5s infinite alternate !important;
+            pointer-events: none;
+            filter: brightness(2) !important;
+            background: var(--it-blue) !important;
+            color: #000 !important;
+        }
+
+        @keyframes wait-pulse {
+            from { transform: scale(1.1); }
+            to { transform: scale(0.9); }
+        }
+
+        .s-link:hover { 
+            transform: scale(1.15) rotate(10deg); 
+            background: var(--it-blue);
+            color: #000;
+            z-index: 10;
+        }
+
+        .s-link.tiktok:hover { background: #ff0050; color: #fff; }
+        .s-link.instagram:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; }
+        .s-link.facebook:hover { background: #1877F2; color: #fff; }
         .s-link.snapchat:hover { background: #FFFC00; color: #000; }
-        .s-link.twitter:hover { background: #000; color: #fff; border-color: #fff; }
-        .s-link.email:hover { background: #ea4335; }
-        .s-link.yahoo:hover { background: #410093; }
-        .s-link.discord:hover { background: #5865F2; }
+        .s-link.twitter:hover { background: #fff; color: #000; }
+        .s-link.email:hover { background: #ea4335; color: #fff; }
+        .s-link.discord:hover { background: #5865F2; color: #fff; }
+        .s-link.yahoo:hover { background: #410093; color: #fff; }
 
         .footer { 
             margin-top: 50px; font-size: 10px; opacity: 0.4; font-family: 'Fira Code', monospace; 
@@ -246,6 +273,30 @@
 </div>
 
 <script>
+    // رێکا دروست بۆ کارکرنا لینکان ب ٢ چرکەیان
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('.s-link, .dynamic-contact-btn');
+        if (!link) return;
+        
+        // ئەگەر ئەنیمەیشن یا لێ دای نەهێلە دووبارە کلیک لێ بکەت
+        if (link.classList.contains('loading-effect')) return;
+
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#')) return;
+
+        e.preventDefault(); 
+        link.classList.add('loading-effect');
+
+        setTimeout(() => {
+            link.classList.remove('loading-effect');
+            if (link.getAttribute('target') === '_blank') {
+                window.open(href, '_blank');
+            } else {
+                window.location.href = href;
+            }
+        }, 2000); // ٢ چرکە
+    });
+
     const services = [
         { text: "SYSTEMS", desc: "Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی", icon: "fa-layer-group", theme: "theme-green", anim: "anim-systems" },
         { text: "SECURITY", desc: "Social Media Protection & Security<br>بو پاراستنا ئەکاونتێن سوشیال میدیایێ", icon: "fa-shield-halved", theme: "theme-red", anim: "anim-security" },
@@ -265,10 +316,10 @@
         content.classList.add("exit-up");
 
         setTimeout(() => {
-            text.innerText = services[sIndex].text;
-            desc.innerHTML = services[sIndex].desc;
-            icon.className = "fa-solid " + services[sIndex].icon + " " + services[sIndex].anim;
-            btn.className = "dynamic-service-btn " + services[sIndex].theme;
+            if(text) text.innerText = services[sIndex].text;
+            if(desc) desc.innerHTML = services[sIndex].desc;
+            if(icon) icon.className = "fa-solid " + services[sIndex].icon + " " + services[sIndex].anim;
+            if(btn) btn.className = "dynamic-service-btn " + services[sIndex].theme;
             content.classList.remove("exit-up");
             content.classList.add("enter-bottom");
             
@@ -292,29 +343,35 @@
         const label = document.getElementById("phone-display-text");
         const callContent = document.getElementById("call-content");
 
-        callContent.classList.add("flip-out");
-        waLink.style.opacity = "0";
+        if(callContent) callContent.classList.add("flip-out");
+        if(waLink) waLink.style.opacity = "0";
 
         setTimeout(() => {
-            label.innerText = current.label;
-            callBtn.href = current.tel;
-            waLink.href = current.wa;
-            callBtn.className = "dynamic-contact-btn " + current.theme;
-            waLink.className = "s-link " + current.theme;
+            if(label) label.innerText = current.label;
+            if(callBtn) {
+                callBtn.href = current.tel;
+                callBtn.className = "dynamic-contact-btn " + current.theme;
+            }
+            if(waLink) {
+                waLink.href = current.wa;
+                waLink.className = "s-link " + current.theme;
+            }
             
-            callContent.classList.remove("flip-out");
-            callContent.classList.add("flip-in");
+            if(callContent) {
+                callContent.classList.remove("flip-out");
+                callContent.classList.add("flip-in");
+            }
 
             setTimeout(() => {
-                callContent.classList.remove("flip-in");
-                waLink.style.opacity = "1";
+                if(callContent) callContent.classList.remove("flip-in");
+                if(waLink) waLink.style.opacity = "1";
             }, 50);
         }, 400); 
     }, 5000);
 
     window.onload = function() {
         var img = document.getElementById('main-logo');
-        if (!img.complete || img.naturalWidth === 0) { img.src = 'https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg'; }
+        if (img && (!img.complete || img.naturalWidth === 0)) { img.src = 'https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg'; }
     };
 </script>
 
