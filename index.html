@@ -172,6 +172,7 @@
             transition: all 0.4s ease;
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
             position: relative;
+            cursor: pointer;
         }
 
         .s-link::before {
@@ -184,9 +185,9 @@
             opacity: 0.8;
         }
 
-        /* ئەنیمەیشنێ چاڤەڕێبوونێ */
+        /* ئەنیمەیشنێ کارکرنێ */
         .loading-effect {
-            animation: wait-pulse 0.5s infinite alternate !important;
+            animation: wait-pulse 0.4s infinite alternate !important;
             pointer-events: none;
             filter: brightness(2) !important;
             background: var(--it-blue) !important;
@@ -273,28 +274,33 @@
 </div>
 
 <script>
-    // رێکا دروست بۆ کارکرنا لینکان ب ٢ چرکەیان
+    // کۆدێ نوو بۆ ڤەکرنا لینکان پشتی ٢ چرکەیان ب گەرەنتی
     document.addEventListener('click', function(e) {
         const link = e.target.closest('.s-link, .dynamic-contact-btn');
         if (!link) return;
-        
-        // ئەگەر ئەنیمەیشن یا لێ دای نەهێلە دووبارە کلیک لێ بکەت
-        if (link.classList.contains('loading-effect')) return;
 
         const href = link.getAttribute('href');
         if (!href || href.startsWith('#')) return;
 
         e.preventDefault(); 
+        
+        if (link.classList.contains('loading-effect')) return;
         link.classList.add('loading-effect');
 
         setTimeout(() => {
             link.classList.remove('loading-effect');
+            
+            // رێکارەکا باشتر بۆ وێبگەڕێن موبایلێ
+            const a = document.createElement('a');
+            a.href = href;
             if (link.getAttribute('target') === '_blank') {
-                window.open(href, '_blank');
-            } else {
-                window.location.href = href;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
             }
-        }, 2000); // ٢ چرکە
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }, 2000); 
     });
 
     const services = [
@@ -313,19 +319,18 @@
         const btn = document.getElementById("service-btn");
 
         sIndex = (sIndex + 1) % services.length;
-        content.classList.add("exit-up");
+        if(content) content.classList.add("exit-up");
 
         setTimeout(() => {
             if(text) text.innerText = services[sIndex].text;
             if(desc) desc.innerHTML = services[sIndex].desc;
             if(icon) icon.className = "fa-solid " + services[sIndex].icon + " " + services[sIndex].anim;
             if(btn) btn.className = "dynamic-service-btn " + services[sIndex].theme;
-            content.classList.remove("exit-up");
-            content.classList.add("enter-bottom");
-            
-            setTimeout(() => {
-                content.classList.remove("enter-bottom");
-            }, 50);
+            if(content) {
+                content.classList.remove("exit-up");
+                content.classList.add("enter-bottom");
+                setTimeout(() => content.classList.remove("enter-bottom"), 50);
+            }
         }, 400);
     }, 4000);
 
@@ -356,16 +361,12 @@
                 waLink.href = current.wa;
                 waLink.className = "s-link " + current.theme;
             }
-            
             if(callContent) {
                 callContent.classList.remove("flip-out");
                 callContent.classList.add("flip-in");
+                setTimeout(() => callContent.classList.remove("flip-in"), 50);
             }
-
-            setTimeout(() => {
-                if(callContent) callContent.classList.remove("flip-in");
-                if(waLink) waLink.style.opacity = "1";
-            }, 50);
+            if(waLink) waLink.style.opacity = "1";
         }, 400); 
     }, 5000);
 
