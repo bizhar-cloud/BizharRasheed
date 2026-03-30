@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     <link rel="apple-touch-icon" href="https://i.postimg.cc/FHsqYdc1/DF89CBB3-0A07-4755-9FB1-D10355CC908B.jpg">
     <meta name="apple-mobile-web-app-title" content="Bizhar">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,205 +10,133 @@
     <title>Bizhar Rasheed | IT Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&family=Fira+Code:wght@500;700&family=Poppins:wght@600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&family=Orbitron:wght@500;900&family=Fira+Code:wght@400;700&family=Poppins:wght@600;800&display=swap');
 
         :root {
             --it-blue: #00f2ff;
             --it-green: #00ff41;
             --it-red: #ff3e3e;
-            --it-dark: #060709;
+            --deep-dark: #010205;
+            --glass-bg: rgba(15, 20, 30, 0.6);
+            --border-white: rgba(255, 255, 255, 0.12);
+            --kurd-sun: #FEB811;
         }
 
         body, html {
             margin: 0; padding: 0; min-height: 100vh;
             font-family: 'Noto Sans Arabic', sans-serif;
-            background: var(--it-dark);
+            background: var(--deep-dark);
             color: #fff; overflow-x: hidden;
+            display: flex; justify-content: center;
         }
 
         #bg-video {
             position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%;
-            z-index: -2; filter: brightness(0.12) contrast(1.1); object-fit: cover;
+            z-index: -2; filter: brightness(0.15) saturate(0.4); object-fit: cover;
         }
 
-        .overlay-dark {
+        .overlay-mask {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, var(--it-dark) 100%);
+            background: linear-gradient(180deg, transparent 0%, var(--deep-dark) 100%);
             z-index: -1;
         }
 
         .container {
             position: relative; z-index: 1;
-            max-width: 420px; margin: 40px auto;
-            background: rgba(15, 15, 20, 0.7);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(0, 242, 255, 0.1);
-            border-radius: 40px;
-            padding: 50px 20px;
+            max-width: 410px; width: 92%; margin: 40px auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 45px;
+            padding: 55px 20px;
             text-align: center;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--border-white);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .logo-wrapper {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #000;
-            padding: 5px;
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2), inset 0 0 15px rgba(0, 255, 65, 0.2);
-        }
-
-        .logo-wrapper::before {
-            content: "";
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            padding: 3px;
-            background: conic-gradient(from 0deg, transparent, var(--it-blue), transparent, var(--it-green), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: spin 3s linear infinite;
-        }
-
-        .logo-wrapper::after {
-            content: "";
-            position: absolute;
-            inset: -12px;
-            border: 1px solid rgba(0, 242, 255, 0.15);
-            border-radius: 50%;
-            border-left-color: var(--it-blue);
-            border-right-color: var(--it-green);
-            animation: spin 6s reverse linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            z-index: 5;
-            border: 2px solid rgba(255,255,255,0.1);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .logo-wrapper:hover .logo-img {
-            transform: scale(1.08) rotate(3deg);
-        }
-
-        .name-main { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 0; letter-spacing: 1px; }
-        .name-sub { font-size: 18px; color: var(--it-blue); font-weight: 700; margin-bottom: 35px; text-transform: uppercase; letter-spacing: 2px; }
-
-        @keyframes anim-rotate { 100% { transform: rotate(360deg); } }
-        @keyframes anim-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
-        @keyframes anim-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-        @keyframes anim-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
-
-        .anim-systems { animation: anim-rotate 3s linear infinite; }
-        .anim-security { animation: anim-pulse 1.2s ease-in-out infinite; }
-        .anim-ads { animation: anim-shake 0.6s ease-in-out infinite; }
-        .anim-devops { animation: anim-float 2.5s ease-in-out infinite; }
-
-        @keyframes phoneShake { 0%, 100% { transform: rotate(0); } 15% { transform: rotate(12deg); } 30% { transform: rotate(-12deg); } }
-        .shake-icon { animation: phoneShake 0.8s infinite; display: inline-block; }
-
-        .dynamic-service-btn {
-            background: rgba(255, 255, 255, 0.04);
-            border: 2px solid var(--it-green);
-            border-radius: 22px; padding: 18px; margin-bottom: 25px;
-            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-            transition: all 0.4s ease;
-        }
-
-        #service-text { font-family: 'Poppins', sans-serif; font-size: 19px; font-weight: 700; }
-        #service-desc { font-size: 13px; font-weight: 400; opacity: 0.9; line-height: 1.5; }
-
-        .dynamic-contact-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 18px; padding: 20px; text-decoration: none; 
-            display: flex; align-items: center; justify-content: center; gap: 12px;
-            border: 2px solid var(--it-blue); margin-bottom: 25px;
-            transition: all 0.4s;
-        }
-
-        .content-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; transition: all 0.5s ease; width: 100%; }
-        .inner-title-row { display: flex; align-items: center; gap: 12px; }
-
-        .exit-up { opacity: 0; transform: translateY(-15px); }
-        .enter-bottom { opacity: 0; transform: translateY(15px); }
-
-        .flip-out { opacity: 0; transform: rotateX(90deg); filter: blur(4px); }
-        .flip-in { opacity: 0; transform: rotateX(-90deg); filter: blur(4px); }
-
-        .theme-green { border-color: var(--it-green); color: var(--it-green); box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1); }
-        .theme-blue { border-color: var(--it-blue); color: var(--it-blue); box-shadow: 0 5px 15px rgba(0, 242, 255, 0.1); }
-        .theme-red { border-color: var(--it-red); color: var(--it-red); box-shadow: 0 5px 15px rgba(255, 62, 62, 0.1); }
-        .color-blue { border-color: var(--it-blue) !important; color: var(--it-blue) !important; }
-        .color-green { border-color: var(--it-green) !important; color: var(--it-green) !important; }
-
-        .social-row { 
-            display: flex; 
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px; 
-            margin-top: 35px; 
-            padding-bottom: 20px;
-        }
-
-        .s-link {
-            width: 50px; 
-            height: 50px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15); 
-            border-radius: 12px;
+        .profile-wrapper {
+            position: relative; width: 170px; height: 170px; margin: 0 auto 35px;
             display: flex; align-items: center; justify-content: center;
-            color: #fff; text-decoration: none; font-size: 18px;
-            transform: rotate(45deg); 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(10px);
         }
 
-        .s-link i {
-            transform: rotate(-45deg);
+        .tech-ring {
+            position: absolute; width: 100%; height: 100%;
+            border: 2px dashed var(--it-blue); border-radius: 50%;
+            opacity: 0.3; animation: rotate-ring 10s linear infinite;
         }
 
-        .s-link:hover { 
-            transform: rotate(0deg) scale(1.15); 
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.3);
+        .profile-inner-frame {
+            position: relative; width: 145px; height: 145px; border-radius: 50%;
+            padding: 3px; background: linear-gradient(45deg, var(--it-blue), transparent, var(--it-green));
+            background-size: 200% 200%; animation: gradient-shift 3s ease infinite, profile-pulse 4s ease-in-out infinite;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
         }
 
-        .s-link:hover i {
-            transform: rotate(0deg);
+        .logo-img { position: relative; width: 138px; height: 138px; border-radius: 50%; object-fit: cover; z-index: 2; border: 3px solid var(--deep-dark); }
+
+        @keyframes rotate-ring { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes profile-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+
+        .name-main { font-family: 'Orbitron', sans-serif; font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 5px; text-shadow: 0 0 15px rgba(255,255,255,0.2); }
+        .name-sub { font-size: 11px; color: var(--it-blue); font-weight: 700; letter-spacing: 4px; margin-bottom: 40px; opacity: 0.8; }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.04); border-radius: 25px; padding: 25px; margin-bottom: 35px;
+            transition: all 0.4s ease; height: 130px; display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
         }
 
-        .s-link.tiktok:hover { color: #ff0050; border-color: #00f2ff; box-shadow: 0 0 20px rgba(255, 0, 80, 0.4); }
-        .s-link.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: transparent; }
-        .s-link.facebook:hover { background: #1877F2; border-color: #1877F2; }
-        .s-link.snapchat:hover { background: #FFFC00; color: #000; border-color: #FFFC00; }
-        .s-link.twitter:hover { background: #fff; color: #000; }
-        .s-link.email:hover { background: #ea4335; }
-        .s-link.yahoo:hover { background: #410093; }
-        .s-link.discord:hover { background: #5865F2; }
+        #service-text { font-family: 'Poppins', sans-serif; font-size: 19px; font-weight: 800; display: block; }
+        #service-desc { font-size: 12px; font-weight: 400; opacity: 0.9; margin-top: 8px; line-height: 1.6; }
+
+        .anim-systems { animation: rotate-ring 3s linear infinite; display: inline-block; font-size: 28px; }
+        .anim-security { animation: profile-pulse 1.2s ease-in-out infinite; display: inline-block; font-size: 28px; }
         
-        .s-link.color-blue:hover { background: #25D366 !important; border-color: #25D366 !important; }
-        .s-link.color-green:hover { background: #25D366 !important; border-color: #25D366 !important; }
-
-        .footer { 
-            margin-top: 50px; font-size: 10px; opacity: 0.4; font-family: 'Fira Code', monospace; 
-            letter-spacing: 2px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px;
+        .kurdish-flag-svg { 
+            width: 45px;
+            height: 45px; 
+            filter: drop-shadow(0 0 10px var(--kurd-sun));
+            animation: rotate-ring 15s linear infinite;
         }
+
+        .theme-green { border: 2px solid var(--it-green); color: var(--it-green); }
+        .theme-blue { border: 2px solid var(--it-blue); color: var(--it-blue); }
+        .theme-red { border: 2px solid var(--it-red); color: var(--it-red); }
+        .theme-kurdish { 
+            border: 2px solid var(--kurd-sun); 
+            background: linear-gradient(180deg, rgba(237,28,36,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(39,133,64,0.1) 100%);
+        }
+
+        .contact-list { display: flex; flex-direction: column; gap: 15px; margin-bottom: 40px; }
+        .action-item {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px; padding: 16px 20px; display: flex; align-items: center; gap: 15px;
+            text-decoration: none; color: #fff; transition: all 0.3s ease;
+        }
+        .action-item:hover { background: rgba(255, 255, 255, 0.07); transform: translateY(-3px); border-color: var(--it-blue); }
+        .icon-box { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: rgba(0, 242, 255, 0.1); color: var(--it-blue); }
+        .info-box { text-align: right; flex-grow: 1; }
+        .info-title { display: block; font-size: 15px; font-weight: 800; direction: ltr; }
+        .info-tag { display: block; font-size: 11px; opacity: 0.5; margin-top: 3px; }
+
+        .border-blue { border-left: 4px solid var(--it-blue) !important; }
+        .border-green { border-left: 4px solid var(--it-green) !important; }
+
+        .social-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+        .s-link {
+            width: 55px; height: 55px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50% 10% 50% 10%; display: flex; align-items: center; justify-content: center; color: #fff;
+            text-decoration: none; font-size: 22px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .s-link:hover { border-radius: 50%; background: var(--it-blue); color: #000; transform: scale(1.15) rotate(360deg); box-shadow: 0 0 25px rgba(0, 242, 255, 0.4); }
+
+        .footer { margin-top: 50px; font-size: 10px; opacity: 0.4; font-family: 'Fira Code', monospace; letter-spacing: 2px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; }
+        .content-wrap { transition: all 0.4s ease; width: 100%; }
+        .exit-up { opacity: 0; transform: translateY(-10px); filter: blur(5px); }
+        .enter-bottom { opacity: 0; transform: translateY(10px); filter: blur(5px); }
+
     </style>
 </head>
 <body>
@@ -217,46 +144,72 @@
 <video autoplay muted loop playsinline id="bg-video">
   <source src="https://assets.mixkit.co/videos/preview/mixkit-data-center-server-room-with-blue-lights-2738-large.mp4" type="video/mp4">
 </video>
-<div class="overlay-dark"></div>
+<div class="overlay-mask"></div>
 
 <div class="container">
-    <div class="logo-wrapper">
-        <img src="https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg" class="logo-img" id="main-logo" alt="Bizhar">
+    <div class="profile-wrapper">
+        <div class="tech-ring"></div>
+        <div class="profile-inner-frame">
+            <img src="https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg" class="logo-img" alt="Bizhar">
+        </div>
     </div>
 
-    <div class="name-main">Bizhar Rasheed</div>
-    <div class="name-sub">Professional IT Solutions</div>
+    <div class="name-main">BIZHAR RASHEED</div>
+    <div class="name-sub">PROFESSIONAL IT SOLUTIONS</div>
 
-    <div id="service-btn" class="dynamic-service-btn theme-green">
+    <div id="service-btn" class="service-card theme-green">
         <div id="service-content" class="content-wrap">
-            <div class="inner-title-row">
+            <div id="icon-container" style="height: 40px; margin-bottom: 10px;">
                 <i id="service-icon" class="fa-solid fa-layer-group anim-systems"></i>
-                <span id="service-text">SYSTEMS</span>
             </div>
-            <span id="service-desc">Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</span>
+            <span id="service-text">SYSTEMS</span>
+            <div id="service-desc">Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</div>
         </div>
     </div>
 
-    <a id="dynamic-call-btn" href="tel:+9647503644666" class="dynamic-contact-btn color-blue">
-        <div id="call-content" class="content-wrap">
-            <div style="display:flex; align-items:center; gap:12px;">
-                <i class="fa-solid fa-phone-volume shake-icon"></i>
-                <span id="phone-display-text">KOREK | +9647503644666</span>
+    <div class="contact-list">
+        <a href="tel:+9647503644666" class="action-item border-blue">
+            <div class="icon-box"><i class="fa-solid fa-phone-volume"></i></div>
+            <div class="info-box">
+                <span class="info-title">+964 750 364 4666</span>
+                <span class="info-tag">KOREK | پـەیـوەنـدی بکە</span>
             </div>
-        </div>
-    </a>
+        </a>
 
-    <div class="social-row">
-        <a href="https://www.tiktok.com/@bizharrasheed" class="s-link tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://www.instagram.com/bjarbergarey" class="s-link instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a id="dynamic-wa-link" href="https://api.whatsapp.com/send?phone=9647503644666" class="s-link color-blue" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/bizharrasheed" class="s-link facebook" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.snapchat.com/add/bizharrasheed" class="s-link snapchat" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
-        
-        <a href="mailto:bjar.bergarey@gmail.com" class="s-link email" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://discord.gg/X7wS3jznjW" class="s-link discord" target="_blank"><i class="fa-brands fa-discord"></i></a>
-        <a href="mailto:bjar07503644666@yahoo.com" class="s-link yahoo" target="_blank"><i class="fa-brands fa-yahoo"></i></a>
-        <a href="https://twitter.com/BjarBergarey" class="s-link twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=9647503644666" class="action-item border-green">
+            <div class="icon-box" style="color: var(--it-green); background: rgba(0, 255, 65, 0.1);"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="info-box">
+                <span class="info-title">WhatsApp Personal</span>
+                <span class="info-tag">نامێن تایبەت - Personal Chat</span>
+            </div>
+        </a>
+
+        <a href="tel:+9647503653355" class="action-item border-blue">
+            <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
+            <div class="info-box">
+                <span class="info-title">+964 750 365 3355</span>
+                <span class="info-tag">KOREK | هێلا دووێ</span>
+            </div>
+        </a>
+
+        <a href="https://api.whatsapp.com/send?phone=9647503653355" class="action-item border-green">
+            <div class="icon-box" style="color: var(--it-green); background: rgba(0, 255, 65, 0.1);"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="info-box">
+                <span class="info-title">WhatsApp Business</span>
+                <span class="info-tag">بۆ کارێن فەرمی و بازرگانی</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="social-grid">
+        <a href="https://www.tiktok.com/@bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/bjarbergarey" class="s-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.snapchat.com/add/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+        <a href="mailto:bjar.bergarey@gmail.com" class="s-link" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://discord.gg/X7wS3jznjW" class="s-link" target="_blank"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://twitter.com/BjarBergarey" class="s-link" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="mailto:bjar07503644666@yahoo.com" class="s-link" target="_blank"><i class="fa-brands fa-yahoo"></i></a>
     </div>
 
     <div class="footer">
@@ -265,29 +218,50 @@
 </div>
 
 <script>
+    const sunSVG = `<svg class="kurdish-flag-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="250" cy="250" r="85" fill="#FEB811" />
+        <g fill="#FEB811">
+            ${Array.from({length: 21}, (_, i) => `
+                <polygon points="250,40 220,190 280,190" transform="rotate(${i * (360/21)}, 250, 250)" />
+            `).join('')}
+        </g>
+    </svg>`;
+
     const services = [
-        { text: "SYSTEMS", desc: "Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی", icon: "fa-layer-group", theme: "theme-green", anim: "anim-systems" },
-        { text: "SECURITY", desc: "Social Media Protection & Security<br>بو پاراستنا ئەکاونتێن سوشیال میدیایێ", icon: "fa-shield-halved", theme: "theme-red", anim: "anim-security" },
-        { text: "ADS CREATOR", desc: "Professional Sponsored Campaigns<br>دروستکرن و دانانا سیستەمێن سپونسەریێ", icon: "fa-rectangle-ad", theme: "theme-blue", anim: "anim-ads" },
-        { text: "DEV_OPS", desc: "Software Development & Optimization<br>گەشە پێدانا پروگرامان و پێشخستنا وان", icon: "fa-code-branch", theme: "theme-green", anim: "anim-devops" }
+        { text: "SYSTEMS", desc: "Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی", isFlag: false, icon: "fa-layer-group", theme: "theme-green", anim: "anim-systems" },
+        { text: "SECURITY", desc: "Social Media Protection & Security<br>بو پاراستنا ئەکاونتێن سوشیال میدیایێ", isFlag: false, icon: "fa-shield-halved", theme: "theme-red", anim: "anim-security" },
+        { text: "ADS CREATOR", desc: "Professional Sponsored Campaigns<br>دروستکرن و دانانا سیستەمێن سپونسەریێ", isFlag: false, icon: "fa-rectangle-ad", theme: "theme-blue", anim: "anim-security" },
+        { text: "DEV_OPS", desc: "Software Development & Optimization<br>گەشە پێدانا پروگرامان و پێشخستنا وان", isFlag: false, icon: "fa-code-branch", theme: "theme-green", anim: "anim-systems" },
+        { text: "KURDISTAN", desc: "National Digital Heritage<br>پاراستنا ناسنامەیا نەتەوەیی د جیهانا تەکنۆلۆژیادا", isFlag: true, theme: "theme-kurdish" }
     ];
 
     let sIndex = 0;
+    // ماوێ گوهۆڕینێ ل سەر 5000ms (5 چرکان) هاتە جێگیرکرن
     setInterval(() => {
         const content = document.getElementById("service-content");
+        const iconContainer = document.getElementById("icon-container");
         const text = document.getElementById("service-text");
         const desc = document.getElementById("service-desc");
-        const icon = document.getElementById("service-icon");
         const btn = document.getElementById("service-btn");
 
-        sIndex = (sIndex + 1) % services.length;
         content.classList.add("exit-up");
 
         setTimeout(() => {
-            text.innerText = services[sIndex].text;
-            desc.innerHTML = services[sIndex].desc;
-            icon.className = "fa-solid " + services[sIndex].icon + " " + services[sIndex].anim;
-            btn.className = "dynamic-service-btn " + services[sIndex].theme;
+            sIndex = (sIndex + 1) % services.length;
+            const s = services[sIndex];
+            
+            if(s.isFlag) {
+                iconContainer.innerHTML = sunSVG;
+                text.style.color = "#FEB811";
+            } else {
+                iconContainer.innerHTML = `<i id="service-icon" class="fa-solid ${s.icon} ${s.anim}"></i>`;
+                text.style.color = "#fff";
+            }
+
+            text.innerText = s.text;
+            desc.innerHTML = s.desc;
+            btn.className = "service-card " + s.theme;
+            
             content.classList.remove("exit-up");
             content.classList.add("enter-bottom");
             
@@ -295,46 +269,7 @@
                 content.classList.remove("enter-bottom");
             }, 50);
         }, 400);
-    }, 4000);
-
-    const contacts = [
-        { label: "KOREK | +9647503644666", tel: "tel:+9647503644666", wa: "https://api.whatsapp.com/send?phone=9647503644666", theme: "color-blue" },
-        { label: "KOREK | +9647503653355", tel: "tel:+9647503653355", wa: "https://api.whatsapp.com/send?phone=9647503653355", theme: "color-green" }
-    ];
-
-    let cIndex = 0;
-    setInterval(() => {
-        cIndex = (cIndex + 1) % contacts.length;
-        const current = contacts[cIndex];
-        const callBtn = document.getElementById("dynamic-call-btn");
-        const waLink = document.getElementById("dynamic-wa-link");
-        const label = document.getElementById("phone-display-text");
-        const callContent = document.getElementById("call-content");
-
-        callContent.classList.add("flip-out");
-        waLink.style.opacity = "0";
-
-        setTimeout(() => {
-            label.innerText = current.label;
-            callBtn.href = current.tel;
-            waLink.href = current.wa;
-            callBtn.className = "dynamic-contact-btn " + current.theme;
-            waLink.className = "s-link " + current.theme;
-            
-            callContent.classList.remove("flip-out");
-            callContent.classList.add("flip-in");
-
-            setTimeout(() => {
-                callContent.classList.remove("flip-in");
-                waLink.style.opacity = "1";
-            }, 50);
-        }, 400); 
-    }, 5000);
-
-    window.onload = function() {
-        var img = document.getElementById('main-logo');
-        if (!img.complete || img.naturalWidth === 0) { img.src = 'https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg'; }
-    };
+    }, 5000); 
 </script>
 
 </body>
