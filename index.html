@@ -1,82 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ku">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Bizhar Rasheed - Professional 3D Portfolio</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;800;900&family=Poppins:wght@400;600;800;900&family=Orbitron:wght@500;900&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bizhar Rasheed · QR Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;800;900&family=Poppins:wght@400;600;800;900&family=Orbitron:wght@500;900&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js">
     </script>
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* =========================================
-           ڕەنگ و گۆڕەپان (Variables)
-        ========================================= */
         :root {
             --bg-color: #050b14;
-            --color-bg-grad: linear-gradient(135deg, #050b14, #0a192f, #112240, #0a192f);
-            --nav-bg: rgba(10, 25, 47, 0.75);
-            --card-bg: rgba(17, 34, 64, 0.6);
+            --bg-grad: linear-gradient(135deg, #050b14, #0a192f, #112240, #0a192f);
+            --nav-bg: rgba(10, 25, 47, 0.8);
+            --card-bg: rgba(17, 34, 64, 0.55);
             --dropdown-bg: rgba(10, 25, 47, 0.95);
-            --btn-bg: rgba(2, 12, 27, 0.8);
-            --item-hover: rgba(100, 255, 218, 0.1);
-
+            --btn-bg: rgba(2, 12, 27, 0.7);
+            --item-hover: rgba(100, 255, 218, 0.08);
             --text-main: #e6f1ff;
             --text-muted: #8892b0;
-            --text-3d-shadow: 0 1px 0 #495670, 0 2px 0 #2d3748, 0 3px 0 #1a202c, 0 4px 10px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.4);
-
-            --shadow-dark: rgba(2, 12, 27, 0.9);
-            --shadow-light: rgba(100, 255, 218, 0.05);
-            --inset-light: rgba(255, 255, 255, 0.1);
-            --inset-dark: rgba(0, 0, 0, 0.8);
-            --border-color: rgba(100, 255, 218, 0.2);
-
-            --nosh-color: #38bdf8;
-            --kurd-color: #fde047;
-            --grad-1: linear-gradient(135deg, #64ffda 0%, #00f2fe 100%);
-            --grad-3: linear-gradient(135deg, #00f2fe 0%, #c471ed 100%);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-            --it-blue: #00f2ff;
+            --shadow-dark: rgba(2, 12, 27, 0.8);
+            --shadow-light: rgba(100, 255, 218, 0.04);
+            --inset-light: rgba(255, 255, 255, 0.06);
+            --inset-dark: rgba(0, 0, 0, 0.7);
+            --border-color: rgba(100, 255, 218, 0.15);
             --it-green: #64ffda;
+            --it-blue: #38bdf8;
             --it-red: #ff4d4d;
             --kurd-sun: #FEB811;
+            --nosh-blue: #38bdf8;
+            --kurd-orange: #fb923c;
+            --grad-green: linear-gradient(135deg, #64ffda 0%, #00f2fe 100%);
+            --grad-purple: linear-gradient(135deg, #00f2fe 0%, #c471ed 100%);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         body.light-mode {
             --bg-color: #f1f5f9;
-            --color-bg-grad: linear-gradient(45deg, #e2e8f0, #cbd5e1, #f8fafc, #e2e8f0);
+            --bg-grad: linear-gradient(45deg, #e2e8f0, #cbd5e1, #f8fafc, #e2e8f0);
             --nav-bg: rgba(255, 255, 255, 0.85);
             --card-bg: rgba(255, 255, 255, 0.7);
             --dropdown-bg: rgba(255, 255, 255, 0.95);
-            --btn-bg: rgba(255, 255, 255, 0.9);
-            --item-hover: rgba(0, 0, 0, 0.05);
-
+            --btn-bg: rgba(255, 255, 255, 0.85);
             --text-main: #0f172a;
             --text-muted: #334155;
-            --text-3d-shadow: 0 1px 0 #ccc, 0 2px 0 #b9b9b9, 0 3px 0 #aaa, 0 4px 10px rgba(0, 0, 0, 0.2);
-
-            --shadow-dark: rgba(148, 163, 184, 0.5);
-            --shadow-light: rgba(255, 255, 255, 0.9);
-            --inset-light: rgba(255, 255, 255, 1);
-            --inset-dark: rgba(148, 163, 184, 0.2);
-            --border-color: rgba(200, 200, 200, 0.5);
-
-            --it-blue: #0284c7;
+            --shadow-dark: rgba(148, 163, 184, 0.4);
+            --shadow-light: rgba(255, 255, 255, 0.8);
+            --inset-light: rgba(255, 255, 255, 0.9);
+            --inset-dark: rgba(148, 163, 184, 0.15);
+            --border-color: rgba(200, 200, 200, 0.4);
             --it-green: #059669;
-            --it-red: #dc2626;
+            --it-blue: #0284c7;
+            --kurd-orange: #ea580c;
+            --nosh-blue: #0284c7;
         }
 
-        /* =========================================
-           ڕێکخستنێن گشتی و ئەنیمەیشن
-        ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -84,20 +62,20 @@
             font-family: 'Poppins', 'Noto Sans Arabic', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
             overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
             display: flex;
             flex-direction: column;
-            perspective: 1200px;
-            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        /* IT/Computer Background Canvas */
-        #it-network-canvas {
+        #bg-canvas {
             position: fixed;
             top: 0;
             left: 0;
@@ -105,9 +83,8 @@
             height: 100vh;
             z-index: -3;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.5;
         }
-
         .color-bg {
             position: fixed;
             top: 0;
@@ -115,45 +92,10 @@
             width: 100vw;
             height: 100vh;
             z-index: -4;
-            background: var(--color-bg-grad);
+            background: var(--bg-grad);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 18s ease infinite;
         }
-
-        .orb-container {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            overflow: hidden;
-            filter: blur(120px);
-            pointer-events: none;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            animation: orbMove 25s infinite alternate ease-in-out;
-            opacity: 0.5;
-        }
-
-        .orb-blue {
-            width: 50vw;
-            height: 50vw;
-            background: var(--it-blue);
-            top: -10%;
-            left: -10%;
-        }
-
-        .orb-green {
-            width: 45vw;
-            height: 45vw;
-            background: var(--it-green);
-            bottom: -10%;
-            right: -10%;
-            animation-delay: -5s;
-        }
-
         @keyframes gradientBG {
             0% {
                 background-position: 0% 50%
@@ -165,76 +107,92 @@
                 background-position: 0% 50%
             }
         }
-
+        .orb-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+            filter: blur(130px);
+            pointer-events: none;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            animation: orbMove 30s infinite alternate ease-in-out;
+            opacity: 0.4;
+        }
+        .orb-blue {
+            width: 55vw;
+            height: 55vw;
+            background: var(--it-blue);
+            top: -15%;
+            left: -15%;
+        }
+        .orb-green {
+            width: 50vw;
+            height: 50vw;
+            background: var(--it-green);
+            bottom: -15%;
+            right: -15%;
+            animation-delay: -8s;
+        }
         @keyframes orbMove {
             0% {
                 transform: scale(1) translate(0, 0) rotate(0deg);
             }
             100% {
-                transform: scale(1.3) translate(150px, 150px) rotate(45deg);
+                transform: scale(1.4) translate(180px, 180px) rotate(60deg);
             }
         }
 
-        /* =========================================
-           مێنیویا سەرەکی (Navbar)
-        ========================================= */
         nav {
             background: var(--nav-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 0.5rem 1rem;
+            backdrop-filter: blur(25px);
+            border-radius: 24px;
+            padding: 0.5rem 1.2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: fixed;
-            top: 15px;
+            top: 16px;
             left: 50%;
             transform: translateX(-50%);
-            width: 95%;
+            width: 94%;
             max-width: 1400px;
             z-index: 1000;
-            box-shadow: 0 10px 30px var(--shadow-dark), inset 0 2px 5px var(--inset-light), inset 0 -2px 5px var(--inset-dark);
+            box-shadow: 0 12px 35px var(--shadow-dark), inset 0 2px 6px var(--inset-light), inset 0 -2px 6px var(--inset-dark);
             border: 1px solid var(--border-color);
             transition: var(--transition);
         }
-
         .nav-side {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.7rem;
             z-index: 105;
         }
-
         .hamburger-btn,
         .theme-btn {
             background: var(--btn-bg);
             color: var(--text-main);
             border: 1px solid var(--border-color);
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.3rem;
-            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 4px var(--inset-light);
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 5px var(--inset-light);
             transition: var(--transition);
         }
-
         .hamburger-btn:hover,
         .theme-btn:hover {
             border-color: var(--it-green);
             color: var(--it-green);
             transform: translateY(-3px);
         }
-
-        .hamburger-btn:active,
-        .theme-btn:active {
-            box-shadow: inset 0 3px 6px var(--inset-dark);
-            transform: translateY(2px);
-        }
-
         .center-logo {
             flex: 1;
             display: flex;
@@ -242,324 +200,280 @@
             align-items: center;
             z-index: 105;
         }
-
         .center-logo img {
-            height: 180px;
-            max-width: 350px;
+            height: 160px;
+            max-width: 300px;
             object-fit: contain;
             transition: var(--transition);
-            margin: -60px 0;
+            margin: -50px 0;
         }
-
         .logo-light {
             display: none;
         }
-
         .logo-dark {
             display: block;
-            filter: drop-shadow(0 2px 8px rgba(100, 255, 218, 0.5));
-            animation: pulseGlow 3s infinite alternate;
+            filter: drop-shadow(0 2px 10px rgba(100, 255, 218, 0.4));
+            animation: pulseGlow 3.5s infinite alternate;
         }
-
         body.light-mode .logo-dark {
             display: none;
         }
-
         body.light-mode .logo-light {
             display: block;
-            filter: drop-shadow(0 2px 5px rgba(148, 163, 184, 0.5));
-            animation: pulseGlowLight 3s infinite alternate;
+            filter: drop-shadow(0 2px 6px rgba(148, 163, 184, 0.4));
+            animation: pulseGlowLight 3.5s infinite alternate;
         }
-
         @keyframes pulseGlow {
             0% {
-                filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.2));
+                filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.15));
             }
             100% {
-                filter: drop-shadow(0 0 15px rgba(100, 255, 218, 0.8));
+                filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.7));
             }
         }
-
         @keyframes pulseGlowLight {
             0% {
-                filter: drop-shadow(0 2px 5px rgba(148, 163, 184, 0.3));
+                filter: drop-shadow(0 2px 6px rgba(148, 163, 184, 0.2));
             }
             100% {
-                filter: drop-shadow(0 2px 12px rgba(148, 163, 184, 0.7));
+                filter: drop-shadow(0 2px 16px rgba(148, 163, 184, 0.6));
             }
         }
 
-        /* =========================================
-           مێنیویا زمانان
-        ========================================= */
         .custom-dropdown {
             position: relative;
             display: inline-block;
         }
-
         .dropdown-btn {
             background: var(--btn-bg);
             color: var(--text-main);
             border: 1px solid var(--border-color);
             padding: 0 1rem;
-            height: 45px;
-            border-radius: 12px;
+            height: 44px;
+            border-radius: 14px;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 0.6rem;
             font-weight: 800;
-            font-size: 1rem;
-            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 4px var(--inset-light);
+            font-size: 0.95rem;
+            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 5px var(--inset-light);
             transition: var(--transition);
         }
-
         .dropdown-btn:hover {
             border-color: var(--it-blue);
             color: var(--it-blue);
         }
-
         .dropdown-menu {
             position: absolute;
-            top: calc(100% + 15px);
+            top: calc(100% + 14px);
             left: 0;
             right: auto;
             background: var(--dropdown-bg);
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(30px);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
+            border-radius: 18px;
             width: 220px;
-            box-shadow: 0 20px 40px var(--shadow-dark), inset 0 2px 5px var(--inset-light);
+            box-shadow: 0 25px 50px var(--shadow-dark), inset 0 2px 6px var(--inset-light);
             display: none;
             flex-direction: column;
-            padding: 0.5rem;
+            padding: 0.4rem;
             z-index: 9999;
             transform-origin: top left;
-            animation: dropOpen 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: dropOpen 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         body[dir="ltr"] .dropdown-menu {
             left: auto;
             right: 0;
             transform-origin: top right;
         }
-
         .dropdown-menu.show {
-            display: flex;
+            display: flex !important;
         }
-
         @keyframes dropOpen {
             from {
                 opacity: 0;
-                transform: scaleY(0.5);
+                transform: scaleY(0.5) translateY(-10px);
             }
             to {
                 opacity: 1;
-                transform: scaleY(1);
+                transform: scaleY(1) translateY(0);
             }
         }
-
         .dropdown-item {
             display: flex;
             align-items: center;
-            padding: 1rem 1.2rem;
-            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            border-radius: 14px;
             cursor: pointer;
             color: var(--text-main);
             transition: var(--transition);
             gap: 1rem;
         }
-
         .dropdown-item:hover {
             background: var(--item-hover);
             color: var(--it-green);
         }
-
         .dropdown-item.active {
-            background: rgba(100, 255, 218, 0.15);
+            background: rgba(100, 255, 218, 0.12);
             color: var(--it-green);
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
         }
-
         .check-icon {
             opacity: 0;
             font-size: 1.1rem;
             width: 20px;
             color: var(--it-green);
         }
-
         .dropdown-item.active .check-icon {
             opacity: 1;
         }
-
         .lang-name {
             flex: 1;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: inherit;
         }
-
         .lang-code {
             font-weight: 900;
-            opacity: 0.6;
-            font-size: 0.9rem;
+            opacity: 0.5;
+            font-size: 0.8rem;
             letter-spacing: 1px;
             color: inherit;
         }
 
-        /* =========================================
-           مێنیویا تەنیشت (Sidebar Menu)
-        ========================================= */
         .sidebar-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(8px);
             z-index: 998;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.4s ease;
         }
-
         .sidebar-overlay.show {
             opacity: 1;
             pointer-events: auto;
         }
-
         .sidebar {
             position: fixed;
             top: 0;
-            right: -350px;
+            right: -360px;
             width: 320px;
             height: 100vh;
             background: var(--dropdown-bg);
-            backdrop-filter: blur(30px);
+            backdrop-filter: blur(35px);
             z-index: 1000;
             padding: 2.5rem 2rem;
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
-            box-shadow: -15px 0 40px rgba(0, 0, 0, 0.8);
+            box-shadow: -15px 0 50px rgba(0, 0, 0, 0.7);
             border-left: 1px solid var(--border-color);
             transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         .sidebar.open {
             right: 0;
         }
-
         body[dir="ltr"] .sidebar {
             right: auto;
-            left: -350px;
+            left: -360px;
             border-left: none;
             border-right: 1px solid var(--border-color);
-            box-shadow: 15px 0 40px rgba(0, 0, 0, 0.8);
+            box-shadow: 15px 0 50px rgba(0, 0, 0, 0.7);
             transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         body[dir="ltr"] .sidebar.open {
             left: 0;
         }
-
         .close-btn {
             align-self: flex-end;
             background: transparent;
             color: var(--text-main);
             border: none;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             cursor: pointer;
             transition: var(--transition);
         }
-
         .close-btn:hover {
             color: var(--it-red);
             transform: scale(1.1) rotate(90deg);
         }
-
         .sidebar-links {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 1rem;
             margin-top: 1rem;
         }
-
         .sidebar-link {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 800;
             padding: 1.2rem;
             background: var(--btn-bg);
             color: var(--text-main);
             border: 1px solid var(--border-color);
-            border-radius: 15px;
+            border-radius: 16px;
             text-decoration: none;
-            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 4px var(--inset-light);
+            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 5px var(--inset-light);
             transition: var(--transition);
             cursor: pointer;
         }
-
         .sidebar-link:hover,
         .sidebar-link.active {
-            background: rgba(100, 255, 218, 0.15);
+            background: rgba(100, 255, 218, 0.12);
             color: var(--it-green);
             border-color: var(--it-green);
-            box-shadow: inset 0 2px 10px rgba(100, 255, 218, 0.2);
-            transform: translateY(-2px);
+            box-shadow: inset 0 2px 12px rgba(100, 255, 218, 0.15);
+            transform: translateY(-3px);
         }
 
-        /* =========================================
-           ناوەڕۆک و کارتێن 3D ڕاستەقینە
-        ========================================= */
         main {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 150px 5% 5rem;
+            padding: 140px 5% 4rem;
             min-height: 100vh;
             position: relative;
             z-index: 10;
         }
-
         .tab-content {
             display: none;
             width: 100%;
-            max-width: 900px;
+            max-width: 1100px;
             opacity: 0;
-            transform: translateY(50px) scale(0.95);
+            transform: translateY(50px) scale(0.96);
             transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
         .tab-content.active {
             display: block;
             opacity: 1;
             transform: translateY(0) scale(1);
         }
-
-        /* 3D Tilt Card Container */
         .tilt-box {
             transform-style: preserve-3d;
             transform: perspective(1000px);
-            transition: transform 0.1s ease;
+            transition: transform 0.08s ease;
             will-change: transform;
         }
-
         .card-3d {
             background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 4.5rem;
+            backdrop-filter: blur(25px);
+            border-radius: 34px;
+            padding: 4rem 3.5rem;
             text-align: center;
-            box-shadow: 25px 25px 60px var(--shadow-dark), -10px -10px 40px var(--shadow-light), inset 3px 3px 15px var(--inset-light), inset -5px -5px 15px var(--inset-dark);
+            box-shadow: 25px 25px 70px var(--shadow-dark), -12px -12px 45px var(--shadow-light), inset 4px 4px 18px var(--inset-light), inset -6px -6px 18px var(--inset-dark);
             border: 1px solid var(--border-color);
             transform-style: preserve-3d;
             transform: translateZ(30px);
             position: relative;
+            transition: border-color 0.4s ease;
         }
-
         .card-3d::after {
             content: "";
             position: absolute;
@@ -567,205 +481,118 @@
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 30px;
-            background: linear-gradient(rgba(100, 255, 218, 0.03) 50%, rgba(0, 0, 0, 0.1) 50%);
+            border-radius: 34px;
+            background: linear-gradient(rgba(100, 255, 218, 0.02) 50%, rgba(0, 0, 0, 0.06) 50%);
             background-size: 100% 4px;
             pointer-events: none;
             z-index: -1;
         }
-
         h2 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
             color: var(--text-main);
-            margin-bottom: 1.5rem;
-            text-shadow: var(--text-3d-shadow);
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 0 #495670, 0 2px 0 #2d3748, 0 3px 0 #1a202c, 0 4px 10px rgba(0, 0, 0, 0.5);
             letter-spacing: 1px;
             transition: color 0.5s ease;
             transform: translateZ(50px);
         }
 
-        p {
-            font-size: 1.3rem;
+        .section-sub {
+            font-size: 1.2rem;
             line-height: 2.2;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
             font-weight: 600;
-            text-shadow: 0 1px 2px var(--shadow-dark);
             transform: translateZ(40px);
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
-        /* ============================================================
-           ناڤێ سەرەکی — گۆشەگرێکی بەهێزتر بۆ هەردوو مۆد
-        ============================================================ */
         .home-title {
-            font-size: 4.5rem;
+            font-size: 4.8rem;
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             letter-spacing: 2px;
             transform: translateZ(60px);
-            color: #e6f1ff;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6), 0 4px 30px rgba(100, 255, 218, 0.2);
             background: linear-gradient(135deg, #ffffff 0%, var(--it-green) 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 4px 20px rgba(100, 255, 218, 0.4));
+            background-clip: text;
+            filter: drop-shadow(0 4px 25px rgba(100, 255, 218, 0.35));
         }
-
         body.light-mode .home-title {
-            color: #0f172a;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 4px 20px rgba(5, 150, 105, 0.15);
             background: linear-gradient(135deg, #0f172a 0%, #059669 100%);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+            background-clip: text;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
         }
-
-        @supports not ((background-clip: text) or (-webkit-background-clip: text)) {
-            .home-title {
-                color: #e6f1ff !important;
-                -webkit-text-fill-color: #e6f1ff !important;
-                background: none !important;
-                text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6) !important;
-            }
-            body.light-mode .home-title {
-                color: #0f172a !important;
-                -webkit-text-fill-color: #0f172a !important;
-                background: none !important;
-                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
-            }
-        }
-
-        .home-desc-text {
-            font-size: 1.4rem;
-            line-height: 2.3;
+        .home-desc {
+            font-size: 1.3rem;
+            line-height: 2.2;
             color: var(--text-muted);
             font-weight: 700;
-            max-width: 750px;
-            margin: 0 auto 3.5rem;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            max-width: 780px;
+            margin: 0 auto 3rem;
             transform: translateZ(40px);
+            text-align: center;
         }
-
-        body.light-mode .home-desc-text {
-            text-shadow: none;
-            color: #334155;
-        }
-
-        /* --- دوکمەیا پەیوەندیێ یا نوێ --- */
-        .main-contact-btn {
-            position: relative;
+        .main-cta {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 16px 45px;
-            font-size: 1.4rem;
+            gap: 14px;
+            padding: 18px 50px;
+            font-size: 1.3rem;
             font-weight: 900;
             color: #050b14;
-            background: var(--grad-1);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50px;
+            background: var(--grad-green);
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-radius: 60px;
             backdrop-filter: blur(15px);
-            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.4), inset 0 2px 10px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 12px 40px rgba(100, 255, 218, 0.35), inset 0 2px 12px rgba(255, 255, 255, 0.5);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             cursor: pointer;
-            overflow: hidden;
             transform: translateZ(50px);
         }
-
-        .main-contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transition: 0.6s;
-        }
-
-        .main-contact-btn:hover::before {
-            left: 100%;
-        }
-
-        .main-contact-btn:hover {
-            transform: translateZ(60px) translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(100, 255, 218, 0.6), inset 0 2px 15px rgba(255, 255, 255, 0.6);
+        .main-cta:hover {
+            transform: translateZ(60px) translateY(-6px) scale(1.04);
+            box-shadow: 0 18px 50px rgba(100, 255, 218, 0.5), inset 0 2px 18px rgba(255, 255, 255, 0.6);
             border-color: #fff;
         }
 
-        .nosh-link,
-        .kurd-link {
-            font-weight: 900;
-            text-decoration: none;
-            padding: 4px 10px;
-            border-radius: 8px;
-            transition: var(--transition);
-            display: inline-block;
-            position: relative;
-            z-index: 2;
-        }
-
-        .nosh-link {
-            color: var(--nosh-color);
-            background: rgba(56, 189, 248, 0.15);
-        }
-
-        .kurd-link {
-            color: var(--kurd-color);
-            background: rgba(253, 224, 71, 0.15);
-        }
-
-        .nosh-link:hover {
-            background: var(--nosh-color);
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .kurd-link:hover {
-            background: var(--kurd-color);
-            color: #000;
-            box-shadow: 0 5px 15px rgba(253, 224, 71, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* =========================================
-           بەشێ دەربارەی من (About)
-        ========================================= */
-        .profile-container {
-            width: 240px;
-            height: 240px;
-            margin: 0 auto 3rem;
+        /* ===== About ===== */
+        .profile-wrap {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 2.5rem;
             perspective: 1200px;
             cursor: pointer;
             transform: translateZ(60px);
         }
-
-        .profile-wrapper {
+        .profile-inner {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 20px 40px var(--shadow-dark), inset 0 10px 20px var(--inset-light), inset 0 -10px 20px var(--inset-dark);
+            box-shadow: 0 20px 45px var(--shadow-dark), inset 0 8px 20px var(--inset-light), inset 0 -8px 20px var(--inset-dark);
             background: var(--bg-color);
         }
-
-        .profile-container:hover .profile-wrapper {
-            transform: rotateY(15deg) rotateX(10deg);
-            box-shadow: 0 0 40px rgba(100, 255, 218, 0.5);
+        .profile-wrap:hover .profile-inner {
+            transform: rotateY(18deg) rotateX(8deg);
+            box-shadow: 0 0 50px rgba(100, 255, 218, 0.4);
         }
-
-        .profile-wrapper.flip {
+        .profile-inner.flip {
             transform: rotateY(180deg);
         }
-
         .profile-img {
             width: 100%;
             height: 100%;
@@ -777,280 +604,498 @@
             backface-visibility: hidden;
             border: 4px solid var(--it-green);
         }
-
         .img-back {
             transform: rotateY(180deg);
             border-color: var(--it-blue);
         }
 
-        /* =========================================
-           بەشێ شارەزایی (Skills)
-        ========================================= */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            text-align: right;
-            transform: translateZ(40px);
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 2.4;
+            color: var(--text-muted);
+            font-weight: 500;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 0.5rem;
         }
-
-        body[dir="ltr"] .skills-grid {
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: right;
+        }
+        body[dir="ltr"] .about-text p {
             text-align: left;
         }
 
-        .skill-item {
+        .link-nosh {
+            display: inline-block;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 2px 18px;
+            border-radius: 10px;
+            background: rgba(56, 189, 248, 0.10);
+            color: var(--nosh-blue);
+            border: 2px solid rgba(56, 189, 248, 0.20);
+            transition: var(--transition);
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 10px rgba(56, 189, 248, 0.08);
+            margin: 0 4px;
+        }
+        .link-nosh:hover {
+            background: var(--nosh-blue);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
+            transform: translateY(-2px) scale(1.04);
+            border-color: var(--nosh-blue);
+        }
+        body.light-mode .link-nosh {
+            background: rgba(2, 132, 199, 0.06);
+            border-color: rgba(2, 132, 199, 0.15);
+        }
+        body.light-mode .link-nosh:hover {
+            background: #0284c7;
+            color: #fff;
+        }
+        .link-kurd {
+            display: inline-block;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 2px 18px;
+            border-radius: 10px;
+            background: rgba(251, 146, 60, 0.10);
+            color: var(--kurd-orange);
+            border: 2px solid rgba(251, 146, 60, 0.20);
+            transition: var(--transition);
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 10px rgba(251, 146, 60, 0.08);
+            margin: 0 4px;
+        }
+        .link-kurd:hover {
+            background: var(--kurd-orange);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(251, 146, 60, 0.35);
+            transform: translateY(-2px) scale(1.04);
+            border-color: var(--kurd-orange);
+        }
+        body.light-mode .link-kurd {
+            background: rgba(234, 88, 12, 0.06);
+            border-color: rgba(234, 88, 12, 0.15);
+        }
+        body.light-mode .link-kurd:hover {
+            background: #ea580c;
+            color: #fff;
+        }
+        .link-icon {
+            margin: 0 6px 0 4px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .link-icon-out {
+            margin: 0 2px 0 6px;
+            font-size: 0.65rem;
+            opacity: 0.6;
+        }
+
+        /* ===== Skills ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+            transform: translateZ(40px);
+            perspective: 800px;
+        }
+        .skill-card {
+            position: relative;
             background: var(--btn-bg);
-            padding: 1.5rem;
-            border-radius: 20px;
+            padding: 2rem 1.8rem;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            border: 1px solid var(--border-color);
-            box-shadow: 10px 10px 20px var(--shadow-dark), inset 2px 2px 5px var(--inset-light);
-            transition: var(--transition);
-            position: relative;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px var(--shadow-dark), inset 0 2px 6px var(--inset-light);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
+            text-align: right;
+            cursor: default;
+            transform-style: preserve-3d;
+            animation: skillFloat 4s ease-in-out infinite;
         }
-
-        .skill-item::before {
-            content: "";
+        body[dir="ltr"] .skill-card {
+            text-align: left;
+        }
+        .skill-card-1 {
+            border-color: rgba(100, 255, 218, 0.3);
+            animation-delay: 0s;
+        }
+        .skill-card-1 .skill-icon {
+            background: rgba(100, 255, 218, 0.15);
+            color: #64ffda;
+        }
+        .skill-card-1 .skill-glow {
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.15) 0%, transparent 70%);
+        }
+        .skill-card-2 {
+            border-color: rgba(56, 189, 248, 0.3);
+            animation-delay: 0.5s;
+        }
+        .skill-card-2 .skill-icon {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+        }
+        .skill-card-2 .skill-glow {
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+        }
+        .skill-card-3 {
+            border-color: rgba(251, 146, 60, 0.3);
+            animation-delay: 1s;
+        }
+        .skill-card-3 .skill-icon {
+            background: rgba(251, 146, 60, 0.15);
+            color: #fb923c;
+        }
+        .skill-card-3 .skill-glow {
+            background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 70%);
+        }
+        .skill-card-4 {
+            border-color: rgba(196, 113, 237, 0.3);
+            animation-delay: 1.5s;
+        }
+        .skill-card-4 .skill-icon {
+            background: rgba(196, 113, 237, 0.15);
+            color: #c471ed;
+        }
+        .skill-card-4 .skill-glow {
+            background: radial-gradient(circle, rgba(196, 113, 237, 0.15) 0%, transparent 70%);
+        }
+        .skill-glow {
             position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: var(--it-green);
-            transition: 0.4s;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            pointer-events: none;
+            z-index: 0;
         }
-
-        .skill-item:hover::before {
-            width: 100%;
-            opacity: 0.1;
+        .skill-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
         }
-
-        .skill-item:hover {
-            transform: translateZ(30px) translateY(-5px);
-            border-color: var(--it-green);
-            box-shadow: 0 15px 30px rgba(100, 255, 218, 0.2);
+        .skill-label {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: color 0.4s ease;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
-
+        .skill-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-family: 'Fira Code', monospace;
+            transition: opacity 0.4s ease;
+        }
         .skill-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            background: rgba(100, 255, 218, 0.1);
+            position: relative;
+            z-index: 2;
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            box-shadow: inset 0 3px 10px var(--inset-dark);
+            flex-shrink: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes skillFloat {
+            0%,
+            100% {
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
+            }
+        }
+        .skill-card:hover {
+            transform: translateY(-12px) scale(1.03) rotateX(3deg) rotateY(3deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(100, 255, 218, 0.05);
+            border-color: var(--it-green);
+        }
+        .skill-card:hover .skill-glow {
+            opacity: 1;
+        }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.15) rotate(-8deg);
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+        }
+        .skill-card:hover .skill-label {
+            color: #fff;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+        }
+        .skill-card:hover .skill-badge {
+            opacity: 0.9;
             color: var(--it-green);
-            box-shadow: inset 0 3px 6px var(--inset-dark);
         }
-
-        .skill-text {
-            font-size: 1.2rem;
-            font-weight: 800;
+        body.light-mode .skill-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: rgba(200, 200, 200, 0.3);
+        }
+        body.light-mode .skill-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: var(--it-green);
+        }
+        body.light-mode .skill-card:hover .skill-label {
             color: var(--text-main);
-            z-index: 2;
         }
 
-        /* =========================================
-           تابا نوێ: QR Code Generator
-        ========================================= */
+        /* ===== QR ===== */
         #qrcode .card-3d {
-            max-width: 650px;
+            max-width: 820px;
             margin: 0 auto;
             padding: 3.5rem 3rem;
         }
-
-        .qr-input-group {
-            margin-bottom: 25px;
-            transform: translateZ(40px);
+        .qr-editor-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 2.5rem;
+            margin-top: 1.5rem;
             text-align: right;
+            transform: translateZ(40px);
         }
-
-        body[dir="ltr"] .qr-input-group {
+        body[dir="ltr"] .qr-editor-grid {
             text-align: left;
         }
-
-        .qr-label {
-            display: block;
-            font-weight: 800;
-            margin-bottom: 10px;
-            color: var(--it-green);
-            font-size: 1.1rem;
+        .qr-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
         }
-
-        .qr-text-input {
+        .qr-field label {
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--it-green);
+            letter-spacing: 0.5px;
+        }
+        .qr-field input,
+        .qr-field select {
             width: 100%;
-            padding: 18px 20px;
-            border-radius: 15px;
+            padding: 14px 16px;
+            border-radius: 16px;
             border: 2px solid var(--border-color);
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            font-size: 1.1rem;
+            background: rgba(0, 0, 0, 0.25);
+            color: var(--text-main);
+            font-size: 1rem;
             outline: none;
             transition: var(--transition);
-            font-family: 'Fira Code', monospace;
-            box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.3);
+            -webkit-appearance: none;
+            appearance: none;
         }
-
-        .qr-text-input:focus {
+        .qr-field input:focus,
+        .qr-field select:focus {
             border-color: var(--it-green);
-            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3), inset 0 3px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.15), inset 0 3px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .qr-options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 30px;
-            transform: translateZ(40px);
-        }
-
-        .qr-color-picker {
-            width: 100%;
-            height: 50px;
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            background: rgba(0, 0, 0, 0.3);
+        .qr-field input[type="color"] {
+            height: 52px;
+            padding: 4px;
             cursor: pointer;
-            outline: none;
-            padding: 2px;
+            border-radius: 16px;
         }
-
-        .qr-select {
-            width: 100%;
-            height: 50px;
-            padding: 0 15px;
-            border-radius: 12px;
-            border: 2px solid var(--border-color);
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 700;
-            outline: none;
+        .qr-field select {
             cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364ffda' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 16px center;
+            padding-left: 44px;
         }
-
-        #qr-preview-container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 20px 0 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(100, 255, 218, 0.3);
+        body[dir="ltr"] .qr-field select {
+            background-position: right 16px center;
+            padding-left: 16px;
+            padding-right: 44px;
+        }
+        .qr-field select option {
+            background: #112240;
+            color: #e6f1ff;
+        }
+        .qr-field-full {
+            grid-column: 1 / -1;
+        }
+        .qr-preview-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0 2.5rem;
             transform: translateZ(50px);
-            min-width: 240px;
-            min-height: 240px;
         }
-
+        #qr-preview-container {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(100, 255, 218, 0.15);
+            min-width: 220px;
+            min-height: 220px;
+            transition: all 0.4s ease;
+            border: 2px solid var(--border-color);
+        }
         #qr-preview-container canvas,
         #qr-preview-container svg {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 14px;
+            display: block;
         }
-
-        .btn-group {
+        .qr-preview-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-top: 12px;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+        .download-grid {
             display: flex;
-            gap: 15px;
-            justify-content: center;
             flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
             transform: translateZ(50px);
+            margin-top: 0.5rem;
         }
-
-        .qr-btn {
-            padding: 14px 30px;
-            font-size: 1.1rem;
-            border-radius: 12px;
+        .dl-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 30px;
+            font-size: 1rem;
+            font-weight: 800;
+            border-radius: 18px;
+            border: 2px solid var(--border-color);
+            background: var(--btn-bg);
+            color: var(--text-main);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px var(--shadow-dark), inset 0 2px 6px var(--inset-light);
+            min-width: 160px;
         }
-
-        .btn-download {
-            background: linear-gradient(135deg, #f64f59, #c471ed);
-            box-shadow: 0 10px 20px rgba(246, 79, 89, 0.4);
+        .dl-btn:hover {
+            transform: translateY(-4px) scale(1.03);
+            border-color: var(--it-green);
+            color: var(--it-green);
+            box-shadow: 0 12px 35px rgba(100, 255, 218, 0.2);
+        }
+        .dl-btn .badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: rgba(100, 255, 218, 0.12);
+            padding: 2px 10px;
+            border-radius: 30px;
+            color: var(--it-green);
+            letter-spacing: 0.5px;
+        }
+        .dl-btn-primary {
+            background: var(--grad-green);
+            color: #050b14;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
+        }
+        .dl-btn-primary:hover {
+            border-color: #fff;
+            color: #050b14;
+            box-shadow: 0 14px 45px rgba(100, 255, 218, 0.5);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .dl-btn-primary .badge {
+            background: rgba(0, 0, 0, 0.15);
+            color: #050b14;
+        }
+        .dl-btn-premium {
+            background: var(--grad-purple);
             color: #fff;
-            border-color: transparent;
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 25px rgba(196, 113, 237, 0.3);
         }
-
-        .btn-download:hover {
-            box-shadow: 0 15px 30px rgba(246, 79, 89, 0.6);
+        .dl-btn-premium:hover {
+            border-color: #fff;
+            box-shadow: 0 14px 45px rgba(196, 113, 237, 0.5);
+            transform: translateY(-4px) scale(1.03);
+            color: #fff;
+        }
+        .dl-btn-premium .badge {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+        .gen-btn {
+            background: var(--grad-green);
+            color: #050b14;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            border-radius: 60px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .gen-btn:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 14px 45px rgba(100, 255, 218, 0.4);
             border-color: #fff;
         }
 
-        @media (max-width: 600px) {
-            .qr-options-grid {
-                grid-template-columns: 1fr;
-            }
-            .btn-group {
-                flex-direction: column;
-            }
-            .qr-btn {
-                width: 100%;
-            }
-        }
-
-        /* =========================================
-           تابا پەیوەندیێ (Contact)
-        ========================================= */
+        /* ============================================================
+           پەیوەندی — چارەسەری ئایکۆنەکان (گەورەتر، دوو رێز، ٥ ئایکۆن)
+           ============================================================ */
         #contact .card-3d {
-            padding: 3.5rem 2rem;
-            max-width: 500px;
+            max-width: 580px;
             margin: 0 auto;
-            background: var(--nav-bg);
-            border: 1px solid var(--it-blue);
+            padding: 3rem 2.5rem;
         }
 
-        .c-profile-wrapper {
+        /* وێنەی پڕۆفایل */
+        .c-avatar-wrap {
             position: relative;
-            width: 170px;
-            height: 170px;
-            margin: 0 auto 35px;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             transform: translateZ(60px);
         }
-
-        .tech-ring {
+        .c-ring {
             position: absolute;
             width: 100%;
             height: 100%;
             border: 2px dashed var(--it-blue);
             border-radius: 50%;
-            opacity: 0.5;
-            animation: rotate-ring 10s linear infinite;
+            opacity: 0.4;
+            animation: spinRing 12s linear infinite;
         }
-
-        .profile-inner-frame {
-            position: relative;
-            width: 145px;
-            height: 145px;
-            border-radius: 50%;
-            padding: 4px;
-            background: linear-gradient(45deg, var(--it-blue), transparent, var(--it-green));
-            background-size: 200% 200%;
-            animation: gradient-shift 3s ease infinite, profile-pulse 4s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-        }
-
-        .logo-img-c {
-            position: relative;
-            width: 138px;
-            height: 138px;
-            border-radius: 50%;
-            object-fit: cover;
-            z-index: 2;
-            border: 4px solid var(--bg-color);
-            background: var(--bg-color);
-        }
-
-        @keyframes rotate-ring {
+        @keyframes spinRing {
             from {
                 transform: rotate(0deg);
             }
@@ -1058,8 +1103,22 @@
                 transform: rotate(360deg);
             }
         }
-
-        @keyframes gradient-shift {
+        .c-frame {
+            position: relative;
+            width: 138px;
+            height: 138px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(45deg, var(--it-blue), transparent, var(--it-green));
+            background-size: 200% 200%;
+            animation: gradShift 4s ease infinite, pulseFrame 4s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
+        }
+        @keyframes gradShift {
             0% {
                 background-position: 0% 50%;
             }
@@ -1070,314 +1129,327 @@
                 background-position: 0% 50%;
             }
         }
-
-        @keyframes profile-pulse {
+        @keyframes pulseFrame {
             0%,
             100% {
                 transform: scale(1);
             }
             50% {
-                transform: scale(1.08);
-                box-shadow: 0 0 35px rgba(100, 255, 218, 0.6);
+                transform: scale(1.06);
+                box-shadow: 0 0 45px rgba(100, 255, 218, 0.5);
             }
         }
-
-        .name-main {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 26px;
-            font-weight: 900;
-            color: var(--text-main);
-            margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
-            transform: translateZ(50px);
+        .c-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
+            background: var(--bg-color);
         }
 
-        .name-sub {
+        .c-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 2px;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.15);
+            transform: translateZ(50px);
+        }
+        .c-title {
             font-size: 11px;
             color: var(--it-green);
             font-weight: 700;
             letter-spacing: 4px;
-            margin-bottom: 40px;
-            opacity: 0.9;
+            margin-bottom: 35px;
+            opacity: 0.8;
             transform: translateZ(50px);
         }
 
         .service-card {
-            background: rgba(2, 12, 27, 0.5);
-            border-radius: 25px;
-            padding: 30px 20px;
-            margin-bottom: 35px;
-            transition: all 0.4s ease;
-            min-height: 170px;
-            height: auto;
+            background: rgba(2, 12, 27, 0.4);
+            border-radius: 28px;
+            padding: 28px 20px;
+            margin-bottom: 32px;
+            min-height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            box-shadow: inset 0 0 15px rgba(100, 255, 218, 0.1);
+            box-shadow: inset 0 0 20px rgba(100, 255, 218, 0.05);
             transform: translateZ(40px);
+            border: 2px solid var(--border-color);
+            transition: all 0.4s ease;
         }
-
         body.light-mode .service-card {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.4);
         }
-
-        #icon-container {
+        .service-card:hover {
+            border-color: var(--it-green);
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.08);
+        }
+        .service-content {
+            transition: all 0.4s ease;
+            width: 100%;
+        }
+        .service-icon-wrap {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 60px;
-            margin-bottom: 12px;
+            height: 56px;
+            margin-bottom: 10px;
         }
-
-        #service-text {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
+        .service-icon-wrap i {
+            font-size: 2rem;
+        }
+        .service-text {
+            font-size: 1.2rem;
             font-weight: 800;
             display: block;
             letter-spacing: 1px;
         }
-
-        #service-desc {
-            font-size: 13px;
+        .service-desc {
+            font-size: 0.85rem;
             font-weight: 600;
-            opacity: 0.9;
-            margin-top: 8px;
+            opacity: 0.8;
+            margin-top: 6px;
             line-height: 1.6;
             color: var(--text-muted);
         }
-
-        .anim-systems {
-            animation: rotate-ring 4s linear infinite;
-            display: inline-block;
-            font-size: 32px;
-        }
-
-        .anim-security {
-            animation: profile-pulse 1.2s ease-in-out infinite;
-            display: inline-block;
-            font-size: 32px;
-        }
-
         .kurdish-flag-svg {
-            width: 55px;
-            height: 55px;
-            filter: drop-shadow(0 0 10px var(--kurd-sun));
-            animation: rotate-ring 15s linear infinite;
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 0 12px var(--kurd-sun));
+            animation: spinRing 15s linear infinite;
         }
-
         .theme-green {
-            border: 2px solid var(--it-green);
-            color: var(--it-green);
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+            border-color: var(--it-green) !important;
         }
-
         .theme-blue {
-            border: 2px solid var(--it-blue);
-            color: var(--it-blue);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+            border-color: var(--it-blue) !important;
         }
-
         .theme-red {
-            border: 2px solid var(--it-red);
-            color: var(--it-red);
-            box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+            border-color: var(--it-red) !important;
         }
-
         .theme-kurdish {
-            border: 2px solid var(--kurd-sun);
-            background: linear-gradient(180deg, rgba(237, 28, 36, 0.15) 0%, rgba(2, 12, 27, 0.8) 50%, rgba(39, 133, 64, 0.15) 100%) !important;
-            box-shadow: 0 0 25px rgba(254, 184, 17, 0.2);
+            border-color: var(--kurd-sun) !important;
+            background: linear-gradient(180deg, rgba(237, 28, 36, 0.1) 0%, rgba(2, 12, 27, 0.5) 50%, rgba(39, 133, 64, 0.1) 100%) !important;
         }
-
-        body.light-mode .service-card.theme-kurdish {
-            background: linear-gradient(180deg, rgba(237, 28, 36, 0.15) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(39, 133, 64, 0.15) 100%) !important;
+        body.light-mode .theme-kurdish {
+            background: linear-gradient(180deg, rgba(237, 28, 36, 0.1) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(39, 133, 64, 0.1) 100%) !important;
         }
 
         .contact-list {
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            margin-bottom: 40px;
+            gap: 16px;
+            margin-bottom: 35px;
             transform: translateZ(40px);
         }
-
-        .action-item {
-            background: rgba(2, 12, 27, 0.6);
+        .contact-item {
+            background: rgba(2, 12, 27, 0.4);
             border: 1px solid var(--border-color);
             border-radius: 20px;
-            padding: 18px 20px;
+            padding: 16px 18px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             text-decoration: none;
             color: var(--text-main);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
-
-        body.light-mode .action-item {
-            background: rgba(255, 255, 255, 0.6);
+        body.light-mode .contact-item {
+            background: rgba(255, 255, 255, 0.4);
         }
-
-        .action-item::before {
+        .contact-item::before {
             content: "";
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.06), transparent);
             transition: 0.5s;
         }
-
-        .action-item:hover::before {
+        .contact-item:hover::before {
             left: 100%;
         }
-
-        .action-item:hover {
-            background: rgba(100, 255, 218, 0.05);
-            transform: translateX(-5px) scale(1.02);
+        .contact-item:hover {
+            background: rgba(100, 255, 218, 0.04);
+            transform: translateX(-4px) scale(1.01);
             border-color: var(--it-green);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
-
-        body[dir="ltr"] .action-item:hover {
-            transform: translateX(5px) scale(1.02);
+        body[dir="ltr"] .contact-item:hover {
+            transform: translateX(4px) scale(1.01);
         }
-
-        .icon-box {
-            width: 50px;
-            height: 50px;
+        .contact-icon {
+            width: 48px;
+            height: 48px;
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
-            background: rgba(0, 242, 255, 0.1);
+            font-size: 1.3rem;
+            background: rgba(0, 242, 255, 0.06);
             color: var(--it-blue);
+            flex-shrink: 0;
         }
-
-        .info-box {
+        .contact-info {
+            flex: 1;
             text-align: right;
-            flex-grow: 1;
         }
-
-        body[dir="ltr"] .info-box {
+        body[dir="ltr"] .contact-info {
             text-align: left;
         }
-
-        .info-title {
+        .contact-info .label {
             display: block;
-            font-size: 16px;
+            font-size: 0.95rem;
             font-weight: 800;
             direction: ltr;
         }
-
-        .info-tag {
+        .contact-info .sub {
             display: block;
-            font-size: 12px;
-            opacity: 0.7;
-            margin-top: 4px;
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-top: 2px;
         }
-
         .border-blue {
             border-left: 5px solid var(--it-blue) !important;
         }
-
         .border-green {
             border-left: 5px solid var(--it-green) !important;
         }
-
         body[dir="ltr"] .border-blue,
         body[dir="ltr"] .border-green {
             border-left: none !important;
         }
-
         body[dir="ltr"] .border-blue {
             border-right: 5px solid var(--it-blue) !important;
         }
-
         body[dir="ltr"] .border-green {
             border-right: 5px solid var(--it-green) !important;
         }
 
-        .social-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+        /* ===== سۆشیال میدیا — گەورەکراو و ٢ رێز، هەر رێزێ ٥ ===== */
+        .social-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            max-width: 420px;
+            margin: 0 auto 15px;
             transform: translateZ(40px);
+            justify-items: center;
+            align-items: center;
         }
 
-        .s-link {
-            width: 55px;
-            height: 55px;
+        .social-link {
+            width: 68px;
+            height: 68px;
             background: var(--btn-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-main);
             text-decoration: none;
-            font-size: 22px;
+            font-size: 1.8rem;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            z-index: 5;
+            pointer-events: auto;
+            aspect-ratio: 1;
+            box-shadow: 0 4px 15px var(--shadow-dark);
         }
 
-        .s-link:hover {
+        .social-link:hover {
             border-radius: 50%;
             background: var(--it-green);
             color: #000;
-            transform: scale(1.2) rotate(360deg) translateY(-5px);
-            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.5);
+            transform: scale(1.12) rotate(360deg) translateY(-5px);
+            box-shadow: 0 12px 30px rgba(100, 255, 218, 0.4);
+            border-color: var(--it-green);
         }
 
-        .footer {
-            margin-top: 50px;
-            font-size: 11px;
+        .social-link:active {
+            transform: scale(0.92);
+        }
+
+        /* مۆبایل — کەمکردنی سایز بەڵام هێشتا ٥ ئایکۆن */
+        @media (max-width: 600px) {
+            .social-row {
+                gap: 12px;
+                max-width: 100%;
+            }
+            .social-link {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5rem;
+                border-radius: 16px;
+            }
+        }
+        @media (max-width: 400px) {
+            .social-link {
+                width: 48px;
+                height: 48px;
+                font-size: 1.3rem;
+                border-radius: 14px;
+            }
+            .social-row {
+                gap: 8px;
+            }
+        }
+
+        .footer-note {
+            margin-top: 45px;
+            font-size: 10px;
             font-weight: 700;
-            opacity: 0.5;
+            opacity: 0.4;
             font-family: 'Fira Code', monospace;
             letter-spacing: 2px;
             border-top: 1px solid var(--border-color);
-            padding-top: 25px;
+            padding-top: 22px;
             color: var(--text-main);
             text-align: center;
             transform: translateZ(30px);
         }
 
-        .content-wrap {
-            transition: all 0.4s ease;
-            width: 100%;
-        }
-
+        /* ===== ئەنیمەیشن ===== */
         .exit-up {
             opacity: 0;
-            transform: translateY(-15px) scale(0.95);
-            filter: blur(4px);
+            transform: translateY(-18px) scale(0.95);
+            filter: blur(3px);
         }
-
         .enter-bottom {
             opacity: 0;
-            transform: translateY(15px) scale(1.05);
-            filter: blur(4px);
+            transform: translateY(18px) scale(1.05);
+            filter: blur(3px);
+        }
+        .anim-systems {
+            animation: spinRing 4s linear infinite;
+            display: inline-block;
+        }
+        .anim-security {
+            animation: pulseFrame 1.2s ease-in-out infinite;
+            display: inline-block;
         }
 
-        /* =========================================
-           ڕێکخستنا مۆبایلێ
-        ========================================= */
+        /* ===== مۆبایل (گشتی) ===== */
         @media (max-width: 850px) {
             nav {
-                padding: 0.6rem 1rem;
-                width: 95%;
+                padding: 0.5rem 1rem;
+                width: 94%;
                 border-radius: 20px;
             }
             .center-logo img {
-                height: 120px;
-                max-width: 250px;
-                margin: -40px 0;
+                height: 110px;
+                max-width: 200px;
+                margin: -35px 0;
             }
             .nav-side {
                 gap: 0.4rem;
@@ -1391,57 +1463,211 @@
             .theme-btn,
             .hamburger-btn {
                 width: 40px;
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             .dropdown-btn {
                 padding: 0 0.6rem;
-                gap: 0.5rem;
-                font-size: 0.9rem;
+                gap: 0.4rem;
+                font-size: 0.85rem;
             }
             .dropdown-menu {
-                width: 220px;
+                width: 200px;
             }
             #selectedLangText {
                 display: none;
             }
-
             main {
-                padding-top: 120px;
+                padding-top: 110px;
             }
             .card-3d {
-                padding: 3rem 1.5rem;
-                border-radius: 25px;
+                padding: 2.5rem 1.2rem;
+                border-radius: 24px;
             }
             h2 {
                 font-size: 2.2rem;
             }
             .home-title {
-                font-size: 2.5rem;
+                font-size: 2.6rem;
             }
-            .home-desc-text {
-                font-size: 1.15rem;
-                line-height: 2;
-                margin-bottom: 2.5rem;
+            .home-desc {
+                font-size: 1.05rem;
+                line-height: 1.9;
+                margin-bottom: 2rem;
             }
-            .main-contact-btn {
+            .main-cta {
                 width: 100%;
                 padding: 16px 20px;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
-
+            #qrcode .card-3d {
+                padding: 2rem 1rem;
+            }
+            .qr-editor-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .qr-field-full {
+                grid-column: 1;
+            }
+            .download-grid {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .dl-btn {
+                width: 100%;
+                justify-content: center;
+            }
             #contact .card-3d {
-                padding: 2.5rem 1rem;
+                padding: 2rem 1rem;
             }
             .tilt-box {
                 transform: none !important;
             }
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.2rem;
+            }
+            .skill-card {
+                padding: 1.5rem 1.2rem;
+                flex-direction: column;
+                text-align: center;
+                animation: none;
+            }
+            .skill-card:hover {
+                transform: translateY(-6px) scale(1.02);
+            }
+            .skill-icon {
+                width: 54px;
+                height: 54px;
+                font-size: 1.5rem;
+            }
+            .skill-label {
+                font-size: 1rem;
+            }
+            .about-text {
+                font-size: 1rem;
+                line-height: 2.2;
+                padding: 0;
+            }
+            .link-nosh,
+            .link-kurd {
+                font-size: 0.95rem;
+                padding: 2px 12px;
+            }
+            .section-sub {
+                font-size: 1.05rem;
+                line-height: 2;
+                padding: 0 1rem;
+            }
+            .c-avatar-wrap {
+                width: 130px;
+                height: 130px;
+            }
+            .c-frame {
+                width: 112px;
+                height: 112px;
+            }
+            .c-img {
+                width: 104px;
+                height: 104px;
+            }
+            .c-name {
+                font-size: 20px;
+            }
+            .social-link {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+            .social-row {
+                gap: 14px;
+            }
+        }
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .skill-card {
+                flex-direction: row;
+                text-align: right;
+                padding: 1.2rem 1rem;
+                animation: none;
+            }
+            body[dir="ltr"] .skill-card {
+                text-align: left;
+            }
+            .home-title {
+                font-size: 2rem;
+            }
+            .c-name {
+                font-size: 18px;
+            }
+            .c-frame {
+                width: 100px;
+                height: 100px;
+            }
+            .c-img {
+                width: 92px;
+                height: 92px;
+            }
+            .c-avatar-wrap {
+                width: 115px;
+                height: 115px;
+            }
+            .profile-wrap {
+                width: 160px;
+                height: 160px;
+            }
+            .link-nosh,
+            .link-kurd {
+                font-size: 0.85rem;
+                padding: 2px 10px;
+            }
+            .about-text {
+                font-size: 0.95rem;
+                line-height: 2;
+            }
+            .skill-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.3rem;
+            }
+            .skill-label {
+                font-size: 0.95rem;
+            }
+            .section-sub {
+                font-size: 0.95rem;
+                line-height: 1.9;
+                padding: 0 0.5rem;
+            }
+            .contact-item {
+                padding: 12px 14px;
+                gap: 10px;
+            }
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .contact-info .label {
+                font-size: 0.85rem;
+            }
+            .social-link {
+                width: 52px;
+                height: 52px;
+                font-size: 1.4rem;
+                border-radius: 14px;
+            }
+            .social-row {
+                gap: 10px;
+            }
         }
     </style>
 </head>
+
 <body dir="rtl">
 
-    <canvas id="it-network-canvas"></canvas>
-
+    <canvas id="bg-canvas"></canvas>
     <div class="color-bg"></div>
     <div class="orb-container">
         <div class="orb orb-blue"></div>
@@ -1452,28 +1678,26 @@
         <div class="nav-side">
             <button class="hamburger-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
         </div>
-
         <div class="center-logo">
-            <img src="https://i.postimg.cc/prWJfmG5/06FF3E40-CE7A-42E3-BF00-A58BC5381AE2.png" alt="Bizhar Rasheed Logo" class="logo-dark">
-            <img src="https://i.postimg.cc/MpC0sPPN/C7E5B155-3D24-4144-B6AF-FCB4EFD4B310.png" alt="Bizhar Rasheed Logo" class="logo-light">
+            <img src="https://i.postimg.cc/prWJfmG5/06FF3E40-CE7A-42E3-BF00-A58BC5381AE2.png" alt="Bizhar Rasheed" class="logo-dark" />
+            <img src="https://i.postimg.cc/MpC0sPPN/C7E5B155-3D24-4144-B6AF-FCB4EFD4B310.png" alt="Bizhar Rasheed" class="logo-light" />
         </div>
-
         <div class="nav-side controls">
             <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="گۆهارتنا ڕووناکیێ">☀️</button>
             <div class="custom-dropdown" id="langDropdown">
-                <button class="dropdown-btn" onclick="toggleLangMenu()">
+                <button class="dropdown-btn" id="dropdownBtn" onclick="toggleLangMenu()">
                     <i class="fa-solid fa-globe"></i>
                     <span id="selectedLangText">KU | Badini</span>
-                    <i class="fa-solid fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    <i class="fa-solid fa-chevron-down" style="font-size:0.75rem;"></i>
                 </button>
                 <div class="dropdown-menu" id="dropdownMenu">
-                    <div class="dropdown-item active" data-lang="kub" onclick="selectLang('kub', 'KU | Badini', this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Badini</span><span class="lang-code">KU</span></div>
-                    <div class="dropdown-item" data-lang="kus" onclick="selectLang('kus', 'KU | سورانی', this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">سورانی</span><span class="lang-code">KU</span></div>
-                    <div class="dropdown-item" data-lang="kuk" onclick="selectLang('kuk', 'KU | Kurmanci', this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Kurmanci</span><span class="lang-code">KU</span></div>
-                    <div class="dropdown-item" data-lang="ar" onclick="selectLang('ar', 'AR | العربية', this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">العربية</span><span class="lang-code">AR</span></div>
-                    <div class="dropdown-item" data-lang="fa" onclick="selectLang('fa', 'FA | فارسى', this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">فارسى</span><span class="lang-code">FA</span></div>
-                    <div class="dropdown-item" data-lang="en" onclick="selectLang('en', 'EN | English', this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">English</span><span class="lang-code">EN</span></div>
-                    <div class="dropdown-item" data-lang="tr" onclick="selectLang('tr', 'TR | TURKISH', this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">TURKISH</span><span class="lang-code">TR</span></div>
+                    <div class="dropdown-item active" data-lang="kub" onclick="selectLang('kub','KU | Badini',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Badini</span><span class="lang-code">KU</span></div>
+                    <div class="dropdown-item" data-lang="kus" onclick="selectLang('kus','KU | سورانی',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">سورانی</span><span class="lang-code">KU</span></div>
+                    <div class="dropdown-item" data-lang="kuk" onclick="selectLang('kuk','KU | Kurmanci',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Kurmanci</span><span class="lang-code">KU</span></div>
+                    <div class="dropdown-item" data-lang="ar" onclick="selectLang('ar','AR | العربية',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">العربية</span><span class="lang-code">AR</span></div>
+                    <div class="dropdown-item" data-lang="fa" onclick="selectLang('fa','FA | فارسی',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">فارسی</span><span class="lang-code">FA</span></div>
+                    <div class="dropdown-item" data-lang="en" onclick="selectLang('en','EN | English',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">English</span><span class="lang-code">EN</span></div>
+                    <div class="dropdown-item" data-lang="tr" onclick="selectLang('tr','TR | Türkçe',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Türkçe</span><span class="lang-code">TR</span></div>
                 </div>
             </div>
         </div>
@@ -1483,300 +1707,253 @@
     <div class="sidebar" id="sidebarMenu">
         <button class="close-btn" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
         <div class="sidebar-links">
-            <span class="sidebar-link active" onclick="switchTab('home')" data-i18n="nav_home"></span>
-            <span class="sidebar-link" onclick="switchTab('about')" data-i18n="nav_about"></span>
-            <span class="sidebar-link" onclick="switchTab('skills')" data-i18n="nav_skills"></span>
-            <span class="sidebar-link" style="border-color: var(--it-green); color: var(--it-green);" onclick="switchTab('qrcode')"><i class="fa-solid fa-qrcode" style="margin: 0 8px;"></i><span data-i18n="nav_qrcode"></span></span>
-            <span class="sidebar-link" onclick="switchTab('contact')" data-i18n="nav_contact"></span>
+            <span class="sidebar-link active" onclick="switchTab('home')" data-i18n="nav_home">سەرەکی</span>
+            <span class="sidebar-link" onclick="switchTab('about')" data-i18n="nav_about">دەربارەی من</span>
+            <span class="sidebar-link" onclick="switchTab('skills')" data-i18n="nav_skills">شارەزایی</span>
+            <span class="sidebar-link" style="border-color:var(--it-green);color:var(--it-green);" onclick="switchTab('qrcode')"><i class="fa-solid fa-qrcode" style="margin:0 8px;"></i><span data-i18n="nav_qrcode">QR کۆد</span></span>
+            <span class="sidebar-link" onclick="switchTab('contact')" data-i18n="nav_contact">پەیوەندی</span>
         </div>
     </div>
 
     <main>
+
+        <!-- ===== HOME ===== -->
         <section id="home" class="tab-content active">
             <div class="tilt-box">
                 <div class="card-3d">
-                    <h1 class="home-title" data-i18n="site_name"></h1>
-                    <p class="home-desc-text" data-i18n="home_desc"></p>
-                    <div style="display: flex; justify-content: center;">
-                        <button onclick="switchTab('contact')" class="main-contact-btn">
-                            <i class="fa-solid fa-headset"></i> <span data-i18n="nav_contact"></span>
+                    <h1 class="home-title" data-i18n="site_name">بژار رەشید</h1>
+                    <p class="home-desc" data-i18n="home_desc">پێشەنگ د داهێنانێن تەکنۆلۆژی و داڕشتن و گەشەپێدانا پرۆگرامان دا. ئەز وەک شارەزایێ ئای تی و پروگرامسازەکێ خودان ئەزموون، کار دکەم بۆ گۆهۆڕینا هزران بۆ پرۆژەیێن سەردەمیانە.</p>
+                    <div style="display:flex;justify-content:center;">
+                        <button onclick="switchTab('contact')" class="main-cta">
+                            <i class="fa-solid fa-headset"></i> <span data-i18n="nav_contact">پەیوەندی</span>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ===== ABOUT ===== -->
         <section id="about" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
-                    <div class="profile-container" onclick="flipImage()" oncontextmenu="return false;">
-                        <div class="profile-wrapper" id="imgWrapper">
-                            <img src="https://i.postimg.cc/K8q6XS8b/IMG-1469.jpg" class="profile-img img-front" alt="Bizhar">
-                            <img src="https://i.postimg.cc/zDTYyc0g/IMG-4582.jpg" class="profile-img img-back" alt="Bizhar">
+                    <div class="profile-wrap" onclick="flipImage()" oncontextmenu="return false;">
+                        <div class="profile-inner" id="imgWrapper">
+                            <img src="https://i.postimg.cc/K8q6XS8b/IMG-1469.jpg" class="profile-img img-front" alt="Bizhar" />
+                            <img src="https://i.postimg.cc/zDTYyc0g/IMG-4582.jpg" class="profile-img img-back" alt="Bizhar" />
                         </div>
                     </div>
-                    <h2 data-i18n="nav_about"></h2>
-                    <p data-i18n="about_p1"></p>
-                    <p data-i18n="about_p2"></p>
-                    <p data-i18n="about_p3"></p>
+                    <h2 data-i18n="nav_about">دەربارەی من</h2>
+                    <div class="about-text">
+                        <p data-i18n="about_p1"></p>
+                        <p data-i18n="about_p2" style="text-align:center;"></p>
+                        <p data-i18n="about_p3"></p>
+                        <p data-i18n="about_p4" style="text-align:center;"></p>
+                        <p data-i18n="about_p5"></p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- ===== SKILLS ===== -->
         <section id="skills" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
-                    <h2 data-i18n="nav_skills"></h2>
-                    <p data-i18n="skills_desc"></p>
+                    <h2 data-i18n="nav_skills">شارەزایی</h2>
+                    <p class="section-sub" data-i18n="skills_desc">وەک ئای تی و روژنامەڤان و شارەزا د تەکنولوجیایا سەردەم دا وەک پروگرامەر کار دکەم.</p>
                     <div class="skills-grid">
-                        <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-microchip"></i></div><div class="skill-text" data-i18n="skill_1"></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="skill-text" data-i18n="skill_2"></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-bullhorn"></i></div><div class="skill-text" data-i18n="skill_3"></div></div>
-                        <div class="skill-item"><div class="skill-icon"><i class="fa-solid fa-code"></i></div><div class="skill-text" data-i18n="skill_4"></div></div>
+                        <div class="skill-card skill-card-1">
+                            <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
+                            <div class="skill-content">
+                                <div class="skill-label" data-i18n="skill_1">بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</div>
+                                <div class="skill-badge">⚡ Hardware</div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card skill-card-2">
+                            <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="skill-content">
+                                <div class="skill-label" data-i18n="skill_2">بو پاراستنا ئەکاونتێن سوشیال میدیایێ</div>
+                                <div class="skill-badge">🔒 Security</div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card skill-card-3">
+                            <div class="skill-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                            <div class="skill-content">
+                                <div class="skill-label" data-i18n="skill_3">دروستکرن و دانانا سیستەمێن سپونسەریێ</div>
+                                <div class="skill-badge">📢 Marketing</div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
+                        <div class="skill-card skill-card-4">
+                            <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                            <div class="skill-content">
+                                <div class="skill-label" data-i18n="skill_4">گەشە پێدانا پروگرامان و پێشخستنا وان</div>
+                                <div class="skill-badge">🚀 Development</div>
+                            </div>
+                            <div class="skill-glow"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ===== QR ===== -->
         <section id="qrcode" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
-                    <h2 data-i18n="qr_title">QR کۆد دروستکەر</h2>
-                    <p data-i18n="qr_desc">لینکێ خۆ ل خوارێ بنڤیسە، دیزاین بکە و ب کوالێتیەکا بەرز داونلۆد بکە.</p>
-
-                    <div class="qr-input-group">
-                        <label class="qr-label" data-i18n="qr_lbl_link">لینک (URL)</label>
-                        <input type="text" id="qr-url-input" class="qr-text-input" placeholder="https://example.com" value="https://bizhar-cloud.github.io">
-                    </div>
-
-                    <div class="qr-options-grid">
-                        <div class="qr-input-group">
-                            <label class="qr-label" data-i18n="qr_lbl_color">ڕەنگێ خاڵان</label>
-                            <input type="color" id="qr-color-input" class="qr-color-picker" value="#059669">
+                    <h2 data-i18n="qr_title">QR کۆد دروستکەرێ پڕۆفیشناڵ</h2>
+                    <p class="section-sub" data-i18n="qr_desc">لینکێ خۆ بنڤیسە، دیزاین بکە و ب کوالێتیەکا بەرز داونلۆد بکە.</p>
+                    <div class="qr-editor-grid">
+                        <div class="qr-field qr-field-full">
+                            <label data-i18n="qr_lbl_link">لینک (URL)</label>
+                            <input type="url" id="qr-url-input" placeholder="https://example.com" value="https://bizhar-cloud.github.io" />
                         </div>
-                        <div class="qr-input-group">
-                            <label class="qr-label" data-i18n="qr_lbl_bg">ڕەنگێ باکگراوەند</label>
-                            <input type="color" id="qr-bg-input" class="qr-color-picker" value="#ffffff">
+                        <div class="qr-field">
+                            <label data-i18n="qr_lbl_color">ڕەنگێ خاڵان</label>
+                            <input type="color" id="qr-color-input" value="#059669" />
                         </div>
-                        <div class="qr-input-group">
-                            <label class="qr-label" data-i18n="qr_lbl_style">شێوازێ خاڵان</label>
-                            <select id="qr-style-input" class="qr-select">
+                        <div class="qr-field">
+                            <label data-i18n="qr_lbl_bg">ڕەنگێ باکگراوەند</label>
+                            <input type="color" id="qr-bg-input" value="#ffffff" />
+                        </div>
+                        <div class="qr-field">
+                            <label data-i18n="qr_lbl_style">شێوازێ خاڵان</label>
+                            <select id="qr-style-input">
                                 <option value="square" data-i18n="qr_opt_square">چوارگۆشە</option>
                                 <option value="dots" data-i18n="qr_opt_dots">خڕ (Dots)</option>
                                 <option value="rounded" data-i18n="qr_opt_rounded" selected>بازنەیی (Rounded)</option>
                                 <option value="classy" data-i18n="qr_opt_classy">کلاسیک</option>
                             </select>
                         </div>
+                        <div class="qr-field" style="display:flex;align-items:flex-end;">
+                            <button onclick="generateQRCode()" class="gen-btn" style="width:100%;justify-content:center;">
+                                <i class="fa-solid fa-rotate"></i> <span data-i18n="qr_btn_gen">دروستکرن</span>
+                            </button>
+                        </div>
                     </div>
-
-                    <div class="btn-group">
-                        <button onclick="generateQRCode()" class="main-contact-btn qr-btn"><i class="fa-solid fa-rotate"></i> <span data-i18n="qr_btn_gen">دروستکرن</span></button>
-                        <button onclick="downloadQRCode()" class="main-contact-btn qr-btn btn-download"><i class="fa-solid fa-download"></i> <span data-i18n="qr_btn_down">داونلۆد Full HD</span></button>
+                    <div class="qr-preview-area">
+                        <div id="qr-preview-container"></div>
+                        <span class="qr-preview-label">✦ پێشبینین ✦</span>
                     </div>
-
-                    <div id="qr-preview-container"></div>
+                    <div class="download-grid">
+                        <button onclick="downloadQR(1024)" class="dl-btn" style="background:var(--grad-green);color:#050b14;border-color:rgba(255,255,255,0.3);">
+                            <i class="fa-solid fa-download"></i> داگرتنی QR <span class="badge">1024×1024</span>
+                        </button>
+                        <button onclick="downloadQR(1920)" class="dl-btn dl-btn-primary">
+                            <i class="fa-solid fa-image"></i> Full HD <span class="badge">1920×1920</span>
+                        </button>
+                        <button onclick="downloadQR(2560)" class="dl-btn">
+                            <i class="fa-solid fa-image"></i> 2K <span class="badge">2560×2560</span>
+                        </button>
+                        <button onclick="downloadQR(4096)" class="dl-btn dl-btn-premium">
+                            <i class="fa-solid fa-image"></i> 4K <span class="badge">4096×4096</span>
+                        </button>
+                    </div>
+                    <p style="font-size:0.75rem;color:var(--text-muted);margin-top:1.2rem;opacity:0.5;transform:translateZ(30px);">
+                        <i class="fa-regular fa-circle-check"></i> PNG · بێ لەدەستدان · کوالێتی بەرز
+                    </p>
                 </div>
             </div>
         </section>
 
+        <!-- ============================================================
+        CONTACT — ئایکۆنەکان گەورەکراون، ٢ رێز، ٥ ئایکۆن
+        ============================================================ -->
         <section id="contact" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
-                    <div class="c-profile-wrapper">
-                        <div class="tech-ring"></div>
-                        <div class="profile-inner-frame">
-                            <img src="https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg" class="logo-img-c" alt="Bizhar" style="background: none; border: none; object-fit: cover;">
+
+                    <!-- وێنەی پڕۆفایل -->
+                    <div class="c-avatar-wrap">
+                        <div class="c-ring"></div>
+                        <div class="c-frame">
+                            <img src="https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg" class="c-img" alt="Bizhar" />
                         </div>
                     </div>
-                    <div class="name-main">BIZHAR RASHEED</div>
-                    <div class="name-sub">PROFESSIONAL IT SOLUTIONS</div>
 
+                    <div class="c-name">BIZHAR RASHEED</div>
+                    <div class="c-title">PROFESSIONAL IT SOLUTIONS</div>
+
+                    <!-- کارتی خزمەتگوزاری -->
                     <div id="service-btn" class="service-card theme-green">
-                        <div id="service-content" class="content-wrap">
-                            <div id="icon-container">
+                        <div id="service-content" class="service-content">
+                            <div class="service-icon-wrap">
                                 <i id="service-icon" class="fa-solid fa-layer-group anim-systems"></i>
                             </div>
-                            <span id="service-text">SYSTEMS</span>
-                            <div id="service-desc">Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</div>
+                            <span id="service-text" class="service-text">SYSTEMS</span>
+                            <div id="service-desc" class="service-desc">Advanced Devices Configuration<br />بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</div>
                         </div>
                     </div>
 
+                    <!-- لیستی پەیوەندی -->
                     <div class="contact-list">
-                        <a href="tel:+9647503644666" class="action-item border-blue">
-                            <div class="icon-box"><i class="fa-solid fa-phone-volume"></i></div>
-                            <div class="info-box">
-                                <span class="info-title">+964 750 364 4666</span>
-                                <span class="info-tag">KOREK | پـەیـوەنـدی بکە</span>
+                        <a href="https://api.whatsapp.com/send?phone=9647503644666" target="_blank" rel="noopener noreferrer" class="contact-item border-green">
+                            <div class="contact-icon" style="color:var(--it-green);background:rgba(100,255,218,0.08);">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="label">WhatsApp Personal</span>
+                                <span class="sub">نامێن تایبەت · Personal Chat</span>
                             </div>
                         </a>
-                        <a href="https://api.whatsapp.com/send?phone=9647503644666" class="action-item border-green">
-                            <div class="icon-box" style="color: var(--it-green); background: rgba(100, 255, 218, 0.1);"><i class="fa-brands fa-whatsapp"></i></div>
-                            <div class="info-box">
-                                <span class="info-title">WhatsApp Personal</span>
-                                <span class="info-tag">نامێن تایبەت - Personal Chat</span>
+                        <a href="tel:+9647503653355" class="contact-item border-blue">
+                            <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                            <div class="contact-info">
+                                <span class="label">+964 750 365 3355</span>
+                                <span class="sub">KOREK | هێلا دووێ</span>
                             </div>
                         </a>
-                        <a href="tel:+9647503653355" class="action-item border-blue">
-                            <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
-                            <div class="info-box">
-                                <span class="info-title">+964 750 365 3355</span>
-                                <span class="info-tag">KOREK | هێلا دووێ</span>
+                        <a href="https://api.whatsapp.com/send?phone=9647503653355" target="_blank" rel="noopener noreferrer" class="contact-item border-green">
+                            <div class="contact-icon" style="color:var(--it-green);background:rgba(100,255,218,0.08);">
+                                <i class="fa-brands fa-whatsapp"></i>
                             </div>
-                        </a>
-                        <a href="https://api.whatsapp.com/send?phone=9647503653355" class="action-item border-green">
-                            <div class="icon-box" style="color: var(--it-green); background: rgba(100, 255, 218, 0.1);"><i class="fa-brands fa-whatsapp"></i></div>
-                            <div class="info-box">
-                                <span class="info-title">WhatsApp Business</span>
-                                <span class="info-tag">بۆ کارێن فەرمی و بازرگانی</span>
+                            <div class="contact-info">
+                                <span class="label">WhatsApp Business</span>
+                                <span class="sub">بۆ کارێن فەرمی و بازرگانی</span>
                             </div>
                         </a>
                     </div>
 
-                    <div class="social-grid">
-                        <a href="https://t.me/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                        <a href="viber://add?number=9647503644666" class="s-link" target="_blank"><i class="fa-brands fa-viber"></i></a>
-                        <a href="https://www.tiktok.com/@bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="https://www.instagram.com/bjarbergarey" class="s-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.snapchat.com/add/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
-                        <a href="mailto:bjar.bergarey@gmail.com" class="s-link" target="_blank"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="https://discord.gg/dQZAmGPVuq" class="s-link" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                        <a href="https://twitter.com/BjarBergarey" class="s-link" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="mailto:bjar07503644666@yahoo.com" class="s-link" target="_blank"><i class="fa-brands fa-yahoo"></i></a>
+                    <!-- ===== سۆشیال میدیا — گەورە، دوو رێز، ٥ ئایکۆن ===== -->
+                    <div class="social-row">
+
+                        <a href="https://www.facebook.com/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/bjarbergarey" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://t.me/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://twitter.com/BjarBergarey" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.snapchat.com/add/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-snapchat"></i></a>
+
+                        <a href="https://discord.gg/dQZAmGPVuq" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-discord"></i></a>
+                        <a href="https://www.tiktok.com/@bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="viber://add?number=9647503644666" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-viber"></i></a>
+                        <a href="mailto:bjar.bergarey@gmail.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="mailto:bjar07503644666@yahoo.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-yahoo"></i></a>
+
                     </div>
 
-                    <div class="footer">DEVELOPMENT BY: BIZHAR RASHEED | 2026 ©</div>
+                    <div class="footer-note">DEVELOPMENT BY: BIZHAR RASHEED · 2026 ©</div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <script>
-        // --- 3D Interactive Mouse Tilt Effect (Real 3D feel) ---
-        const tiltBoxes = document.querySelectorAll('.tilt-box');
-
-        document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth < 850) return;
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
-            tiltBoxes.forEach(box => {
-                if (box.closest('.tab-content').classList.contains('active')) {
-                    box.style.transform = `perspective(1000px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-                }
-            });
-        });
-
-        document.addEventListener('mouseleave', () => {
-            tiltBoxes.forEach(box => { box.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg)`; });
-        });
-
-        // --- IT Network Particles Background (Canvas) ---
-        const canvas = document.getElementById('it-network-canvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            mouse.radius = ((canvas.height / 80) * (canvas.width / 80));
+        // ============================================================
+        // 1. Theme
+        // ============================================================
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            document.getElementById('themeToggle').innerText = isLight ? '🌙' : '☀️';
+            localStorage.setItem('siteTheme', isLight ? 'light' : 'dark');
             initParticles();
         }
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let mouse = { x: null, y: null, radius: (canvas.height / 80) * (canvas.width / 80) };
-
-        window.addEventListener('mousemove', function(event) {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
-
-        class Particle {
-            constructor(x, y, directionX, directionY, size, color) {
-                this.x = x;
-                this.y = y;
-                this.directionX = directionX;
-                this.directionY = directionY;
-                this.size = size;
-                this.color = color;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-
-            update() {
-                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
-                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
-
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < mouse.radius + this.size) {
-                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) this.x += 10;
-                    if (mouse.x > this.x && this.x > this.size * 10) this.x -= 10;
-                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) this.y += 10;
-                    if (mouse.y > this.y && this.y > this.size * 10) this.y -= 10;
-                }
-                this.x += this.directionX;
-                this.y += this.directionY;
-                this.draw();
-            }
-        }
-
-        function initParticles() {
-            particlesArray = [];
-            let numberOfParticles = (canvas.height * canvas.width) / 15000;
-            if (numberOfParticles < 30) numberOfParticles = 30;
-            if (numberOfParticles > 300) numberOfParticles = 300;
-            for (let i = 0; i < numberOfParticles; i++) {
-                let size = (Math.random() * 2) + 1;
-                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
-                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-                let directionX = (Math.random() * 2) - 1.5;
-                let directionY = (Math.random() * 2) - 1.5;
-                let color = document.body.classList.contains('light-mode') ? '#0284c7' : '#64ffda';
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-            }
-        }
-
-        function connectParticles() {
-            const maxDist = (canvas.width / 7) * (canvas.height / 7);
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    let dx = particlesArray[a].x - particlesArray[b].x;
-                    let dy = particlesArray[a].y - particlesArray[b].y;
-                    let distance = dx * dx + dy * dy;
-                    if (distance < maxDist) {
-                        let opacity = 1 - (distance / maxDist);
-                        ctx.strokeStyle = document.body.classList.contains('light-mode') ?
-                            `rgba(2, 132, 199, ${opacity * 0.8})` :
-                            `rgba(100, 255, 218, ${opacity * 0.8})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
-            for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); }
-            connectParticles();
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-
-        // --- End of Canvas IT Background ---
-
+        // ============================================================
+        // 2. Sidebar
+        // ============================================================
         function toggleSidebar() {
             document.getElementById('sidebarMenu').classList.toggle('open');
             document.getElementById('sidebarOverlay').classList.toggle('show');
@@ -1785,63 +1962,54 @@
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-
-            setTimeout(() => { document.getElementById(tabId).classList.add('active'); }, 50);
-
-            let targetLink = document.querySelector(`.sidebar-link[onclick="switchTab('${tabId}')"]`);
-            if (targetLink) targetLink.classList.add('active');
-
+            setTimeout(() => { document.getElementById(tabId).classList.add('active'); }, 40);
+            let target = document.querySelector(`.sidebar-link[onclick="switchTab('${tabId}')"]`);
+            if (target) target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             document.getElementById('sidebarMenu').classList.remove('open');
             document.getElementById('sidebarOverlay').classList.remove('show');
-
-            tiltBoxes.forEach(box => { box.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg)`; });
+            tiltBoxes.forEach(box => { box.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)'; });
         }
 
+        // ============================================================
+        // 3. Flip Image
+        // ============================================================
         let isFlipped = false;
 
         function flipImage() {
-            const wrapper = document.getElementById('imgWrapper');
+            const w = document.getElementById('imgWrapper');
             isFlipped = !isFlipped;
-            if (isFlipped) wrapper.classList.add('flip');
-            else wrapper.classList.remove('flip');
+            w.classList.toggle('flip', isFlipped);
         }
-
         document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
-        function toggleTheme() {
-            const body = document.body;
-            body.classList.toggle('light-mode');
-            const isLight = body.classList.contains('light-mode');
-            document.getElementById('themeToggle').innerText = isLight ? '🌙' : '☀️';
-            localStorage.setItem('siteTheme', isLight ? 'light' : 'dark');
-            // Re-init particles with new color
-            initParticles();
-        }
-
+        // ============================================================
+        // 4. Language
+        // ============================================================
         function toggleLangMenu() {
-            document.getElementById("dropdownMenu").classList.toggle("show");
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
         }
 
-        window.onclick = function(event) {
-            if (!event.target.closest('.custom-dropdown') && !event.target.closest('.theme-btn') && !event.target.closest(
-                    '.hamburger-btn') && !event.target.closest('.sidebar')) {
-                let dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    if (dropdowns[i].classList.contains('show')) dropdowns[i].classList.remove('show');
-                }
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('langDropdown');
+            const menu = document.getElementById('dropdownMenu');
+            if (!dropdown.contains(e.target)) {
+                menu.classList.remove('show');
             }
+        });
+
+        function selectLang(code, label, el) {
+            document.getElementById('selectedLangText').innerText = label;
+            document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+            if (el) el.classList.add('active');
+            document.getElementById('dropdownMenu').classList.remove('show');
+            changeLanguage(code);
         }
 
-        function selectLang(langCode, displayText, element) {
-            document.getElementById("selectedLangText").innerText = displayText;
-            let items = document.querySelectorAll('.dropdown-item');
-            items.forEach(item => item.classList.remove('active'));
-            if (element) element.classList.add('active');
-            document.getElementById("dropdownMenu").classList.remove("show");
-            changeLanguage(langCode);
-        }
-
+        // ============================================================
+        // 5. وەرگێڕان — ٧ زمان
+        // ============================================================
         const translations = {
             kub: {
                 site_name: "بژار رەشید",
@@ -1850,17 +2018,19 @@
                 nav_skills: "شارەزایی",
                 nav_qrcode: "QR کۆد",
                 nav_contact: "پەیوەندی",
-                home_desc: "پێشەنگ د داهێنانێن تەکنۆلۆژی و داڕشتن و گەشەپێدانا پرۆگرامان دا. ئەز وەک شارەزایێ ئای تی و پروگرامسازەکێ خودان ئەزموون، کار دکەم بۆ گۆهۆڕینا هزران بۆ پرۆژەیێن سەردەمیانە و پاراستنا ئاساییشا دیجیتاڵی.",
-                about_p1: "ئەز بژار رەشید عەبدولقادر: شارەزا د بیاڤێ زانستێن کۆمپیوتەری دا، هەروەسا کار دکەم ل دەزگەهێ <a href='https://bizhar-cloud.github.io/NoshNews/' class='nosh-link' target='_blank'>Nosh News</a> وەک رێڤەبەرێ ئای تی.",
-                about_p2: "هەروەسا کار دکەم ل دکانا کۆمپیوتەرا وەک پروگرامەر ل <a href='https://bizhar-cloud.github.io/KurdITpc/' class='kurd-link' target='_blank'>KurdITpc</a>.",
-                about_p3: "دروستکرنا ئەکاونتێن سوشیال میدیایێ و سیستەمکرنا ریکلامێن سوشیال میدیایێ و چەوانیا برێڤەبرنا وان، و هەروەسا دروستکرنا QR ب شێوەیەکێ مۆدێرن و جوان.",
+                home_desc: "پێشەنگ د داهێنانێن تەکنۆلۆژی و داڕشتن و گەشەپێدانا پرۆگرامان دا. ئەز وەک شارەزایێ ئای تی و پروگرامسازەکێ خودان ئەزموون، کار دکەم بۆ گۆهۆڕینا هزران بۆ پرۆژەیێن سەردەمیانە.",
+                about_p1: "ئەز بژار رەشید عەبدولقادر: شارەزا د بیافئ زانستێن کۆمپیوته‌ری دا، هەروەسا کار ده‌که‌م ل ده‌زگه‌هێ وەک رێڤه‌به‌ری ئای تێ.",
+                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p3: "هەروەسا کار ده‌که‌م ل دکانا کۆمپیوته‌را وەک پروگرامه‌ر ل",
+                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p5: "دروستکرنا ئەکاونتێن سوشیال میدیایی و سیسته‌مکرنا ریکلامێن سوشیال میدیایی و چه‌وانیا برێڤه‌برنا وان، و هەروەسا دروستکرنا QR ب شێوه‌یه‌کێ مۆدێرن و جوان.",
                 skills_desc: "وەک ئای تی و روژنامەڤان و شارەزا د تەکنولوجیایا سەردەم دا وەک پروگرامەر کار دکەم.",
                 skill_1: "بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی.",
                 skill_2: "بو پاراستنا ئەکاونتێن سوشیال میدیایێ.",
                 skill_3: "دروستکرن و دانانا سیستەمێن سپونسەریێ.",
                 skill_4: "گەشە پێدانا پروگرامان و پێشخستنا وان.",
                 qr_title: "QR دروستکەرێ پڕۆفیشناڵ",
-                qr_desc: "لینکێ خۆ بنڤیسە، دیزاین بکە و ب کوالێتیەکا Full HD داونلۆد بکە.",
+                qr_desc: "لینکێ خۆ بنڤیسە، دیزاین بکە و ب کوالێتیەکا بەرز داونلۆد بکە.",
                 qr_lbl_link: "لینک (URL)",
                 qr_lbl_color: "ڕەنگێ خاڵان",
                 qr_lbl_bg: "ڕەنگێ باکگراوەند",
@@ -1869,8 +2039,7 @@
                 qr_opt_dots: "خڕ (Dots)",
                 qr_opt_rounded: "بازنەیی (Rounded)",
                 qr_opt_classy: "کلاسیک",
-                qr_btn_gen: "دروستکرن",
-                qr_btn_down: "داونلۆد Full HD"
+                qr_btn_gen: "دروستکرن"
             },
             kus: {
                 site_name: "بژار ڕەشید",
@@ -1880,16 +2049,18 @@
                 nav_qrcode: "QR کۆد",
                 nav_contact: "پەیوەندی",
                 home_desc: "پێشەنگ لە داهێنانە تەکنۆلۆژییەکان و داڕشتن و گەشەپێدانی پرۆگرامەکاندا. وەک شارەزایەکی ئای تی و پرۆگرامسازێکی خاوەن ئەزموون، کار دەکەم بۆ گۆڕینی بیرۆکەکان بۆ پڕۆژەی سەردەمیانە.",
-                about_p1: "من بژار ڕەشید عەبدولقادرم: شارەزا لە بواری زانستەکانی کۆمپیوتەر، هەروەها کار دەکەم لە دەزگای <a href='https://bizhar-cloud.github.io/NoshNews/' class='nosh-link' target='_blank'>Nosh News</a> وەک بەڕێوەبەری ئای تی.",
-                about_p2: "هەروەها کار دەکەم لە دوکانی کۆمپیوتەر وەک پرۆگرامساز لە <a href='https://bizhar-cloud.github.io/KurdITpc/' class='kurd-link' target='_blank'>KurdITpc</a>.",
-                about_p3: "دروستکردنی هەژمارەکانی سۆشیال میدیا و سیستەمکردنی ڕیکلامەکانی سۆشیال میدیا و چۆنیەتی بەڕێوەبردنیان، و هەروەها دروستکردنی QR بە شێوەیەکی مۆدێرن و جوان.",
+                about_p1: "من بژار ڕەشید عەبدولقادرم: شارەزا لە بواری زانستەکانی کۆمپیوتەر، وەک بەڕێوەبەری ئای تی کار دەکەم.",
+                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p3: "هەروەها وەک پرۆگرامساز لە",
+                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p5: "دروستکردنی هەژمارەکانی سۆشیال میدیا، بەڕێوەبردنی ڕیکلامەکان، و دیزاینکردنی QR کۆدی مۆدێرن.",
                 skills_desc: "وەک ئای تی و ڕۆژنامەنووس و شارەزا لە تەکنەلۆژیای سەردەم وەک پرۆگرامساز کار دەکەم.",
                 skill_1: "بۆ دانان و پرۆگرامکردنی هەموو ئامێرە ئەلیکترۆنییەکان.",
                 skill_2: "بۆ پاراستنی هەژمارەکانی سۆشیال میدیا.",
                 skill_3: "دروستکردن و دانانی سیستەمەکانی سپۆنسەری.",
                 skill_4: "گەشەپێدانی پرۆگرامەکان و پێشخستنیان.",
                 qr_title: "QR دروستکەری پڕۆفیشناڵ",
-                qr_desc: "لینکەکەت بنووسە، دیزاینی بکە و بە کوالێتی Full HD دایبەزێنە.",
+                qr_desc: "لینکەکەت بنووسە، دیزاینی بکە و بە کوالێتی بەرز دایبەزێنە.",
                 qr_lbl_link: "لینک (URL)",
                 qr_lbl_color: "ڕەنگی خاڵەکان",
                 qr_lbl_bg: "ڕەنگی باکگراوەند",
@@ -1898,8 +2069,7 @@
                 qr_opt_dots: "خڕ (Dots)",
                 qr_opt_rounded: "بازنەیی (Rounded)",
                 qr_opt_classy: "کلاسیک",
-                qr_btn_gen: "دروستکردن",
-                qr_btn_down: "داونلۆد Full HD"
+                qr_btn_gen: "دروستکردن"
             },
             kuk: {
                 site_name: "Bizhar Rasheed",
@@ -1909,16 +2079,18 @@
                 nav_qrcode: "QR Kod",
                 nav_contact: "Peywendî",
                 home_desc: "Pêşeng di nûbûnên teknolojî û darêştin û geşepêdana programan de. Wekî pisporê IT û programçêkerekî xwedî ezmûn, ez kar dikim ji bo guhertina ramanan bo projeyên serdemî.",
-                about_p1: "Ez Bizhar Rasheed Abdulqader: Şareza di warê zanistên kompîturê de, herwiha li dezgehê <a href='https://bizhar-cloud.github.io/NoshNews/' class='nosh-link' target='_blank'>Nosh News</a> wek Rêveberê IT kar dikim.",
-                about_p2: "Herwiha li dikana kompîturan wek programçêker li <a href='https://bizhar-cloud.github.io/KurdITpc/' class='kurd-link' target='_blank'>KurdITpc</a> kar dikim.",
-                about_p3: "Dirustkirina accountên social media û sîstemkirina reklaman û birêvebirina wan, û dirustkirina QR bi şêweyekî modern û ciwan.",
+                about_p1: "Ez Bizhar Rasheed Abdulqader: Pisporê zanistên kompîturê, wek Rêveberê IT-yê dixebitim.",
+                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p3: "Herwiha wek programçêker li",
+                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p5: "diafirînim hesabên medya civakî, birêvebirina kampanyayên reklamê, û sêwirana QR kodên nûjen.",
                 skills_desc: "Wek IT û rojnamevan û şareza di teknolojiya serdem de wek programçêker kar dikim.",
                 skill_1: "Ji bo danîn û programkirina hemî amûrên elektronî.",
                 skill_2: "Ji bo parastina accountên social media.",
                 skill_3: "Dirustkirin û danîna sîstemên sponsoriyê.",
                 skill_4: "Pêşxistin û geşepêdana programan.",
                 qr_title: "QR Kod Çêker",
-                qr_desc: "Linka xwe binivîse, dîzayn bike û bi kalîteya Full HD daxîne.",
+                qr_desc: "Linka xwe binivîse, dîzayn bike û bi kalîteya bilind daxîne.",
                 qr_lbl_link: "Link (URL)",
                 qr_lbl_color: "Rengê Xalan",
                 qr_lbl_bg: "Rengê Paşxanê",
@@ -1927,37 +2099,7 @@
                 qr_opt_dots: "Xir (Dots)",
                 qr_opt_rounded: "Bazinî (Rounded)",
                 qr_opt_classy: "Klasîk",
-                qr_btn_gen: "Çêkirin",
-                qr_btn_down: "Daxistin Full HD"
-            },
-            en: {
-                site_name: "Bizhar Rasheed",
-                nav_home: "Home",
-                nav_about: "About",
-                nav_skills: "Skills",
-                nav_qrcode: "QR Code",
-                nav_contact: "Contact",
-                home_desc: "Leading in technological innovations and software development. As an experienced IT expert and programmer, I transform ideas into modern digital projects.",
-                about_p1: "I am Bizhar Rasheed: IT Expert. IT Director at <a href='https://bizhar-cloud.github.io/NoshNews/' class='nosh-link' target='_blank'>Nosh News</a>.",
-                about_p2: "I also work as a programmer at <a href='https://bizhar-cloud.github.io/KurdITpc/' class='kurd-link' target='_blank'>KurdITpc</a>.",
-                about_p3: "Specializing in social media management, targeted ads, and modern QR generation.",
-                skills_desc: "Working as a programmer, IT, and tech expert. My skills include:",
-                skill_1: "Electronic device setup and programming.",
-                skill_2: "Securing social media accounts.",
-                skill_3: "Setting up sponsorship/ad systems.",
-                skill_4: "Software development and improvement.",
-                qr_title: "Pro QR Generator",
-                qr_desc: "Enter your link, customize the design, and download in Full HD.",
-                qr_lbl_link: "Link (URL)",
-                qr_lbl_color: "Dots Color",
-                qr_lbl_bg: "Background Color",
-                qr_lbl_style: "Dots Style",
-                qr_opt_square: "Square",
-                qr_opt_dots: "Dots",
-                qr_opt_rounded: "Rounded",
-                qr_opt_classy: "Classy",
-                qr_btn_gen: "Generate",
-                qr_btn_down: "Download Full HD"
+                qr_btn_gen: "Çêkirin"
             },
             ar: {
                 site_name: "بيژار رشيد",
@@ -1967,16 +2109,18 @@
                 nav_qrcode: "كود QR",
                 nav_contact: "اتصال",
                 home_desc: "رائد في الابتكارات التكنولوجية وتطوير البرمجيات. بصفتي خبيراً في تقنية المعلومات ومبرمجاً، أعمل على تحويل الأفكار إلى مشاريع رقمية حديثة.",
-                about_p1: "أنا بيژار رشيد: خبير IT. مدير تكنولوجيا المعلومات في <a href='https://bizhar-cloud.github.io/NoshNews/' class='nosh-link' target='_blank'>Nosh News</a>.",
-                about_p2: "كما أعمل كمبرمج في متجر <a href='https://bizhar-cloud.github.io/KurdITpc/' class='kurd-link' target='_blank'>KurdITpc</a>.",
-                about_p3: "إنشاء حسابات السوشيال ميديا وإدارة الإعلانات وتصميم أكواد QR حديثة.",
+                about_p1: "أنا بيژار رشيد: خبير في علوم الكمبيوتر، أعمل كمدير لتكنولوجيا المعلومات.",
+                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p3: "أعمل أيضًا كمبرمج في",
+                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p5: "إنشاء حسابات وسائل التواصل الاجتماعي، وإدارة الإعلانات، وتصميم رموز QR الحديثة.",
                 skills_desc: "أعمل كمبرمج وخبير تقني. مهاراتي تشمل:",
                 skill_1: "إعداد وبرمجة جميع الأجهزة الإلكترونية.",
                 skill_2: "حماية حسابات وسائل التواصل الاجتماعي.",
                 skill_3: "إعداد أنظمة الإعلانات الممولة.",
                 skill_4: "تطوير البرمجيات وتحسينها.",
                 qr_title: "منشئ QR الاحترافي",
-                qr_desc: "أدخل الرابط، خصص التصميم، وقم بتنزيله بجودة Full HD.",
+                qr_desc: "أدخل الرابط، خصص التصميم، وقم بتنزيله بجودة عالية.",
                 qr_lbl_link: "الرابط (URL)",
                 qr_lbl_color: "لون النقاط",
                 qr_lbl_bg: "لون الخلفية",
@@ -1985,8 +2129,7 @@
                 qr_opt_dots: "نقاط",
                 qr_opt_rounded: "دائري",
                 qr_opt_classy: "كلاسيكي",
-                qr_btn_gen: "إنشاء",
-                qr_btn_down: "تحميل Full HD"
+                qr_btn_gen: "إنشاء"
             },
             fa: {
                 site_name: "بیژار رشید",
@@ -1996,16 +2139,18 @@
                 nav_qrcode: "کد QR",
                 nav_contact: "تماس",
                 home_desc: "پیشرو در نوآوری‌های فناوری و توسعه نرم‌افزار. به عنوان یک متخصص فناوری اطلاعات و برنامه‌نویس، ایده‌ها را به پروژه‌های دیجیتال مدرن تبدیل می‌کنم.",
-                about_p1: "من بیژار رشید هستم: متخصص IT. مدیر فناوری اطلاعات در <a href='https://bizhar-cloud.github.io/NoshNews/' class='nosh-link' target='_blank'>Nosh News</a>.",
-                about_p2: "همچنین برنامه‌نویس در <a href='https://bizhar-cloud.github.io/KurdITpc/' class='kurd-link' target='_blank'>KurdITpc</a>.",
-                about_p3: "مدیریت شبکه‌های اجتماعی، تبلیغات و طراحی QR کدهای مدرن.",
+                about_p1: "من بیژار رشید هستم: متخصص در علوم کامپیوتر، به عنوان مدیر فناوری اطلاعات کار می‌کنم.",
+                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p3: "همچنین به عنوان برنامه‌نویس در",
+                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p5: "ایجاد حساب‌های شبکه‌های اجتماعی، مدیریت تبلیغات و طراحی کدهای QR مدرن.",
                 skills_desc: "تخصص‌های من شامل موارد زیر است:",
                 skill_1: "راه‌اندازی دستگاه‌های الکترونیکی.",
                 skill_2: "امنیت شبکه‌های اجتماعی.",
                 skill_3: "راه‌اندازی سیستم‌های تبلیغاتی.",
                 skill_4: "توسعه نرم‌افزارها.",
-                qr_title: "سازنده QR حرفه ای",
-                qr_desc: "لینک خود را وارد کنید، طراحی کنید و با کیفیت Full HD دانلود کنید.",
+                qr_title: "سازنده QR حرفه‌ای",
+                qr_desc: "لینک خود را وارد کنید، طراحی کنید و با کیفیت بالا دانلود کنید.",
                 qr_lbl_link: "لینک (URL)",
                 qr_lbl_color: "رنگ نقاط",
                 qr_lbl_bg: "رنگ پس‌زمینه",
@@ -2014,8 +2159,37 @@
                 qr_opt_dots: "نقاط",
                 qr_opt_rounded: "گرد",
                 qr_opt_classy: "کلاسیک",
-                qr_btn_gen: "ایجاد کردن",
-                qr_btn_down: "دانلود Full HD"
+                qr_btn_gen: "ایجاد"
+            },
+            en: {
+                site_name: "Bizhar Rasheed",
+                nav_home: "Home",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_qrcode: "QR Code",
+                nav_contact: "Contact",
+                home_desc: "Leading in technological innovations and software development. As an experienced IT expert and programmer, I transform ideas into modern digital projects.",
+                about_p1: "I am Bizhar Rasheed: an IT expert specializing in computer science, working as an IT Director.",
+                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p3: "I also work as a programmer at",
+                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p5: "Creating social media accounts, managing ad campaigns, and designing modern QR codes.",
+                skills_desc: "Working as a programmer, IT, and tech expert. My skills include:",
+                skill_1: "Electronic device setup and programming.",
+                skill_2: "Securing social media accounts.",
+                skill_3: "Setting up sponsorship/ad systems.",
+                skill_4: "Software development and improvement.",
+                qr_title: "Pro QR Generator",
+                qr_desc: "Enter your link, customize, and download in high quality.",
+                qr_lbl_link: "Link (URL)",
+                qr_lbl_color: "Dots Color",
+                qr_lbl_bg: "Background Color",
+                qr_lbl_style: "Dots Style",
+                qr_opt_square: "Square",
+                qr_opt_dots: "Dots",
+                qr_opt_rounded: "Rounded",
+                qr_opt_classy: "Classy",
+                qr_btn_gen: "Generate"
             },
             tr: {
                 site_name: "Bizhar Rasheed",
@@ -2025,16 +2199,18 @@
                 nav_qrcode: "QR Kodu",
                 nav_contact: "İletişim",
                 home_desc: "Teknolojik yenilikler ve yazılım geliştirmede öncü. Deneyimli bir BT uzmanı ve programcı olarak, fikirleri modern dijital projelere dönüştürüyorum.",
-                about_p1: "Ben Bizhar Rasheed: BT Uzmanı. <a href='https://bizhar-cloud.github.io/NoshNews/' class='nosh-link' target='_blank'>Nosh News</a> BT Direktörü.",
-                about_p2: "Ayrıca <a href='https://bizhar-cloud.github.io/KurdITpc/' class='kurd-link' target='_blank'>KurdITpc</a>'te programcıyım.",
-                about_p3: "Sosyal medya yönetimi, reklam organizasyonu ve modern QR tasarımı.",
+                about_p1: "Ben Bizhar Rasheed: Bilgisayar bilimleri uzmanı, BT Direktörü olarak çalışıyorum.",
+                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p3: "Ayrıca programcı olarak şurada çalışıyorum:",
+                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
+                about_p5: "Sosyal medya hesapları oluşturma, reklam kampanyaları yönetme ve modern QR kodlar tasarlama.",
                 skills_desc: "Yeteneklerim şunlardır:",
                 skill_1: "Elektronik cihazların kurulumu.",
                 skill_2: "Sosyal medya hesaplarının güvenliği.",
                 skill_3: "Reklam sistemlerinin kurulması.",
                 skill_4: "Yazılım geliştirme.",
                 qr_title: "Profesyonel QR Oluşturucu",
-                qr_desc: "Bağlantınızı girin, tasarımı özelleştirin ve Full HD olarak indirin.",
+                qr_desc: "Bağlantınızı girin, tasarımı özelleştirin ve yüksek kalitede indirin.",
                 qr_lbl_link: "Bağlantı (URL)",
                 qr_lbl_color: "Nokta Rengi",
                 qr_lbl_bg: "Arka Plan Rengi",
@@ -2043,84 +2219,237 @@
                 qr_opt_dots: "Nokta",
                 qr_opt_rounded: "Yuvarlak",
                 qr_opt_classy: "Klasik",
-                qr_btn_gen: "Oluştur",
-                qr_btn_down: "İndir Full HD"
+                qr_btn_gen: "Oluştur"
             }
         };
 
-        function changeLanguage(lang) {
-            const isRtl = ['kub', 'kus', 'ar', 'fa'].includes(lang);
+        function changeLanguage(code) {
+            const isRtl = ['kub', 'kus', 'ar', 'fa'].includes(code);
             document.body.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
+                if (translations[code] && translations[code][key] !== undefined) {
+                    el.innerHTML = translations[code][key];
                 }
             });
-            try { localStorage.setItem('siteLang', lang); } catch (e) {}
+            try { localStorage.setItem('siteLang', code); } catch (e) {}
         }
 
-        // --- QR Code Logic using qr-code-styling ---
-        let qrCodeInstance = null;
+        // ============================================================
+        // 6. 3D Tilt
+        // ============================================================
+        const tiltBoxes = document.querySelectorAll('.tilt-box');
+        document.addEventListener('mousemove', (e) => {
+            if (window.innerWidth < 850) return;
+            const x = (window.innerWidth / 2 - e.pageX) / 40;
+            const y = (window.innerHeight / 2 - e.pageY) / 40;
+            tiltBoxes.forEach(box => {
+                if (box.closest('.tab-content') && box.closest('.tab-content').classList.contains('active')) {
+                    box.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg)`;
+                }
+            });
+        });
+        document.addEventListener('mouseleave', () => {
+            tiltBoxes.forEach(box => { box.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)'; });
+        });
+
+        // ============================================================
+        // 7. Particles
+        // ============================================================
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            mouse.radius = Math.min(canvas.width, canvas.height) / 5;
+            initParticles();
+        }
+        window.addEventListener('mousemove', e => { mouse.x = e.x;
+            mouse.y = e.y; });
+
+        class Particle {
+            constructor() {
+                this.size = Math.random() * 2 + 0.8;
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.dx = (Math.random() - 0.5) * 1.8;
+                this.dy = (Math.random() - 0.5) * 1.8;
+                this.color = document.body.classList.contains('light-mode') ? '#0284c7' : '#64ffda';
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
+                const dx = mouse.x - this.x,
+                    dy = mouse.y - this.y,
+                    dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    this.x -= dx * force * 0.02;
+                    this.y -= dy * force * 0.02;
+                }
+                this.x += this.dx;
+                this.y += this.dy;
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            const count = Math.min(200, Math.floor((canvas.width * canvas.height) / 12000));
+            particles = [];
+            for (let i = 0; i < count; i++) particles.push(new Particle());
+        }
+
+        function connectParticles() {
+            const maxDist = Math.min(canvas.width, canvas.height) / 6;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = dx * dx + dy * dy;
+                    if (dist < maxDist * maxDist) {
+                        const opacity = 1 - Math.sqrt(dist) / maxDist;
+                        ctx.strokeStyle = document.body.classList.contains('light-mode') ?
+                            `rgba(2,132,199,${opacity * 0.6})` :
+                            `rgba(100,255,218,${opacity * 0.6})`;
+                        ctx.lineWidth = 0.6;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => p.update());
+            connectParticles();
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        // ============================================================
+        // 8. QR Code Engine
+        // ============================================================
+        let qrInstance = null;
 
         function generateQRCode() {
-            const url = document.getElementById("qr-url-input").value || "https://bizhar-cloud.github.io";
-            const color = document.getElementById("qr-color-input").value;
-            const bg = document.getElementById("qr-bg-input").value;
-            const style = document.getElementById("qr-style-input").value;
-            const previewContainer = document.getElementById("qr-preview-container");
-
-            previewContainer.innerHTML = "";
-
+            const url = document.getElementById('qr-url-input').value || 'https://bizhar-cloud.github.io';
+            const color = document.getElementById('qr-color-input').value;
+            const bg = document.getElementById('qr-bg-input').value;
+            const style = document.getElementById('qr-style-input').value;
+            const container = document.getElementById('qr-preview-container');
+            container.innerHTML = '';
             try {
-                qrCodeInstance = new QRCodeStyling({
-                    width: 300,
-                    height: 300,
+                qrInstance = new QRCodeStyling({
+                    width: 340,
+                    height: 340,
                     data: url,
-                    margin: 10,
-                    dotsOptions: { color: color, type: style },
+                    margin: 12,
+                    dotsOptions: { color, type: style },
                     backgroundOptions: { color: bg },
-                    imageOptions: { crossOrigin: "anonymous", margin: 10 }
+                    imageOptions: { crossOrigin: 'anonymous', margin: 10 }
                 });
-
-                qrCodeInstance.append(previewContainer);
+                qrInstance.append(container);
             } catch (e) {
-                previewContainer.innerHTML =
-                    '<p style="color:red;padding:20px;">⚠️ QR kod nehat çêkirin. Ji kerema xwe careke din biceribîne.</p>';
-                console.error("QR Error:", e);
+                container.innerHTML =
+                    '<p style="color:var(--it-red);padding:20px;font-weight:800;">⚠️ QR kod nehat çêkirin.</p>';
+                console.error('QR Error:', e);
             }
         }
 
-        function downloadQRCode() {
-            if (!qrCodeInstance) generateQRCode();
-
-            const url = document.getElementById("qr-url-input").value || "https://bizhar-cloud.github.io";
-            const color = document.getElementById("qr-color-input").value;
-            const bg = document.getElementById("qr-bg-input").value;
-            const style = document.getElementById("qr-style-input").value;
-
+        function downloadQR(size) {
+            const url = document.getElementById('qr-url-input').value || 'https://bizhar-cloud.github.io';
+            const color = document.getElementById('qr-color-input').value;
+            const bg = document.getElementById('qr-bg-input').value;
+            const style = document.getElementById('qr-style-input').value;
+            if (typeof QRCodeStyling === 'undefined') {
+                alert('⚠️ پەڕگەی QR Code Styling بارنەبوو. تکایە پەڕە نوێ بکە.');
+                return;
+            }
             try {
-                const hdQrCode = new QRCodeStyling({
-                    width: 1024,
-                    height: 1024,
+                const hd = new QRCodeStyling({
+                    width: size,
+                    height: size,
                     data: url,
-                    margin: 20,
-                    dotsOptions: { color: color, type: style },
-                    backgroundOptions: { color: bg }
+                    margin: Math.round(size * 0.03),
+                    dotsOptions: { color, type: style },
+                    backgroundOptions: { color: bg },
+                    imageOptions: { crossOrigin: 'anonymous', margin: 10 }
                 });
-
-                hdQrCode.download({ name: "Bizhar_QR_Code_FullHD", extension: "png" });
+                let label = 'QR';
+                if (size === 1920) label = 'FullHD';
+                else if (size === 2560) label = '2K';
+                else if (size === 4096) label = '4K';
+                hd.download({ name: `Bizhar_QR_${label}_${size}px`, extension: 'png' });
             } catch (e) {
-                alert("⚠️ QR kod daxistin nehat. Ji kerema xwe pêşî QR kodê çêbike.");
-                console.error("Download Error:", e);
+                alert('⚠️ داونلۆد نەکرا. تکایە هەوڵ بدە پێشتر QR کۆد دروست بکەیت.');
+                console.error('Download Error:', e);
             }
         }
 
-        // =========================================================
-        // Window load — restore saved state and init everything
-        // =========================================================
+        // ============================================================
+        // 9. Service Card Rotator
+        // ============================================================
+        const sunSVG =
+            `<svg class="kurdish-flag-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="85" fill="#FEB811" /><g fill="#FEB811">${Array.from({length:21}, (_,i) => `<polygon points="250,40 220,190 280,190" transform="rotate(${i*(360/21)},250,250)" />`).join('')}</g></svg>`;
+
+        const services = [
+            { text: 'SYSTEMS', desc: 'Advanced Devices Configuration<br />بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی', icon: 'fa-layer-group',
+                theme: 'theme-green', anim: 'anim-systems' },
+            { text: 'SECURITY', desc: 'Social Media Protection & Security<br />بو پاراستنا ئەکاونتێن سوشیال میدیایێ',
+                icon: 'fa-shield-halved', theme: 'theme-red', anim: 'anim-security' },
+            { text: 'ADS CREATOR', desc: 'Professional Sponsored Campaigns<br />دروستکرن و دانانا سیستەمێن سپونسەریێ',
+                icon: 'fa-rectangle-ad', theme: 'theme-blue', anim: 'anim-security' },
+            { text: 'DEV_OPS', desc: 'Software Development & Optimization<br />گەشە پێدانا پروگرامان و پێشخستنا وان',
+                icon: 'fa-code-branch', theme: 'theme-green', anim: 'anim-systems' },
+            { text: 'KURDISTAN', desc: 'National Digital Heritage<br />پاراستنا ناسنامەیا نەتەوەیی', isFlag: true,
+                theme: 'theme-kurdish' }
+        ];
+
+        let sIdx = 0;
+        setInterval(() => {
+            const content = document.getElementById('service-content');
+            const iconWrap = document.getElementById('service-icon');
+            const text = document.getElementById('service-text');
+            const desc = document.getElementById('service-desc');
+            const btn = document.getElementById('service-btn');
+            if (!content || !iconWrap || !text || !desc || !btn) return;
+            content.classList.add('exit-up');
+            setTimeout(() => {
+                sIdx = (sIdx + 1) % services.length;
+                const s = services[sIdx];
+                if (s.isFlag) {
+                    iconWrap.parentElement.innerHTML = sunSVG;
+                    text.style.color = 'var(--kurd-sun)';
+                } else {
+                    iconWrap.parentElement.innerHTML =
+                        `<i id="service-icon" class="fa-solid ${s.icon} ${s.anim}" style="font-size:2rem;"></i>`;
+                    text.style.color = 'var(--text-main)';
+                }
+                text.innerText = s.text;
+                desc.innerHTML = s.desc;
+                btn.className = 'service-card ' + s.theme;
+                content.classList.remove('exit-up');
+                content.classList.add('enter-bottom');
+                setTimeout(() => content.classList.remove('enter-bottom'), 50);
+            }, 400);
+        }, 4800);
+
+        // ============================================================
+        // 10. Init
+        // ============================================================
         window.onload = function() {
-            // --- Theme ---
             let savedTheme = 'dark';
             try { savedTheme = localStorage.getItem('siteTheme') || 'dark'; } catch (e) {}
             if (savedTheme === 'light') {
@@ -2130,92 +2459,27 @@
                 document.getElementById('themeToggle').innerText = '☀️';
             }
 
-            // --- Language ---
             let savedLang = 'kub';
             try { savedLang = localStorage.getItem('siteLang') || 'kub'; } catch (e) {}
-            const langMap = {
-                'kub': 'KU | Badini',
-                'kus': 'KU | سورانی',
-                'kuk': 'KU | Kurmanci',
-                'ar': 'AR | العربية',
-                'fa': 'FA | فارسى',
-                'en': 'EN | English',
-                'tr': 'TR | TURKISH'
+            const map = {
+                kub: 'KU | Badini',
+                kus: 'KU | سورانی',
+                kuk: 'KU | Kurmanci',
+                ar: 'AR | العربية',
+                fa: 'FA | فارسی',
+                en: 'EN | English',
+                tr: 'TR | Türkçe'
             };
-            document.getElementById('selectedLangText').innerText = langMap[savedLang] || langMap['kub'];
-
-            let items = document.querySelectorAll('.dropdown-item');
-            items.forEach(item => {
-                if (item.getAttribute('data-lang') === savedLang) item.classList.add('active');
-                else item.classList.remove('active');
+            document.getElementById('selectedLangText').innerText = map[savedLang] || map['kub'];
+            document.querySelectorAll('.dropdown-item').forEach(el => {
+                el.classList.toggle('active', el.getAttribute('data-lang') === savedLang);
             });
             changeLanguage(savedLang);
 
-            // --- Particles ---
             resizeCanvas();
             animateParticles();
-
-            // --- QR Code ---
-            setTimeout(generateQRCode, 600);
+            setTimeout(generateQRCode, 500);
         };
-
-        // --- Service Card Rotation ---
-        const sunSVG = `<svg class="kurdish-flag-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="250" cy="250" r="85" fill="#FEB811" />
-                    <g fill="#FEB811">
-                        ${Array.from({length: 21}, (_, i) => `<polygon points="250,40 220,190 280,190" transform="rotate(${i * (360/21)}, 250, 250)" />`).join('')}
-                    </g>
-                </svg>`;
-
-        const services = [
-            { text: "SYSTEMS", desc: "Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی", isFlag: false,
-                icon: "fa-layer-group", theme: "theme-green", anim: "anim-systems" },
-            { text: "SECURITY", desc: "Social Media Protection & Security<br>بو پاراستنا ئەکاونتێن سوشیال میدیایێ", isFlag: false,
-                icon: "fa-shield-halved", theme: "theme-red", anim: "anim-security" },
-            { text: "ADS CREATOR", desc: "Professional Sponsored Campaigns<br>دروستکرن و دانانا سیستەمێن سپونسەریێ", isFlag: false,
-                icon: "fa-rectangle-ad", theme: "theme-blue", anim: "anim-security" },
-            { text: "DEV_OPS", desc: "Software Development & Optimization<br>گەشە پێدانا پروگرامان و پێشخستنا وان", isFlag: false,
-                icon: "fa-code-branch", theme: "theme-green", anim: "anim-systems" },
-            { text: "KURDISTAN", desc: "National Digital Heritage<br>پاراستنا ناسنامەیا نەتەوەیی د جیهانا تەکنۆلۆژیادا",
-                isFlag: true, theme: "theme-kurdish" }
-        ];
-
-        let sIndex = 0;
-        setInterval(() => {
-            const content = document.getElementById("service-content");
-            const iconContainer = document.getElementById("icon-container");
-            const text = document.getElementById("service-text");
-            const desc = document.getElementById("service-desc");
-            const btn = document.getElementById("service-btn");
-
-            if (!content || !iconContainer || !text || !desc || !btn) return;
-
-            content.classList.add("exit-up");
-
-            setTimeout(() => {
-                sIndex = (sIndex + 1) % services.length;
-                const s = services[sIndex];
-
-                if (s.isFlag) {
-                    iconContainer.innerHTML = sunSVG;
-                    text.style.color = "var(--kurd-sun)";
-                } else {
-                    iconContainer.innerHTML = `<i id="service-icon" class="fa-solid ${s.icon} ${s.anim}"></i>`;
-                    text.style.color = "var(--text-main)";
-                }
-
-                text.innerText = s.text;
-                desc.innerHTML = s.desc;
-                btn.className = "service-card " + s.theme;
-
-                content.classList.remove("exit-up");
-                content.classList.add("enter-bottom");
-
-                setTimeout(() => {
-                    content.classList.remove("enter-bottom");
-                }, 50);
-            }, 400);
-        }, 5000);
     </script>
 </body>
 </html>
