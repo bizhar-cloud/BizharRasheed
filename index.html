@@ -3,6 +3,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- ===== تایبەتمەندییەکانی iOS / PWA ===== -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Bizhar" />
+    <meta name="apple-touch-icon" href="https://i.postimg.cc/yx8K2rPb/8072E266-E454-4FD7-B4A4-32A46E5378BF.jpg" />
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/yx8K2rPb/8072E266-E454-4FD7-B4A4-32A46E5378BF.jpg" />
+    <link rel="manifest" href="data:application/json,{
+        &quot;name&quot;: &quot;Bizhar&quot;,
+        &quot;short_name&quot;: &quot;Bizhar&quot;,
+        &quot;start_url&quot;: &quot;.&quot;,
+        &quot;display&quot;: &quot;standalone&quot;,
+        &quot;background_color&quot;: &quot;#050b14&quot;,
+        &quot;theme_color&quot;: &quot;#64ffda&quot;,
+        &quot;icons&quot;: [
+            {
+                &quot;src&quot;: &quot;https://i.postimg.cc/yx8K2rPb/8072E266-E454-4FD7-B4A4-32A46E5378BF.jpg&quot;,
+                &quot;sizes&quot;: &quot;512x512&quot;,
+                &quot;type&quot;: &quot;image/jpeg&quot;
+            }
+        ]
+    }" />
+
     <title>Bizhar Rasheed · QR Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;800;900&family=Poppins:wght@400;600;800;900&family=Orbitron:wght@500;900&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -567,7 +590,6 @@
             border-color: #fff;
         }
 
-        /* ===== About ===== */
         .profile-wrap {
             width: 220px;
             height: 220px;
@@ -697,7 +719,6 @@
             opacity: 0.6;
         }
 
-        /* ===== Skills ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -863,7 +884,6 @@
             color: var(--text-main);
         }
 
-        /* ===== QR ===== */
         #qrcode .card-3d {
             max-width: 820px;
             margin: 0 auto;
@@ -1066,16 +1086,11 @@
             border-color: #fff;
         }
 
-        /* ============================================================
-           پەیوەندی — چارەسەری ئایکۆنەکان (گەورەتر، دوو رێز، ٥ ئایکۆن)
-           ============================================================ */
         #contact .card-3d {
             max-width: 580px;
             margin: 0 auto;
             padding: 3rem 2.5rem;
         }
-
-        /* وێنەی پڕۆفایل */
         .c-avatar-wrap {
             position: relative;
             width: 160px;
@@ -1147,7 +1162,6 @@
             border: 4px solid var(--bg-color);
             background: var(--bg-color);
         }
-
         .c-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 24px;
@@ -1334,7 +1348,7 @@
             border-right: 5px solid var(--it-green) !important;
         }
 
-        /* ===== سۆشیال میدیا — گەورەکراو و ٢ رێز، هەر رێزێ ٥ ===== */
+        /* ===== سۆشیال میدیا — گەورە، دوو رێز، هەر رێزێ ٥ ===== */
         .social-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -1345,7 +1359,6 @@
             justify-items: center;
             align-items: center;
         }
-
         .social-link {
             width: 68px;
             height: 68px;
@@ -1366,7 +1379,6 @@
             aspect-ratio: 1;
             box-shadow: 0 4px 15px var(--shadow-dark);
         }
-
         .social-link:hover {
             border-radius: 50%;
             background: var(--it-green);
@@ -1375,34 +1387,8 @@
             box-shadow: 0 12px 30px rgba(100, 255, 218, 0.4);
             border-color: var(--it-green);
         }
-
         .social-link:active {
             transform: scale(0.92);
-        }
-
-        /* مۆبایل — کەمکردنی سایز بەڵام هێشتا ٥ ئایکۆن */
-        @media (max-width: 600px) {
-            .social-row {
-                gap: 12px;
-                max-width: 100%;
-            }
-            .social-link {
-                width: 56px;
-                height: 56px;
-                font-size: 1.5rem;
-                border-radius: 16px;
-            }
-        }
-        @media (max-width: 400px) {
-            .social-link {
-                width: 48px;
-                height: 48px;
-                font-size: 1.3rem;
-                border-radius: 14px;
-            }
-            .social-row {
-                gap: 8px;
-            }
         }
 
         .footer-note {
@@ -1419,7 +1405,6 @@
             transform: translateZ(30px);
         }
 
-        /* ===== ئەنیمەیشن ===== */
         .exit-up {
             opacity: 0;
             transform: translateY(-18px) scale(0.95);
@@ -1439,7 +1424,6 @@
             display: inline-block;
         }
 
-        /* ===== مۆبایل (گشتی) ===== */
         @media (max-width: 850px) {
             nav {
                 padding: 0.5rem 1rem;
@@ -1717,7 +1701,6 @@
 
     <main>
 
-        <!-- ===== HOME ===== -->
         <section id="home" class="tab-content active">
             <div class="tilt-box">
                 <div class="card-3d">
@@ -1732,7 +1715,6 @@
             </div>
         </section>
 
-        <!-- ===== ABOUT ===== -->
         <section id="about" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
@@ -1754,7 +1736,6 @@
             </div>
         </section>
 
-        <!-- ===== SKILLS ===== -->
         <section id="skills" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
@@ -1798,7 +1779,6 @@
             </div>
         </section>
 
-        <!-- ===== QR ===== -->
         <section id="qrcode" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
@@ -1857,14 +1837,10 @@
             </div>
         </section>
 
-        <!-- ============================================================
-        CONTACT — ئایکۆنەکان گەورەکراون، ٢ رێز، ٥ ئایکۆن
-        ============================================================ -->
         <section id="contact" class="tab-content">
             <div class="tilt-box">
                 <div class="card-3d">
 
-                    <!-- وێنەی پڕۆفایل -->
                     <div class="c-avatar-wrap">
                         <div class="c-ring"></div>
                         <div class="c-frame">
@@ -1875,7 +1851,6 @@
                     <div class="c-name">BIZHAR RASHEED</div>
                     <div class="c-title">PROFESSIONAL IT SOLUTIONS</div>
 
-                    <!-- کارتی خزمەتگوزاری -->
                     <div id="service-btn" class="service-card theme-green">
                         <div id="service-content" class="service-content">
                             <div class="service-icon-wrap">
@@ -1886,7 +1861,6 @@
                         </div>
                     </div>
 
-                    <!-- لیستی پەیوەندی -->
                     <div class="contact-list">
                         <a href="https://api.whatsapp.com/send?phone=9647503644666" target="_blank" rel="noopener noreferrer" class="contact-item border-green">
                             <div class="contact-icon" style="color:var(--it-green);background:rgba(100,255,218,0.08);">
@@ -1915,21 +1889,17 @@
                         </a>
                     </div>
 
-                    <!-- ===== سۆشیال میدیا — گەورە، دوو رێز، ٥ ئایکۆن ===== -->
                     <div class="social-row">
-
                         <a href="https://www.facebook.com/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/bjarbergarey" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://t.me/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-telegram"></i></a>
                         <a href="https://twitter.com/BjarBergarey" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
                         <a href="https://www.snapchat.com/add/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-snapchat"></i></a>
-
                         <a href="https://discord.gg/dQZAmGPVuq" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-discord"></i></a>
                         <a href="https://www.tiktok.com/@bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
                         <a href="viber://add?number=9647503644666" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-viber"></i></a>
                         <a href="mailto:bjar.bergarey@gmail.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-solid fa-envelope"></i></a>
                         <a href="mailto:bjar07503644666@yahoo.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-yahoo"></i></a>
-
                     </div>
 
                     <div class="footer-note">DEVELOPMENT BY: BIZHAR RASHEED · 2026 ©</div>
@@ -2447,7 +2417,16 @@
         }, 4800);
 
         // ============================================================
-        // 10. Init
+        // 10. Service Worker — بۆ کارکردنی ئۆفلاین
+        // ============================================================
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('✅ Service Worker تۆمارکرا'))
+                .catch(err => console.log('⚠️ Service Worker تۆمارنەکرا:', err));
+        }
+
+        // ============================================================
+        // 11. Init
         // ============================================================
         window.onload = function() {
             let savedTheme = 'dark';
