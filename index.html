@@ -1,2464 +1,322 @@
 <!DOCTYPE html>
-<html lang="ku">
+<html lang="ku" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-    <!-- ===== تایبەتمەندییەکانی iOS / PWA ===== -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Bizhar" />
-    <meta name="apple-touch-icon" href="https://i.postimg.cc/yx8K2rPb/8072E266-E454-4FD7-B4A4-32A46E5378BF.jpg" />
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/yx8K2rPb/8072E266-E454-4FD7-B4A4-32A46E5378BF.jpg" />
-    <link rel="manifest" href="data:application/json,{
-        &quot;name&quot;: &quot;Bizhar&quot;,
-        &quot;short_name&quot;: &quot;Bizhar&quot;,
-        &quot;start_url&quot;: &quot;.&quot;,
-        &quot;display&quot;: &quot;standalone&quot;,
-        &quot;background_color&quot;: &quot;#050b14&quot;,
-        &quot;theme_color&quot;: &quot;#64ffda&quot;,
-        &quot;icons&quot;: [
-            {
-                &quot;src&quot;: &quot;https://i.postimg.cc/yx8K2rPb/8072E266-E454-4FD7-B4A4-32A46E5378BF.jpg&quot;,
-                &quot;sizes&quot;: &quot;512x512&quot;,
-                &quot;type&quot;: &quot;image/jpeg&quot;
-            }
-        ]
-    }" />
-
-    <title>Bizhar Rasheed · QR Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;800;900&family=Poppins:wght@400;600;800;900&family=Orbitron:wght@500;900&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js">
-    </script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/FHsqYdc1/DF89CBB3-0A07-4755-9FB1-D10355CC908B.jpg">
+    <meta name="apple-mobile-web-app-title" content="Bizhar">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <title>Bizhar Rasheed | IT Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700;900&family=Orbitron:wght@500;900&family=Fira+Code:wght@400;700&family=Poppins:wght@600;800&display=swap');
+
         :root {
-            --bg-color: #050b14;
-            --bg-grad: linear-gradient(135deg, #050b14, #0a192f, #112240, #0a192f);
-            --nav-bg: rgba(10, 25, 47, 0.8);
-            --card-bg: rgba(17, 34, 64, 0.55);
-            --dropdown-bg: rgba(10, 25, 47, 0.95);
-            --btn-bg: rgba(2, 12, 27, 0.7);
-            --item-hover: rgba(100, 255, 218, 0.08);
-            --text-main: #e6f1ff;
-            --text-muted: #8892b0;
-            --shadow-dark: rgba(2, 12, 27, 0.8);
-            --shadow-light: rgba(100, 255, 218, 0.04);
-            --inset-light: rgba(255, 255, 255, 0.06);
-            --inset-dark: rgba(0, 0, 0, 0.7);
-            --border-color: rgba(100, 255, 218, 0.15);
-            --it-green: #64ffda;
-            --it-blue: #38bdf8;
-            --it-red: #ff4d4d;
+            --it-blue: #00f2ff;
+            --it-green: #00ff41;
+            --it-red: #ff3e3e;
+            --deep-dark: #010205;
+            --glass-bg: rgba(15, 20, 30, 0.6);
+            --border-white: rgba(255, 255, 255, 0.12);
             --kurd-sun: #FEB811;
-            --nosh-blue: #38bdf8;
-            --kurd-orange: #fb923c;
-            --grad-green: linear-gradient(135deg, #64ffda 0%, #00f2fe 100%);
-            --grad-purple: linear-gradient(135deg, #00f2fe 0%, #c471ed 100%);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        body.light-mode {
-            --bg-color: #f1f5f9;
-            --bg-grad: linear-gradient(45deg, #e2e8f0, #cbd5e1, #f8fafc, #e2e8f0);
-            --nav-bg: rgba(255, 255, 255, 0.85);
-            --card-bg: rgba(255, 255, 255, 0.7);
-            --dropdown-bg: rgba(255, 255, 255, 0.95);
-            --btn-bg: rgba(255, 255, 255, 0.85);
-            --text-main: #0f172a;
-            --text-muted: #334155;
-            --shadow-dark: rgba(148, 163, 184, 0.4);
-            --shadow-light: rgba(255, 255, 255, 0.8);
-            --inset-light: rgba(255, 255, 255, 0.9);
-            --inset-dark: rgba(148, 163, 184, 0.15);
-            --border-color: rgba(200, 200, 200, 0.4);
-            --it-green: #059669;
-            --it-blue: #0284c7;
-            --kurd-orange: #ea580c;
-            --nosh-blue: #0284c7;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', 'Noto Sans Arabic', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease, color 0.5s ease;
-            display: flex;
-            flex-direction: column;
+        body, html {
+            margin: 0; padding: 0; min-height: 100vh;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background: var(--deep-dark);
+            color: #fff; overflow-x: hidden;
+            display: flex; justify-content: center;
         }
 
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -3;
-            pointer-events: none;
-            opacity: 0.5;
-        }
-        .color-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -4;
-            background: var(--bg-grad);
-            background-size: 400% 400%;
-            animation: gradientBG 18s ease infinite;
-        }
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%
-            }
-            50% {
-                background-position: 100% 50%
-            }
-            100% {
-                background-position: 0% 50%
-            }
-        }
-        .orb-container {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            overflow: hidden;
-            filter: blur(130px);
-            pointer-events: none;
-        }
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            animation: orbMove 30s infinite alternate ease-in-out;
-            opacity: 0.4;
-        }
-        .orb-blue {
-            width: 55vw;
-            height: 55vw;
-            background: var(--it-blue);
-            top: -15%;
-            left: -15%;
-        }
-        .orb-green {
-            width: 50vw;
-            height: 50vw;
-            background: var(--it-green);
-            bottom: -15%;
-            right: -15%;
-            animation-delay: -8s;
-        }
-        @keyframes orbMove {
-            0% {
-                transform: scale(1) translate(0, 0) rotate(0deg);
-            }
-            100% {
-                transform: scale(1.4) translate(180px, 180px) rotate(60deg);
-            }
+        #bg-video {
+            position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%;
+            z-index: -2; filter: brightness(0.15) saturate(0.4); object-fit: cover;
         }
 
-        nav {
-            background: var(--nav-bg);
-            backdrop-filter: blur(25px);
-            border-radius: 24px;
-            padding: 0.5rem 1.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 94%;
-            max-width: 1400px;
-            z-index: 1000;
-            box-shadow: 0 12px 35px var(--shadow-dark), inset 0 2px 6px var(--inset-light), inset 0 -2px 6px var(--inset-dark);
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
-        }
-        .nav-side {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            z-index: 105;
-        }
-        .hamburger-btn,
-        .theme-btn {
-            background: var(--btn-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 5px var(--inset-light);
-            transition: var(--transition);
-        }
-        .hamburger-btn:hover,
-        .theme-btn:hover {
-            border-color: var(--it-green);
-            color: var(--it-green);
-            transform: translateY(-3px);
-        }
-        .center-logo {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 105;
-        }
-        .center-logo img {
-            height: 160px;
-            max-width: 300px;
-            object-fit: contain;
-            transition: var(--transition);
-            margin: -50px 0;
-        }
-        .logo-light {
-            display: none;
-        }
-        .logo-dark {
-            display: block;
-            filter: drop-shadow(0 2px 10px rgba(100, 255, 218, 0.4));
-            animation: pulseGlow 3.5s infinite alternate;
-        }
-        body.light-mode .logo-dark {
-            display: none;
-        }
-        body.light-mode .logo-light {
-            display: block;
-            filter: drop-shadow(0 2px 6px rgba(148, 163, 184, 0.4));
-            animation: pulseGlowLight 3.5s infinite alternate;
-        }
-        @keyframes pulseGlow {
-            0% {
-                filter: drop-shadow(0 0 5px rgba(100, 255, 218, 0.15));
-            }
-            100% {
-                filter: drop-shadow(0 0 20px rgba(100, 255, 218, 0.7));
-            }
-        }
-        @keyframes pulseGlowLight {
-            0% {
-                filter: drop-shadow(0 2px 6px rgba(148, 163, 184, 0.2));
-            }
-            100% {
-                filter: drop-shadow(0 2px 16px rgba(148, 163, 184, 0.6));
-            }
-        }
-
-        .custom-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .dropdown-btn {
-            background: var(--btn-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 0 1rem;
-            height: 44px;
-            border-radius: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-weight: 800;
-            font-size: 0.95rem;
-            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 5px var(--inset-light);
-            transition: var(--transition);
-        }
-        .dropdown-btn:hover {
-            border-color: var(--it-blue);
-            color: var(--it-blue);
-        }
-        .dropdown-menu {
-            position: absolute;
-            top: calc(100% + 14px);
-            left: 0;
-            right: auto;
-            background: var(--dropdown-bg);
-            backdrop-filter: blur(30px);
-            border: 1px solid var(--border-color);
-            border-radius: 18px;
-            width: 220px;
-            box-shadow: 0 25px 50px var(--shadow-dark), inset 0 2px 6px var(--inset-light);
-            display: none;
-            flex-direction: column;
-            padding: 0.4rem;
-            z-index: 9999;
-            transform-origin: top left;
-            animation: dropOpen 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        body[dir="ltr"] .dropdown-menu {
-            left: auto;
-            right: 0;
-            transform-origin: top right;
-        }
-        .dropdown-menu.show {
-            display: flex !important;
-        }
-        @keyframes dropOpen {
-            from {
-                opacity: 0;
-                transform: scaleY(0.5) translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: scaleY(1) translateY(0);
-            }
-        }
-        .dropdown-item {
-            display: flex;
-            align-items: center;
-            padding: 0.9rem 1.2rem;
-            border-radius: 14px;
-            cursor: pointer;
-            color: var(--text-main);
-            transition: var(--transition);
-            gap: 1rem;
-        }
-        .dropdown-item:hover {
-            background: var(--item-hover);
-            color: var(--it-green);
-        }
-        .dropdown-item.active {
-            background: rgba(100, 255, 218, 0.12);
-            color: var(--it-green);
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
-        }
-        .check-icon {
-            opacity: 0;
-            font-size: 1.1rem;
-            width: 20px;
-            color: var(--it-green);
-        }
-        .dropdown-item.active .check-icon {
-            opacity: 1;
-        }
-        .lang-name {
-            flex: 1;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: inherit;
-        }
-        .lang-code {
-            font-weight: 900;
-            opacity: 0.5;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: inherit;
-        }
-
-        .sidebar-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 998;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-        }
-        .sidebar-overlay.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -360px;
-            width: 320px;
-            height: 100vh;
-            background: var(--dropdown-bg);
-            backdrop-filter: blur(35px);
-            z-index: 1000;
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-            box-shadow: -15px 0 50px rgba(0, 0, 0, 0.7);
-            border-left: 1px solid var(--border-color);
-            transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .sidebar.open {
-            right: 0;
-        }
-        body[dir="ltr"] .sidebar {
-            right: auto;
-            left: -360px;
-            border-left: none;
-            border-right: 1px solid var(--border-color);
-            box-shadow: 15px 0 50px rgba(0, 0, 0, 0.7);
-            transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        body[dir="ltr"] .sidebar.open {
-            left: 0;
-        }
-        .close-btn {
-            align-self: flex-end;
-            background: transparent;
-            color: var(--text-main);
-            border: none;
-            font-size: 2.6rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .close-btn:hover {
-            color: var(--it-red);
-            transform: scale(1.1) rotate(90deg);
-        }
-        .sidebar-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .sidebar-link {
-            text-align: center;
-            font-size: 1.15rem;
-            font-weight: 800;
-            padding: 1.2rem;
-            background: var(--btn-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px var(--shadow-dark), inset 0 2px 5px var(--inset-light);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        .sidebar-link:hover,
-        .sidebar-link.active {
-            background: rgba(100, 255, 218, 0.12);
-            color: var(--it-green);
-            border-color: var(--it-green);
-            box-shadow: inset 0 2px 12px rgba(100, 255, 218, 0.15);
-            transform: translateY(-3px);
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 140px 5% 4rem;
-            min-height: 100vh;
-            position: relative;
-            z-index: 10;
-        }
-        .tab-content {
-            display: none;
-            width: 100%;
-            max-width: 1100px;
-            opacity: 0;
-            transform: translateY(50px) scale(0.96);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .tab-content.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        .tilt-box {
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            transition: transform 0.08s ease;
-            will-change: transform;
-        }
-        .card-3d {
-            background: var(--card-bg);
-            backdrop-filter: blur(25px);
-            border-radius: 34px;
-            padding: 4rem 3.5rem;
-            text-align: center;
-            box-shadow: 25px 25px 70px var(--shadow-dark), -12px -12px 45px var(--shadow-light), inset 4px 4px 18px var(--inset-light), inset -6px -6px 18px var(--inset-dark);
-            border: 1px solid var(--border-color);
-            transform-style: preserve-3d;
-            transform: translateZ(30px);
-            position: relative;
-            transition: border-color 0.4s ease;
-        }
-        .card-3d::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 34px;
-            background: linear-gradient(rgba(100, 255, 218, 0.02) 50%, rgba(0, 0, 0, 0.06) 50%);
-            background-size: 100% 4px;
-            pointer-events: none;
+        .overlay-mask {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, transparent 0%, var(--deep-dark) 100%);
             z-index: -1;
         }
-        h2 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            color: var(--text-main);
-            margin-bottom: 1.2rem;
-            text-shadow: 0 1px 0 #495670, 0 2px 0 #2d3748, 0 3px 0 #1a202c, 0 4px 10px rgba(0, 0, 0, 0.5);
-            letter-spacing: 1px;
-            transition: color 0.5s ease;
-            transform: translateZ(50px);
-        }
 
-        .section-sub {
-            font-size: 1.2rem;
-            line-height: 2.2;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            font-weight: 600;
-            transform: translateZ(40px);
+        .container {
+            position: relative; z-index: 1;
+            max-width: 410px; width: 92%; margin: 40px auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 45px;
+            padding: 55px 20px;
             text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+            border: 1px solid var(--border-white);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
         }
 
-        .home-title {
-            font-size: 4.8rem;
-            font-weight: 900;
-            margin-bottom: 1.2rem;
-            letter-spacing: 2px;
-            transform: translateZ(60px);
-            background: linear-gradient(135deg, #ffffff 0%, var(--it-green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 4px 25px rgba(100, 255, 218, 0.35));
-        }
-        body.light-mode .home-title {
-            background: linear-gradient(135deg, #0f172a 0%, #059669 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
-        }
-        .home-desc {
-            font-size: 1.3rem;
-            line-height: 2.2;
-            color: var(--text-muted);
-            font-weight: 700;
-            max-width: 780px;
-            margin: 0 auto 3rem;
-            transform: translateZ(40px);
-            text-align: center;
-        }
-        .main-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            padding: 18px 50px;
-            font-size: 1.3rem;
-            font-weight: 900;
-            color: #050b14;
-            background: var(--grad-green);
-            border: 2px solid rgba(255, 255, 255, 0.35);
-            border-radius: 60px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 12px 40px rgba(100, 255, 218, 0.35), inset 0 2px 12px rgba(255, 255, 255, 0.5);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            cursor: pointer;
-            transform: translateZ(50px);
-        }
-        .main-cta:hover {
-            transform: translateZ(60px) translateY(-6px) scale(1.04);
-            box-shadow: 0 18px 50px rgba(100, 255, 218, 0.5), inset 0 2px 18px rgba(255, 255, 255, 0.6);
-            border-color: #fff;
+        .profile-wrapper {
+            position: relative; width: 170px; height: 170px; margin: 0 auto 35px;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .profile-wrap {
-            width: 220px;
-            height: 220px;
-            margin: 0 auto 2.5rem;
-            perspective: 1200px;
-            cursor: pointer;
-            transform: translateZ(60px);
-        }
-        .profile-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 20px 45px var(--shadow-dark), inset 0 8px 20px var(--inset-light), inset 0 -8px 20px var(--inset-dark);
-            background: var(--bg-color);
-        }
-        .profile-wrap:hover .profile-inner {
-            transform: rotateY(18deg) rotateX(8deg);
-            box-shadow: 0 0 50px rgba(100, 255, 218, 0.4);
-        }
-        .profile-inner.flip {
-            transform: rotateY(180deg);
-        }
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            backface-visibility: hidden;
-            border: 4px solid var(--it-green);
-        }
-        .img-back {
-            transform: rotateY(180deg);
-            border-color: var(--it-blue);
+        .tech-ring {
+            position: absolute; width: 100%; height: 100%;
+            border: 2px dashed var(--it-blue); border-radius: 50%;
+            opacity: 0.3; animation: rotate-ring 10s linear infinite;
         }
 
-        .about-text {
-            font-size: 1.15rem;
-            line-height: 2.4;
-            color: var(--text-muted);
-            font-weight: 500;
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 0 0.5rem;
-        }
-        .about-text p {
-            margin-bottom: 1rem;
-            text-align: right;
-        }
-        body[dir="ltr"] .about-text p {
-            text-align: left;
+        .profile-inner-frame {
+            position: relative; width: 145px; height: 145px; border-radius: 50%;
+            padding: 3px; background: linear-gradient(45deg, var(--it-blue), transparent, var(--it-green));
+            background-size: 200% 200%; animation: gradient-shift 3s ease infinite;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
         }
 
-        .link-nosh {
-            display: inline-block;
-            font-weight: 800;
-            text-decoration: none;
-            padding: 2px 18px;
-            border-radius: 10px;
-            background: rgba(56, 189, 248, 0.10);
-            color: var(--nosh-blue);
-            border: 2px solid rgba(56, 189, 248, 0.20);
-            transition: var(--transition);
-            font-size: 1.05rem;
-            letter-spacing: 0.3px;
-            box-shadow: 0 2px 10px rgba(56, 189, 248, 0.08);
-            margin: 0 4px;
-        }
-        .link-nosh:hover {
-            background: var(--nosh-blue);
-            color: #fff;
-            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
-            transform: translateY(-2px) scale(1.04);
-            border-color: var(--nosh-blue);
-        }
-        body.light-mode .link-nosh {
-            background: rgba(2, 132, 199, 0.06);
-            border-color: rgba(2, 132, 199, 0.15);
-        }
-        body.light-mode .link-nosh:hover {
-            background: #0284c7;
-            color: #fff;
-        }
-        .link-kurd {
-            display: inline-block;
-            font-weight: 800;
-            text-decoration: none;
-            padding: 2px 18px;
-            border-radius: 10px;
-            background: rgba(251, 146, 60, 0.10);
-            color: var(--kurd-orange);
-            border: 2px solid rgba(251, 146, 60, 0.20);
-            transition: var(--transition);
-            font-size: 1.05rem;
-            letter-spacing: 0.3px;
-            box-shadow: 0 2px 10px rgba(251, 146, 60, 0.08);
-            margin: 0 4px;
-        }
-        .link-kurd:hover {
-            background: var(--kurd-orange);
-            color: #fff;
-            box-shadow: 0 8px 25px rgba(251, 146, 60, 0.35);
-            transform: translateY(-2px) scale(1.04);
-            border-color: var(--kurd-orange);
-        }
-        body.light-mode .link-kurd {
-            background: rgba(234, 88, 12, 0.06);
-            border-color: rgba(234, 88, 12, 0.15);
-        }
-        body.light-mode .link-kurd:hover {
-            background: #ea580c;
-            color: #fff;
-        }
-        .link-icon {
-            margin: 0 6px 0 4px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-        .link-icon-out {
-            margin: 0 2px 0 6px;
-            font-size: 0.65rem;
-            opacity: 0.6;
+        .logo-img { 
+            position: relative; width: 138px; height: 138px; border-radius: 50%; object-fit: cover; z-index: 2; 
+            border: 3px solid var(--deep-dark);
+            animation: profile-pulse 4s ease-in-out infinite;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 2rem;
-            margin-top: 2.5rem;
-            transform: translateZ(40px);
-            perspective: 800px;
-        }
-        .skill-card {
-            position: relative;
-            background: var(--btn-bg);
-            padding: 2rem 1.8rem;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            border: 2px solid transparent;
-            box-shadow: 0 10px 30px var(--shadow-dark), inset 0 2px 6px var(--inset-light);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            text-align: right;
-            cursor: default;
-            transform-style: preserve-3d;
-            animation: skillFloat 4s ease-in-out infinite;
-        }
-        body[dir="ltr"] .skill-card {
-            text-align: left;
-        }
-        .skill-card-1 {
-            border-color: rgba(100, 255, 218, 0.3);
-            animation-delay: 0s;
-        }
-        .skill-card-1 .skill-icon {
-            background: rgba(100, 255, 218, 0.15);
-            color: #64ffda;
-        }
-        .skill-card-1 .skill-glow {
-            background: radial-gradient(circle, rgba(100, 255, 218, 0.15) 0%, transparent 70%);
-        }
-        .skill-card-2 {
-            border-color: rgba(56, 189, 248, 0.3);
-            animation-delay: 0.5s;
-        }
-        .skill-card-2 .skill-icon {
-            background: rgba(56, 189, 248, 0.15);
-            color: #38bdf8;
-        }
-        .skill-card-2 .skill-glow {
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-        }
-        .skill-card-3 {
-            border-color: rgba(251, 146, 60, 0.3);
-            animation-delay: 1s;
-        }
-        .skill-card-3 .skill-icon {
-            background: rgba(251, 146, 60, 0.15);
-            color: #fb923c;
-        }
-        .skill-card-3 .skill-glow {
-            background: radial-gradient(circle, rgba(251, 146, 60, 0.15) 0%, transparent 70%);
-        }
-        .skill-card-4 {
-            border-color: rgba(196, 113, 237, 0.3);
-            animation-delay: 1.5s;
-        }
-        .skill-card-4 .skill-icon {
-            background: rgba(196, 113, 237, 0.15);
-            color: #c471ed;
-        }
-        .skill-card-4 .skill-glow {
-            background: radial-gradient(circle, rgba(196, 113, 237, 0.15) 0%, transparent 70%);
-        }
-        .skill-glow {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-            pointer-events: none;
-            z-index: 0;
-        }
-        .skill-content {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-        }
-        .skill-label {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin-bottom: 6px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            transition: color 0.4s ease;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-        .skill-badge {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            opacity: 0.5;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-family: 'Fira Code', monospace;
-            transition: opacity 0.4s ease;
-        }
-        .skill-icon {
-            position: relative;
-            z-index: 2;
-            width: 64px;
-            height: 64px;
-            border-radius: 18px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            box-shadow: inset 0 3px 10px var(--inset-dark);
-            flex-shrink: 0;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        @keyframes skillFloat {
-            0%,
-            100% {
-                transform: translateY(0px) rotateX(0deg) rotateY(0deg);
-            }
-            50% {
-                transform: translateY(-8px) rotateX(2deg) rotateY(2deg);
-            }
-        }
-        .skill-card:hover {
-            transform: translateY(-12px) scale(1.03) rotateX(3deg) rotateY(3deg);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(100, 255, 218, 0.05);
-            border-color: var(--it-green);
-        }
-        .skill-card:hover .skill-glow {
-            opacity: 1;
-        }
-        .skill-card:hover .skill-icon {
-            transform: scale(1.15) rotate(-8deg);
-            box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
-        }
-        .skill-card:hover .skill-label {
-            color: #fff;
-            text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-        }
-        .skill-card:hover .skill-badge {
-            opacity: 0.9;
-            color: var(--it-green);
-        }
-        body.light-mode .skill-card {
-            background: rgba(255, 255, 255, 0.6);
-            border-color: rgba(200, 200, 200, 0.3);
-        }
-        body.light-mode .skill-card:hover {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: var(--it-green);
-        }
-        body.light-mode .skill-card:hover .skill-label {
-            color: var(--text-main);
-        }
+        @keyframes rotate-ring { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes profile-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-        #qrcode .card-3d {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 3.5rem 3rem;
-        }
-        .qr-editor-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem 2.5rem;
-            margin-top: 1.5rem;
-            text-align: right;
-            transform: translateZ(40px);
-        }
-        body[dir="ltr"] .qr-editor-grid {
-            text-align: left;
-        }
-        .qr-field {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-        .qr-field label {
-            font-weight: 800;
-            font-size: 0.95rem;
-            color: var(--it-green);
-            letter-spacing: 0.5px;
-        }
-        .qr-field input,
-        .qr-field select {
-            width: 100%;
-            padding: 14px 16px;
-            border-radius: 16px;
-            border: 2px solid var(--border-color);
-            background: rgba(0, 0, 0, 0.25);
-            color: var(--text-main);
-            font-size: 1rem;
-            outline: none;
-            transition: var(--transition);
-            font-weight: 600;
-            box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.3);
-            -webkit-appearance: none;
-            appearance: none;
-        }
-        .qr-field input:focus,
-        .qr-field select:focus {
-            border-color: var(--it-green);
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.15), inset 0 3px 10px rgba(0, 0, 0, 0.3);
-        }
-        .qr-field input[type="color"] {
-            height: 52px;
-            padding: 4px;
-            cursor: pointer;
-            border-radius: 16px;
-        }
-        .qr-field select {
-            cursor: pointer;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364ffda' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: left 16px center;
-            padding-left: 44px;
-        }
-        body[dir="ltr"] .qr-field select {
-            background-position: right 16px center;
-            padding-left: 16px;
-            padding-right: 44px;
-        }
-        .qr-field select option {
-            background: #112240;
-            color: #e6f1ff;
-        }
-        .qr-field-full {
-            grid-column: 1 / -1;
-        }
-        .qr-preview-area {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 2rem 0 2.5rem;
-            transform: translateZ(50px);
-        }
-        #qr-preview-container {
-            background: #ffffff;
-            padding: 24px;
-            border-radius: 28px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(100, 255, 218, 0.15);
-            min-width: 220px;
-            min-height: 220px;
-            transition: all 0.4s ease;
-            border: 2px solid var(--border-color);
-        }
-        #qr-preview-container canvas,
-        #qr-preview-container svg {
-            max-width: 100%;
-            height: auto;
-            border-radius: 14px;
-            display: block;
-        }
-        .qr-preview-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin-top: 12px;
-            letter-spacing: 2px;
-            opacity: 0.7;
-        }
-        .download-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            transform: translateZ(50px);
-            margin-top: 0.5rem;
-        }
-        .dl-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 16px 30px;
-            font-size: 1rem;
-            font-weight: 800;
-            border-radius: 18px;
-            border: 2px solid var(--border-color);
-            background: var(--btn-bg);
-            color: var(--text-main);
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 6px 20px var(--shadow-dark), inset 0 2px 6px var(--inset-light);
-            min-width: 160px;
-        }
-        .dl-btn:hover {
-            transform: translateY(-4px) scale(1.03);
-            border-color: var(--it-green);
-            color: var(--it-green);
-            box-shadow: 0 12px 35px rgba(100, 255, 218, 0.2);
-        }
-        .dl-btn .badge {
-            font-size: 0.7rem;
-            font-weight: 700;
-            background: rgba(100, 255, 218, 0.12);
-            padding: 2px 10px;
-            border-radius: 30px;
-            color: var(--it-green);
-            letter-spacing: 0.5px;
-        }
-        .dl-btn-primary {
-            background: var(--grad-green);
-            color: #050b14;
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
-        }
-        .dl-btn-primary:hover {
-            border-color: #fff;
-            color: #050b14;
-            box-shadow: 0 14px 45px rgba(100, 255, 218, 0.5);
-            transform: translateY(-4px) scale(1.03);
-        }
-        .dl-btn-primary .badge {
-            background: rgba(0, 0, 0, 0.15);
-            color: #050b14;
-        }
-        .dl-btn-premium {
-            background: var(--grad-purple);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 8px 25px rgba(196, 113, 237, 0.3);
-        }
-        .dl-btn-premium:hover {
-            border-color: #fff;
-            box-shadow: 0 14px 45px rgba(196, 113, 237, 0.5);
-            transform: translateY(-4px) scale(1.03);
-            color: #fff;
-        }
-        .dl-btn-premium .badge {
-            background: rgba(255, 255, 255, 0.15);
-            color: #fff;
-        }
-        .gen-btn {
-            background: var(--grad-green);
-            color: #050b14;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 16px 40px;
-            font-size: 1.1rem;
-            border-radius: 60px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.25);
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .gen-btn:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 14px 45px rgba(100, 255, 218, 0.4);
-            border-color: #fff;
-        }
-
-        #contact .card-3d {
-            max-width: 580px;
-            margin: 0 auto;
-            padding: 3rem 2.5rem;
-        }
-        .c-avatar-wrap {
-            position: relative;
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: translateZ(60px);
-        }
-        .c-ring {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px dashed var(--it-blue);
-            border-radius: 50%;
-            opacity: 0.4;
-            animation: spinRing 12s linear infinite;
-        }
-        @keyframes spinRing {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        .c-frame {
-            position: relative;
-            width: 138px;
-            height: 138px;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(45deg, var(--it-blue), transparent, var(--it-green));
-            background-size: 200% 200%;
-            animation: gradShift 4s ease infinite, pulseFrame 4s ease-in-out infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
-        }
-        @keyframes gradShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-        @keyframes pulseFrame {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.06);
-                box-shadow: 0 0 45px rgba(100, 255, 218, 0.5);
-            }
-        }
-        .c-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--bg-color);
-            background: var(--bg-color);
-        }
-        .c-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--text-main);
-            margin-bottom: 2px;
-            text-shadow: 0 0 20px rgba(100, 255, 218, 0.15);
-            transform: translateZ(50px);
-        }
-        .c-title {
-            font-size: 11px;
-            color: var(--it-green);
-            font-weight: 700;
-            letter-spacing: 4px;
-            margin-bottom: 35px;
-            opacity: 0.8;
-            transform: translateZ(50px);
-        }
+        .name-main { font-family: 'Orbitron', sans-serif; font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 5px; text-shadow: 0 0 15px rgba(255,255,255,0.2); }
+        .name-sub { font-size: 11px; color: var(--it-blue); font-weight: 700; letter-spacing: 4px; margin-bottom: 40px; opacity: 0.8; }
 
         .service-card {
-            background: rgba(2, 12, 27, 0.4);
-            border-radius: 28px;
-            padding: 28px 20px;
-            margin-bottom: 32px;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(100, 255, 218, 0.05);
-            transform: translateZ(40px);
-            border: 2px solid var(--border-color);
-            transition: all 0.4s ease;
-        }
-        body.light-mode .service-card {
-            background: rgba(255, 255, 255, 0.4);
-        }
-        .service-card:hover {
-            border-color: var(--it-green);
-            box-shadow: 0 0 30px rgba(100, 255, 218, 0.08);
-        }
-        .service-content {
-            transition: all 0.4s ease;
-            width: 100%;
-        }
-        .service-icon-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 56px;
-            margin-bottom: 10px;
-        }
-        .service-icon-wrap i {
-            font-size: 2rem;
-        }
-        .service-text {
-            font-size: 1.2rem;
-            font-weight: 800;
-            display: block;
-            letter-spacing: 1px;
-        }
-        .service-desc {
-            font-size: 0.85rem;
-            font-weight: 600;
-            opacity: 0.8;
-            margin-top: 6px;
-            line-height: 1.6;
-            color: var(--text-muted);
-        }
-        .kurdish-flag-svg {
-            width: 50px;
-            height: 50px;
-            filter: drop-shadow(0 0 12px var(--kurd-sun));
-            animation: spinRing 15s linear infinite;
-        }
-        .theme-green {
-            border-color: var(--it-green) !important;
-        }
-        .theme-blue {
-            border-color: var(--it-blue) !important;
-        }
-        .theme-red {
-            border-color: var(--it-red) !important;
-        }
-        .theme-kurdish {
-            border-color: var(--kurd-sun) !important;
-            background: linear-gradient(180deg, rgba(237, 28, 36, 0.1) 0%, rgba(2, 12, 27, 0.5) 50%, rgba(39, 133, 64, 0.1) 100%) !important;
-        }
-        body.light-mode .theme-kurdish {
-            background: linear-gradient(180deg, rgba(237, 28, 36, 0.1) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(39, 133, 64, 0.1) 100%) !important;
-        }
-
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 35px;
-            transform: translateZ(40px);
-        }
-        .contact-item {
-            background: rgba(2, 12, 27, 0.4);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 16px 18px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            position: relative;
+            background: rgba(255, 255, 255, 0.04); border-radius: 25px; padding: 25px; margin-bottom: 35px;
+            transition: all 0.4s ease; height: 130px; display: flex; align-items: center; justify-content: center;
             overflow: hidden;
             cursor: pointer;
-        }
-        body.light-mode .contact-item {
-            background: rgba(255, 255, 255, 0.4);
-        }
-        .contact-item::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.06), transparent);
-            transition: 0.5s;
-        }
-        .contact-item:hover::before {
-            left: 100%;
-        }
-        .contact-item:hover {
-            background: rgba(100, 255, 218, 0.04);
-            transform: translateX(-4px) scale(1.01);
-            border-color: var(--it-green);
-        }
-        body[dir="ltr"] .contact-item:hover {
-            transform: translateX(4px) scale(1.01);
-        }
-        .contact-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            background: rgba(0, 242, 255, 0.06);
-            color: var(--it-blue);
-            flex-shrink: 0;
-        }
-        .contact-info {
-            flex: 1;
-            text-align: right;
-        }
-        body[dir="ltr"] .contact-info {
-            text-align: left;
-        }
-        .contact-info .label {
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 800;
-            direction: ltr;
-        }
-        .contact-info .sub {
-            display: block;
-            font-size: 0.7rem;
-            opacity: 0.6;
-            margin-top: 2px;
-        }
-        .border-blue {
-            border-left: 5px solid var(--it-blue) !important;
-        }
-        .border-green {
-            border-left: 5px solid var(--it-green) !important;
-        }
-        body[dir="ltr"] .border-blue,
-        body[dir="ltr"] .border-green {
-            border-left: none !important;
-        }
-        body[dir="ltr"] .border-blue {
-            border-right: 5px solid var(--it-blue) !important;
-        }
-        body[dir="ltr"] .border-green {
-            border-right: 5px solid var(--it-green) !important;
+            min-height: 130px;
         }
 
-        /* ===== سۆشیال میدیا — گەورە، دوو رێز، هەر رێزێ ٥ ===== */
-        .social-row {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
-            max-width: 420px;
-            margin: 0 auto 15px;
-            transform: translateZ(40px);
-            justify-items: center;
-            align-items: center;
-        }
-        .social-link {
-            width: 68px;
-            height: 68px;
-            background: var(--btn-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 1.8rem;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            position: relative;
-            z-index: 5;
-            pointer-events: auto;
-            aspect-ratio: 1;
-            box-shadow: 0 4px 15px var(--shadow-dark);
-        }
-        .social-link:hover {
-            border-radius: 50%;
-            background: var(--it-green);
-            color: #000;
-            transform: scale(1.12) rotate(360deg) translateY(-5px);
-            box-shadow: 0 12px 30px rgba(100, 255, 218, 0.4);
-            border-color: var(--it-green);
-        }
-        .social-link:active {
-            transform: scale(0.92);
+        #service-text { font-family: 'Poppins', sans-serif; font-size: 19px; font-weight: 800; display: block; }
+        #service-desc { font-size: 14px; font-weight: 400; opacity: 0.9; margin-top: 8px; line-height: 1.6; }
+
+        .anim-systems { animation: rotate-ring 3s linear infinite; display: inline-block; font-size: 28px; }
+        .anim-security { animation: profile-pulse 1.2s ease-in-out infinite; display: inline-block; font-size: 28px; }
+        
+        .kurdish-flag-svg { 
+            width: 45px; height: 45px; 
+            filter: drop-shadow(0 0 10px var(--kurd-sun));
+            animation: rotate-ring 15s linear infinite;
         }
 
-        .footer-note {
-            margin-top: 45px;
-            font-size: 10px;
-            font-weight: 700;
-            opacity: 0.4;
-            font-family: 'Fira Code', monospace;
-            letter-spacing: 2px;
-            border-top: 1px solid var(--border-color);
-            padding-top: 22px;
-            color: var(--text-main);
-            text-align: center;
-            transform: translateZ(30px);
+        .theme-green { border: 2px solid var(--it-green); color: var(--it-green); }
+        .theme-blue { border: 2px solid var(--it-blue); color: var(--it-blue); }
+        .theme-red { border: 2px solid var(--it-red); color: var(--it-red); }
+        .theme-kurdish { 
+            border: 2px solid var(--kurd-sun); 
+            background: linear-gradient(180deg, rgba(237,28,36,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(39,133,64,0.1) 100%);
         }
 
-        .exit-up {
-            opacity: 0;
-            transform: translateY(-18px) scale(0.95);
-            filter: blur(3px);
+        .contact-list { display: flex; flex-direction: column; gap: 15px; margin-bottom: 40px; }
+        .action-item {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px; padding: 16px 20px; display: flex; align-items: center; gap: 15px;
+            text-decoration: none; color: #fff; transition: all 0.3s ease;
         }
-        .enter-bottom {
-            opacity: 0;
-            transform: translateY(18px) scale(1.05);
-            filter: blur(3px);
-        }
-        .anim-systems {
-            animation: spinRing 4s linear infinite;
-            display: inline-block;
-        }
-        .anim-security {
-            animation: pulseFrame 1.2s ease-in-out infinite;
-            display: inline-block;
-        }
+        .action-item:hover { background: rgba(255, 255, 255, 0.07); transform: translateY(-3px); border-color: var(--it-blue); }
+        .icon-box { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: rgba(0, 242, 255, 0.1); color: var(--it-blue); }
+        .info-box { text-align: right; flex-grow: 1; }
+        .info-title { display: block; font-size: 15px; font-weight: 800; direction: ltr; }
+        .info-tag { display: block; font-size: 11px; opacity: 0.5; margin-top: 3px; }
 
-        @media (max-width: 850px) {
-            nav {
-                padding: 0.5rem 1rem;
-                width: 94%;
-                border-radius: 20px;
-            }
-            .center-logo img {
-                height: 110px;
-                max-width: 200px;
-                margin: -35px 0;
-            }
-            .nav-side {
-                gap: 0.4rem;
-            }
-            .theme-btn,
-            .dropdown-btn,
-            .hamburger-btn {
-                height: 40px;
-                border-radius: 12px;
-            }
-            .theme-btn,
-            .hamburger-btn {
-                width: 40px;
-                font-size: 1rem;
-            }
-            .dropdown-btn {
-                padding: 0 0.6rem;
-                gap: 0.4rem;
-                font-size: 0.85rem;
-            }
-            .dropdown-menu {
-                width: 200px;
-            }
-            #selectedLangText {
-                display: none;
-            }
-            main {
-                padding-top: 110px;
-            }
-            .card-3d {
-                padding: 2.5rem 1.2rem;
-                border-radius: 24px;
-            }
-            h2 {
-                font-size: 2.2rem;
-            }
-            .home-title {
-                font-size: 2.6rem;
-            }
-            .home-desc {
-                font-size: 1.05rem;
-                line-height: 1.9;
-                margin-bottom: 2rem;
-            }
-            .main-cta {
-                width: 100%;
-                padding: 16px 20px;
-                font-size: 1.1rem;
-            }
-            #qrcode .card-3d {
-                padding: 2rem 1rem;
-            }
-            .qr-editor-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .qr-field-full {
-                grid-column: 1;
-            }
-            .download-grid {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .dl-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            #contact .card-3d {
-                padding: 2rem 1rem;
-            }
-            .tilt-box {
-                transform: none !important;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.2rem;
-            }
-            .skill-card {
-                padding: 1.5rem 1.2rem;
-                flex-direction: column;
-                text-align: center;
-                animation: none;
-            }
-            .skill-card:hover {
-                transform: translateY(-6px) scale(1.02);
-            }
-            .skill-icon {
-                width: 54px;
-                height: 54px;
-                font-size: 1.5rem;
-            }
-            .skill-label {
-                font-size: 1rem;
-            }
-            .about-text {
-                font-size: 1rem;
-                line-height: 2.2;
-                padding: 0;
-            }
-            .link-nosh,
-            .link-kurd {
-                font-size: 0.95rem;
-                padding: 2px 12px;
-            }
-            .section-sub {
-                font-size: 1.05rem;
-                line-height: 2;
-                padding: 0 1rem;
-            }
-            .c-avatar-wrap {
-                width: 130px;
-                height: 130px;
-            }
-            .c-frame {
-                width: 112px;
-                height: 112px;
-            }
-            .c-img {
-                width: 104px;
-                height: 104px;
-            }
-            .c-name {
-                font-size: 20px;
-            }
-            .social-link {
-                width: 60px;
-                height: 60px;
-                font-size: 1.6rem;
-            }
-            .social-row {
-                gap: 14px;
-            }
+        .border-blue { border-left: 4px solid var(--it-blue) !important; }
+        .border-green { border-left: 4px solid var(--it-green) !important; }
+
+        .social-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+        .s-link {
+            width: 55px; height: 55px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50% 10% 50% 10%; display: flex; align-items: center; justify-content: center; color: #fff;
+            text-decoration: none; font-size: 22px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        @media (max-width: 480px) {
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            .skill-card {
-                flex-direction: row;
-                text-align: right;
-                padding: 1.2rem 1rem;
-                animation: none;
-            }
-            body[dir="ltr"] .skill-card {
-                text-align: left;
-            }
-            .home-title {
-                font-size: 2rem;
-            }
-            .c-name {
-                font-size: 18px;
-            }
-            .c-frame {
-                width: 100px;
-                height: 100px;
-            }
-            .c-img {
-                width: 92px;
-                height: 92px;
-            }
-            .c-avatar-wrap {
-                width: 115px;
-                height: 115px;
-            }
-            .profile-wrap {
-                width: 160px;
-                height: 160px;
-            }
-            .link-nosh,
-            .link-kurd {
-                font-size: 0.85rem;
-                padding: 2px 10px;
-            }
-            .about-text {
-                font-size: 0.95rem;
-                line-height: 2;
-            }
-            .skill-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 1.3rem;
-            }
-            .skill-label {
-                font-size: 0.95rem;
-            }
-            .section-sub {
-                font-size: 0.95rem;
-                line-height: 1.9;
-                padding: 0 0.5rem;
-            }
-            .contact-item {
-                padding: 12px 14px;
-                gap: 10px;
-            }
-            .contact-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            .contact-info .label {
-                font-size: 0.85rem;
-            }
-            .social-link {
-                width: 52px;
-                height: 52px;
-                font-size: 1.4rem;
-                border-radius: 14px;
-            }
-            .social-row {
-                gap: 10px;
-            }
+        .s-link:hover { border-radius: 50%; background: var(--it-blue); color: #000; transform: scale(1.15) rotate(360deg); box-shadow: 0 0 25px rgba(0, 242, 255, 0.4); }
+
+        .footer { margin-top: 50px; font-size: 10px; opacity: 0.4; font-family: 'Fira Code', monospace; letter-spacing: 2px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; }
+        .content-wrap { transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); width: 100%; }
+        .exit-up { opacity: 0; transform: translateY(-20px) scale(0.95); filter: blur(4px); }
+        .enter-bottom { opacity: 0; transform: translateY(20px) scale(0.95); filter: blur(4px); }
+
+        @media (max-width: 400px) {
+            .container { padding: 30px 12px; width: 96%; border-radius: 30px; }
+            .service-card { height: auto; padding: 20px; min-height: 120px; }
+            #service-desc { font-size: 14px; }
+            .name-main { font-size: 22px; }
+            .profile-wrapper { width: 140px; height: 140px; }
+            .profile-inner-frame { width: 120px; height: 120px; }
+            .logo-img { width: 114px; height: 114px; }
+            .social-grid { gap: 12px; }
+            .s-link { width: 48px; height: 48px; font-size: 18px; }
         }
     </style>
 </head>
+<body>
 
-<body dir="rtl">
+<video autoplay muted loop playsinline id="bg-video">
+  <source src="https://assets.mixkit.co/videos/preview/mixkit-data-center-server-room-with-blue-lights-2738-large.mp4" type="video/mp4">
+</video>
+<div class="overlay-mask"></div>
 
-    <canvas id="bg-canvas"></canvas>
-    <div class="color-bg"></div>
-    <div class="orb-container">
-        <div class="orb orb-blue"></div>
-        <div class="orb orb-green"></div>
-    </div>
-
-    <nav>
-        <div class="nav-side">
-            <button class="hamburger-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
-        </div>
-        <div class="center-logo">
-            <img src="https://i.postimg.cc/prWJfmG5/06FF3E40-CE7A-42E3-BF00-A58BC5381AE2.png" alt="Bizhar Rasheed" class="logo-dark" />
-            <img src="https://i.postimg.cc/MpC0sPPN/C7E5B155-3D24-4144-B6AF-FCB4EFD4B310.png" alt="Bizhar Rasheed" class="logo-light" />
-        </div>
-        <div class="nav-side controls">
-            <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="گۆهارتنا ڕووناکیێ">☀️</button>
-            <div class="custom-dropdown" id="langDropdown">
-                <button class="dropdown-btn" id="dropdownBtn" onclick="toggleLangMenu()">
-                    <i class="fa-solid fa-globe"></i>
-                    <span id="selectedLangText">KU | Badini</span>
-                    <i class="fa-solid fa-chevron-down" style="font-size:0.75rem;"></i>
-                </button>
-                <div class="dropdown-menu" id="dropdownMenu">
-                    <div class="dropdown-item active" data-lang="kub" onclick="selectLang('kub','KU | Badini',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Badini</span><span class="lang-code">KU</span></div>
-                    <div class="dropdown-item" data-lang="kus" onclick="selectLang('kus','KU | سورانی',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">سورانی</span><span class="lang-code">KU</span></div>
-                    <div class="dropdown-item" data-lang="kuk" onclick="selectLang('kuk','KU | Kurmanci',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Kurmanci</span><span class="lang-code">KU</span></div>
-                    <div class="dropdown-item" data-lang="ar" onclick="selectLang('ar','AR | العربية',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">العربية</span><span class="lang-code">AR</span></div>
-                    <div class="dropdown-item" data-lang="fa" onclick="selectLang('fa','FA | فارسی',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">فارسی</span><span class="lang-code">FA</span></div>
-                    <div class="dropdown-item" data-lang="en" onclick="selectLang('en','EN | English',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">English</span><span class="lang-code">EN</span></div>
-                    <div class="dropdown-item" data-lang="tr" onclick="selectLang('tr','TR | Türkçe',this)"><i class="fa-solid fa-check check-icon"></i><span class="lang-name">Türkçe</span><span class="lang-code">TR</span></div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-    <div class="sidebar" id="sidebarMenu">
-        <button class="close-btn" onclick="toggleSidebar()"><i class="fa-solid fa-xmark"></i></button>
-        <div class="sidebar-links">
-            <span class="sidebar-link active" onclick="switchTab('home')" data-i18n="nav_home">سەرەکی</span>
-            <span class="sidebar-link" onclick="switchTab('about')" data-i18n="nav_about">دەربارەی من</span>
-            <span class="sidebar-link" onclick="switchTab('skills')" data-i18n="nav_skills">شارەزایی</span>
-            <span class="sidebar-link" style="border-color:var(--it-green);color:var(--it-green);" onclick="switchTab('qrcode')"><i class="fa-solid fa-qrcode" style="margin:0 8px;"></i><span data-i18n="nav_qrcode">QR کۆد</span></span>
-            <span class="sidebar-link" onclick="switchTab('contact')" data-i18n="nav_contact">پەیوەندی</span>
+<div class="container">
+    <div class="profile-wrapper">
+        <div class="tech-ring"></div>
+        <div class="profile-inner-frame">
+            <img src="https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg" class="logo-img" alt="Bizhar">
         </div>
     </div>
 
-    <main>
+    <div class="name-main">BIZHAR RASHEED</div>
+    <div class="name-sub">PROFESSIONAL IT SOLUTIONS</div>
 
-        <section id="home" class="tab-content active">
-            <div class="tilt-box">
-                <div class="card-3d">
-                    <h1 class="home-title" data-i18n="site_name">بژار رەشید</h1>
-                    <p class="home-desc" data-i18n="home_desc">پێشەنگ د داهێنانێن تەکنۆلۆژی و داڕشتن و گەشەپێدانا پرۆگرامان دا. ئەز وەک شارەزایێ ئای تی و پروگرامسازەکێ خودان ئەزموون، کار دکەم بۆ گۆهۆڕینا هزران بۆ پرۆژەیێن سەردەمیانە.</p>
-                    <div style="display:flex;justify-content:center;">
-                        <button onclick="switchTab('contact')" class="main-cta">
-                            <i class="fa-solid fa-headset"></i> <span data-i18n="nav_contact">پەیوەندی</span>
-                        </button>
-                    </div>
-                </div>
+    <div id="service-btn" class="service-card theme-green">
+        <div id="service-content" class="content-wrap">
+            <div id="icon-container" style="height: 40px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+                <i id="service-icon" class="fa-solid fa-layer-group anim-systems"></i>
             </div>
-        </section>
+            <span id="service-text">SYSTEMS</span>
+            <div id="service-desc">Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</div>
+        </div>
+    </div>
 
-        <section id="about" class="tab-content">
-            <div class="tilt-box">
-                <div class="card-3d">
-                    <div class="profile-wrap" onclick="flipImage()" oncontextmenu="return false;">
-                        <div class="profile-inner" id="imgWrapper">
-                            <img src="https://i.postimg.cc/K8q6XS8b/IMG-1469.jpg" class="profile-img img-front" alt="Bizhar" />
-                            <img src="https://i.postimg.cc/zDTYyc0g/IMG-4582.jpg" class="profile-img img-back" alt="Bizhar" />
-                        </div>
-                    </div>
-                    <h2 data-i18n="nav_about">دەربارەی من</h2>
-                    <div class="about-text">
-                        <p data-i18n="about_p1"></p>
-                        <p data-i18n="about_p2" style="text-align:center;"></p>
-                        <p data-i18n="about_p3"></p>
-                        <p data-i18n="about_p4" style="text-align:center;"></p>
-                        <p data-i18n="about_p5"></p>
-                    </div>
-                </div>
+    <div class="contact-list">
+        <a href="tel:+9647503644666" class="action-item border-blue">
+            <div class="icon-box"><i class="fa-solid fa-phone-volume"></i></div>
+            <div class="info-box">
+                <span class="info-title">+964 750 364 4666</span>
+                <span class="info-tag">KOREK | پـەیـوەنـدی بکە</span>
             </div>
-        </section>
+        </a>
 
-        <section id="skills" class="tab-content">
-            <div class="tilt-box">
-                <div class="card-3d">
-                    <h2 data-i18n="nav_skills">شارەزایی</h2>
-                    <p class="section-sub" data-i18n="skills_desc">وەک ئای تی و روژنامەڤان و شارەزا د تەکنولوجیایا سەردەم دا وەک پروگرامەر کار دکەم.</p>
-                    <div class="skills-grid">
-                        <div class="skill-card skill-card-1">
-                            <div class="skill-icon"><i class="fa-solid fa-microchip"></i></div>
-                            <div class="skill-content">
-                                <div class="skill-label" data-i18n="skill_1">بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</div>
-                                <div class="skill-badge">⚡ Hardware</div>
-                            </div>
-                            <div class="skill-glow"></div>
-                        </div>
-                        <div class="skill-card skill-card-2">
-                            <div class="skill-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                            <div class="skill-content">
-                                <div class="skill-label" data-i18n="skill_2">بو پاراستنا ئەکاونتێن سوشیال میدیایێ</div>
-                                <div class="skill-badge">🔒 Security</div>
-                            </div>
-                            <div class="skill-glow"></div>
-                        </div>
-                        <div class="skill-card skill-card-3">
-                            <div class="skill-icon"><i class="fa-solid fa-bullhorn"></i></div>
-                            <div class="skill-content">
-                                <div class="skill-label" data-i18n="skill_3">دروستکرن و دانانا سیستەمێن سپونسەریێ</div>
-                                <div class="skill-badge">📢 Marketing</div>
-                            </div>
-                            <div class="skill-glow"></div>
-                        </div>
-                        <div class="skill-card skill-card-4">
-                            <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
-                            <div class="skill-content">
-                                <div class="skill-label" data-i18n="skill_4">گەشە پێدانا پروگرامان و پێشخستنا وان</div>
-                                <div class="skill-badge">🚀 Development</div>
-                            </div>
-                            <div class="skill-glow"></div>
-                        </div>
-                    </div>
-                </div>
+        <a href="https://api.whatsapp.com/send?phone=9647503644666" class="action-item border-green">
+            <div class="icon-box" style="color: var(--it-green); background: rgba(0, 255, 65, 0.1);"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="info-box">
+                <span class="info-title">WhatsApp Personal</span>
+                <span class="info-tag">نامێن تایبەت - Personal Chat</span>
             </div>
-        </section>
+        </a>
 
-        <section id="qrcode" class="tab-content">
-            <div class="tilt-box">
-                <div class="card-3d">
-                    <h2 data-i18n="qr_title">QR کۆد دروستکەرێ پڕۆفیشناڵ</h2>
-                    <p class="section-sub" data-i18n="qr_desc">لینکێ خۆ بنڤیسە، دیزاین بکە و ب کوالێتیەکا بەرز داونلۆد بکە.</p>
-                    <div class="qr-editor-grid">
-                        <div class="qr-field qr-field-full">
-                            <label data-i18n="qr_lbl_link">لینک (URL)</label>
-                            <input type="url" id="qr-url-input" placeholder="https://example.com" value="https://bizhar-cloud.github.io" />
-                        </div>
-                        <div class="qr-field">
-                            <label data-i18n="qr_lbl_color">ڕەنگێ خاڵان</label>
-                            <input type="color" id="qr-color-input" value="#059669" />
-                        </div>
-                        <div class="qr-field">
-                            <label data-i18n="qr_lbl_bg">ڕەنگێ باکگراوەند</label>
-                            <input type="color" id="qr-bg-input" value="#ffffff" />
-                        </div>
-                        <div class="qr-field">
-                            <label data-i18n="qr_lbl_style">شێوازێ خاڵان</label>
-                            <select id="qr-style-input">
-                                <option value="square" data-i18n="qr_opt_square">چوارگۆشە</option>
-                                <option value="dots" data-i18n="qr_opt_dots">خڕ (Dots)</option>
-                                <option value="rounded" data-i18n="qr_opt_rounded" selected>بازنەیی (Rounded)</option>
-                                <option value="classy" data-i18n="qr_opt_classy">کلاسیک</option>
-                            </select>
-                        </div>
-                        <div class="qr-field" style="display:flex;align-items:flex-end;">
-                            <button onclick="generateQRCode()" class="gen-btn" style="width:100%;justify-content:center;">
-                                <i class="fa-solid fa-rotate"></i> <span data-i18n="qr_btn_gen">دروستکرن</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="qr-preview-area">
-                        <div id="qr-preview-container"></div>
-                        <span class="qr-preview-label">✦ پێشبینین ✦</span>
-                    </div>
-                    <div class="download-grid">
-                        <button onclick="downloadQR(1024)" class="dl-btn" style="background:var(--grad-green);color:#050b14;border-color:rgba(255,255,255,0.3);">
-                            <i class="fa-solid fa-download"></i> داگرتنی QR <span class="badge">1024×1024</span>
-                        </button>
-                        <button onclick="downloadQR(1920)" class="dl-btn dl-btn-primary">
-                            <i class="fa-solid fa-image"></i> Full HD <span class="badge">1920×1920</span>
-                        </button>
-                        <button onclick="downloadQR(2560)" class="dl-btn">
-                            <i class="fa-solid fa-image"></i> 2K <span class="badge">2560×2560</span>
-                        </button>
-                        <button onclick="downloadQR(4096)" class="dl-btn dl-btn-premium">
-                            <i class="fa-solid fa-image"></i> 4K <span class="badge">4096×4096</span>
-                        </button>
-                    </div>
-                    <p style="font-size:0.75rem;color:var(--text-muted);margin-top:1.2rem;opacity:0.5;transform:translateZ(30px);">
-                        <i class="fa-regular fa-circle-check"></i> PNG · بێ لەدەستدان · کوالێتی بەرز
-                    </p>
-                </div>
+        <a href="tel:+9647503653355" class="action-item border-blue">
+            <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
+            <div class="info-box">
+                <span class="info-title">+964 750 365 3355</span>
+                <span class="info-tag">KOREK | هێلا دووێ</span>
             </div>
-        </section>
+        </a>
 
-        <section id="contact" class="tab-content">
-            <div class="tilt-box">
-                <div class="card-3d">
-
-                    <div class="c-avatar-wrap">
-                        <div class="c-ring"></div>
-                        <div class="c-frame">
-                            <img src="https://i.postimg.cc/MpNLqhYY/IMG-6220.jpg" class="c-img" alt="Bizhar" />
-                        </div>
-                    </div>
-
-                    <div class="c-name">BIZHAR RASHEED</div>
-                    <div class="c-title">PROFESSIONAL IT SOLUTIONS</div>
-
-                    <div id="service-btn" class="service-card theme-green">
-                        <div id="service-content" class="service-content">
-                            <div class="service-icon-wrap">
-                                <i id="service-icon" class="fa-solid fa-layer-group anim-systems"></i>
-                            </div>
-                            <span id="service-text" class="service-text">SYSTEMS</span>
-                            <div id="service-desc" class="service-desc">Advanced Devices Configuration<br />بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی</div>
-                        </div>
-                    </div>
-
-                    <div class="contact-list">
-                        <a href="https://api.whatsapp.com/send?phone=9647503644666" target="_blank" rel="noopener noreferrer" class="contact-item border-green">
-                            <div class="contact-icon" style="color:var(--it-green);background:rgba(100,255,218,0.08);">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-info">
-                                <span class="label">WhatsApp Personal</span>
-                                <span class="sub">نامێن تایبەت · Personal Chat</span>
-                            </div>
-                        </a>
-                        <a href="tel:+9647503653355" class="contact-item border-blue">
-                            <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
-                            <div class="contact-info">
-                                <span class="label">+964 750 365 3355</span>
-                                <span class="sub">KOREK | هێلا دووێ</span>
-                            </div>
-                        </a>
-                        <a href="https://api.whatsapp.com/send?phone=9647503653355" target="_blank" rel="noopener noreferrer" class="contact-item border-green">
-                            <div class="contact-icon" style="color:var(--it-green);background:rgba(100,255,218,0.08);">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-info">
-                                <span class="label">WhatsApp Business</span>
-                                <span class="sub">بۆ کارێن فەرمی و بازرگانی</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="social-row">
-                        <a href="https://www.facebook.com/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/bjarbergarey" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://t.me/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-telegram"></i></a>
-                        <a href="https://twitter.com/BjarBergarey" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://www.snapchat.com/add/bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-snapchat"></i></a>
-                        <a href="https://discord.gg/dQZAmGPVuq" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-discord"></i></a>
-                        <a href="https://www.tiktok.com/@bizharrasheed" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
-                        <a href="viber://add?number=9647503644666" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-viber"></i></a>
-                        <a href="mailto:bjar.bergarey@gmail.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="mailto:bjar07503644666@yahoo.com" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fa-brands fa-yahoo"></i></a>
-                    </div>
-
-                    <div class="footer-note">DEVELOPMENT BY: BIZHAR RASHEED · 2026 ©</div>
-                </div>
+        <a href="https://api.whatsapp.com/send?phone=9647503653355" class="action-item border-green">
+            <div class="icon-box" style="color: var(--it-green); background: rgba(0, 255, 65, 0.1);"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="info-box">
+                <span class="info-title">WhatsApp Business</span>
+                <span class="info-tag">بۆ کارێن فەرمی و بازرگانی</span>
             </div>
-        </section>
+        </a>
+    </div>
 
-    </main>
+    <div class="social-grid">
+        <a href="https://t.me/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+        <a href="viber://add?number=9647503644666" class="s-link" target="_blank"><i class="fa-brands fa-viber"></i></a>
+        <a href="https://www.tiktok.com/@bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.snapchat.com/add/bizharrasheed" class="s-link" target="_blank"><i class="fa-brands fa-snapchat"></i></a>
+        <a href="mailto:bizhar.rasheed@gmail.com" class="s-link" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://discord.gg/X7wS3jznjW" class="s-link" target="_blank"><i class="fa-brands fa-discord"></i></a>
+        <a href="https://twitter.com/BizharRasheed" class="s-link" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="mailto:bizhar07503644666@yahoo.com" class="s-link" target="_blank"><i class="fa-brands fa-yahoo"></i></a>
+    </div>
 
-    <script>
-        // ============================================================
-        // 1. Theme
-        // ============================================================
-        function toggleTheme() {
-            document.body.classList.toggle('light-mode');
-            const isLight = document.body.classList.contains('light-mode');
-            document.getElementById('themeToggle').innerText = isLight ? '🌙' : '☀️';
-            localStorage.setItem('siteTheme', isLight ? 'light' : 'dark');
-            initParticles();
+    <div class="footer">
+        DEVELOPMENT BY: BIZHAR RASHEED  |  2026 ©
+    </div>
+</div>
+
+<script>
+    // SVGی ئاڵای کوردستان
+    const sunSVG = `<svg class="kurdish-flag-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="250" cy="250" r="85" fill="#FEB811" />
+        <g fill="#FEB811">
+            ${Array.from({length: 21}, (_, i) => `
+                <polygon points="250,40 220,190 280,190" transform="rotate(${i * (360/21)}, 250, 250)" />
+            `).join('')}
+        </g>
+    </svg>`;
+
+    const services = [
+        { text: "SYSTEMS", desc: "Advanced Devices Configuration<br>بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی", isFlag: false, icon: "fa-layer-group", anim: "anim-systems", theme: "theme-green" },
+        { text: "SECURITY", desc: "Social Media Protection & Security<br>بو پاراستنا ئەکاونتێن سوشیال میدیایێ", isFlag: false, icon: "fa-shield-halved", anim: "anim-security", theme: "theme-red" },
+        { text: "ADS CREATOR", desc: "Professional Sponsored Campaigns<br>دروستکرن و دانانا سیستەمێن سپونسەریێ", isFlag: false, icon: "fa-rectangle-ad", anim: "anim-security", theme: "theme-blue" },
+        { text: "DEV_OPS", desc: "Software Development & Optimization<br>گەشە پێدانا پروگرامان و پێشخستنا وان", isFlag: false, icon: "fa-code-branch", anim: "anim-systems", theme: "theme-green" },
+        { text: "KURDISTAN", desc: "National Digital Heritage<br>پاراستنا ناسنامەیا نەتەوەیی د جیهانا تەکنۆلۆژیادا", isFlag: true, theme: "theme-kurdish" }
+    ];
+
+    let sIndex = 0;
+    const iconContainer = document.getElementById('icon-container');
+    const text = document.getElementById('service-text');
+    const desc = document.getElementById('service-desc');
+    const btn = document.getElementById('service-btn');
+    const content = document.getElementById('service-content');
+
+    // ئایکۆنی ئاسایی کە هەمیشە لە DOM دا دەمێنێتەوە
+    const defaultIcon = document.createElement('i');
+    defaultIcon.id = 'service-icon';
+    defaultIcon.className = 'fa-solid fa-layer-group anim-systems';
+    iconContainer.appendChild(defaultIcon);
+
+    function setService(index) {
+        const s = services[index];
+        
+        // پاککردنەوەی تەواوی ناوەرۆکی iconContainer (بەڵام ئایکۆنی بنەڕەت دەپارێزین)
+        while (iconContainer.firstChild) {
+            iconContainer.removeChild(iconContainer.firstChild);
         }
 
-        // ============================================================
-        // 2. Sidebar
-        // ============================================================
-        function toggleSidebar() {
-            document.getElementById('sidebarMenu').classList.toggle('open');
-            document.getElementById('sidebarOverlay').classList.toggle('show');
+        if (s.isFlag) {
+            // زیادکردنی SVG
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = sunSVG;
+            const flagEl = tempDiv.firstElementChild;
+            iconContainer.appendChild(flagEl);
+            text.style.color = "#FEB811";
+        } else {
+            // زیادکردنی ئایکۆنی ئاسایی
+            const iconEl = document.createElement('i');
+            iconEl.className = `fa-solid ${s.icon} ${s.anim}`;
+            iconContainer.appendChild(iconEl);
+            text.style.color = "#fff";
         }
 
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-            setTimeout(() => { document.getElementById(tabId).classList.add('active'); }, 40);
-            let target = document.querySelector(`.sidebar-link[onclick="switchTab('${tabId}')"]`);
-            if (target) target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            document.getElementById('sidebarMenu').classList.remove('open');
-            document.getElementById('sidebarOverlay').classList.remove('show');
-            tiltBoxes.forEach(box => { box.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)'; });
-        }
+        text.innerText = s.text;
+        desc.innerHTML = s.desc;
+        btn.className = "service-card " + s.theme;
+    }
 
-        // ============================================================
-        // 3. Flip Image
-        // ============================================================
-        let isFlipped = false;
+    // گۆڕینی کارت هەر 5 چرکە جارێک
+    setInterval(() => {
+        content.classList.add("exit-up");
 
-        function flipImage() {
-            const w = document.getElementById('imgWrapper');
-            isFlipped = !isFlipped;
-            w.classList.toggle('flip', isFlipped);
-        }
-        document.addEventListener('contextmenu', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+        setTimeout(() => {
+            sIndex = (sIndex + 1) % services.length;
+            
+            // نەهێشتنی کلاسەکانی ئەنیمەیشن
+            content.classList.remove("exit-up");
+            content.classList.add("enter-bottom");
 
-        // ============================================================
-        // 4. Language
-        // ============================================================
-        function toggleLangMenu() {
-            const menu = document.getElementById('dropdownMenu');
-            menu.classList.toggle('show');
-        }
+            setService(sIndex);
 
-        document.addEventListener('click', function(e) {
-            const dropdown = document.getElementById('langDropdown');
-            const menu = document.getElementById('dropdownMenu');
-            if (!dropdown.contains(e.target)) {
-                menu.classList.remove('show');
-            }
-        });
-
-        function selectLang(code, label, el) {
-            document.getElementById('selectedLangText').innerText = label;
-            document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
-            if (el) el.classList.add('active');
-            document.getElementById('dropdownMenu').classList.remove('show');
-            changeLanguage(code);
-        }
-
-        // ============================================================
-        // 5. وەرگێڕان — ٧ زمان
-        // ============================================================
-        const translations = {
-            kub: {
-                site_name: "بژار رەشید",
-                nav_home: "سەرەکی",
-                nav_about: "دەربارەی من",
-                nav_skills: "شارەزایی",
-                nav_qrcode: "QR کۆد",
-                nav_contact: "پەیوەندی",
-                home_desc: "پێشەنگ د داهێنانێن تەکنۆلۆژی و داڕشتن و گەشەپێدانا پرۆگرامان دا. ئەز وەک شارەزایێ ئای تی و پروگرامسازەکێ خودان ئەزموون، کار دکەم بۆ گۆهۆڕینا هزران بۆ پرۆژەیێن سەردەمیانە.",
-                about_p1: "ئەز بژار رەشید عەبدولقادر: شارەزا د بیافئ زانستێن کۆمپیوته‌ری دا، هەروەسا کار ده‌که‌م ل ده‌زگه‌هێ وەک رێڤه‌به‌ری ئای تێ.",
-                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p3: "هەروەسا کار ده‌که‌م ل دکانا کۆمپیوته‌را وەک پروگرامه‌ر ل",
-                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p5: "دروستکرنا ئەکاونتێن سوشیال میدیایی و سیسته‌مکرنا ریکلامێن سوشیال میدیایی و چه‌وانیا برێڤه‌برنا وان، و هەروەسا دروستکرنا QR ب شێوه‌یه‌کێ مۆدێرن و جوان.",
-                skills_desc: "وەک ئای تی و روژنامەڤان و شارەزا د تەکنولوجیایا سەردەم دا وەک پروگرامەر کار دکەم.",
-                skill_1: "بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی.",
-                skill_2: "بو پاراستنا ئەکاونتێن سوشیال میدیایێ.",
-                skill_3: "دروستکرن و دانانا سیستەمێن سپونسەریێ.",
-                skill_4: "گەشە پێدانا پروگرامان و پێشخستنا وان.",
-                qr_title: "QR دروستکەرێ پڕۆفیشناڵ",
-                qr_desc: "لینکێ خۆ بنڤیسە، دیزاین بکە و ب کوالێتیەکا بەرز داونلۆد بکە.",
-                qr_lbl_link: "لینک (URL)",
-                qr_lbl_color: "ڕەنگێ خاڵان",
-                qr_lbl_bg: "ڕەنگێ باکگراوەند",
-                qr_lbl_style: "شێوازێ خاڵان",
-                qr_opt_square: "چوارگۆشە",
-                qr_opt_dots: "خڕ (Dots)",
-                qr_opt_rounded: "بازنەیی (Rounded)",
-                qr_opt_classy: "کلاسیک",
-                qr_btn_gen: "دروستکرن"
-            },
-            kus: {
-                site_name: "بژار ڕەشید",
-                nav_home: "سەرەکی",
-                nav_about: "دەربارەی من",
-                nav_skills: "شارەزاییەکان",
-                nav_qrcode: "QR کۆد",
-                nav_contact: "پەیوەندی",
-                home_desc: "پێشەنگ لە داهێنانە تەکنۆلۆژییەکان و داڕشتن و گەشەپێدانی پرۆگرامەکاندا. وەک شارەزایەکی ئای تی و پرۆگرامسازێکی خاوەن ئەزموون، کار دەکەم بۆ گۆڕینی بیرۆکەکان بۆ پڕۆژەی سەردەمیانە.",
-                about_p1: "من بژار ڕەشید عەبدولقادرم: شارەزا لە بواری زانستەکانی کۆمپیوتەر، وەک بەڕێوەبەری ئای تی کار دەکەم.",
-                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p3: "هەروەها وەک پرۆگرامساز لە",
-                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p5: "دروستکردنی هەژمارەکانی سۆشیال میدیا، بەڕێوەبردنی ڕیکلامەکان، و دیزاینکردنی QR کۆدی مۆدێرن.",
-                skills_desc: "وەک ئای تی و ڕۆژنامەنووس و شارەزا لە تەکنەلۆژیای سەردەم وەک پرۆگرامساز کار دەکەم.",
-                skill_1: "بۆ دانان و پرۆگرامکردنی هەموو ئامێرە ئەلیکترۆنییەکان.",
-                skill_2: "بۆ پاراستنی هەژمارەکانی سۆشیال میدیا.",
-                skill_3: "دروستکردن و دانانی سیستەمەکانی سپۆنسەری.",
-                skill_4: "گەشەپێدانی پرۆگرامەکان و پێشخستنیان.",
-                qr_title: "QR دروستکەری پڕۆفیشناڵ",
-                qr_desc: "لینکەکەت بنووسە، دیزاینی بکە و بە کوالێتی بەرز دایبەزێنە.",
-                qr_lbl_link: "لینک (URL)",
-                qr_lbl_color: "ڕەنگی خاڵەکان",
-                qr_lbl_bg: "ڕەنگی باکگراوەند",
-                qr_lbl_style: "شێوازی خاڵەکان",
-                qr_opt_square: "چوارگۆشە",
-                qr_opt_dots: "خڕ (Dots)",
-                qr_opt_rounded: "بازنەیی (Rounded)",
-                qr_opt_classy: "کلاسیک",
-                qr_btn_gen: "دروستکردن"
-            },
-            kuk: {
-                site_name: "Bizhar Rasheed",
-                nav_home: "Sereke",
-                nav_about: "Derbarê Min",
-                nav_skills: "Şarezayî",
-                nav_qrcode: "QR Kod",
-                nav_contact: "Peywendî",
-                home_desc: "Pêşeng di nûbûnên teknolojî û darêştin û geşepêdana programan de. Wekî pisporê IT û programçêkerekî xwedî ezmûn, ez kar dikim ji bo guhertina ramanan bo projeyên serdemî.",
-                about_p1: "Ez Bizhar Rasheed Abdulqader: Pisporê zanistên kompîturê, wek Rêveberê IT-yê dixebitim.",
-                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p3: "Herwiha wek programçêker li",
-                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p5: "diafirînim hesabên medya civakî, birêvebirina kampanyayên reklamê, û sêwirana QR kodên nûjen.",
-                skills_desc: "Wek IT û rojnamevan û şareza di teknolojiya serdem de wek programçêker kar dikim.",
-                skill_1: "Ji bo danîn û programkirina hemî amûrên elektronî.",
-                skill_2: "Ji bo parastina accountên social media.",
-                skill_3: "Dirustkirin û danîna sîstemên sponsoriyê.",
-                skill_4: "Pêşxistin û geşepêdana programan.",
-                qr_title: "QR Kod Çêker",
-                qr_desc: "Linka xwe binivîse, dîzayn bike û bi kalîteya bilind daxîne.",
-                qr_lbl_link: "Link (URL)",
-                qr_lbl_color: "Rengê Xalan",
-                qr_lbl_bg: "Rengê Paşxanê",
-                qr_lbl_style: "Şêwazê Xalan",
-                qr_opt_square: "Çargoşe",
-                qr_opt_dots: "Xir (Dots)",
-                qr_opt_rounded: "Bazinî (Rounded)",
-                qr_opt_classy: "Klasîk",
-                qr_btn_gen: "Çêkirin"
-            },
-            ar: {
-                site_name: "بيژار رشيد",
-                nav_home: "الرئيسية",
-                nav_about: "من أنا",
-                nav_skills: "المهارات",
-                nav_qrcode: "كود QR",
-                nav_contact: "اتصال",
-                home_desc: "رائد في الابتكارات التكنولوجية وتطوير البرمجيات. بصفتي خبيراً في تقنية المعلومات ومبرمجاً، أعمل على تحويل الأفكار إلى مشاريع رقمية حديثة.",
-                about_p1: "أنا بيژار رشيد: خبير في علوم الكمبيوتر، أعمل كمدير لتكنولوجيا المعلومات.",
-                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p3: "أعمل أيضًا كمبرمج في",
-                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p5: "إنشاء حسابات وسائل التواصل الاجتماعي، وإدارة الإعلانات، وتصميم رموز QR الحديثة.",
-                skills_desc: "أعمل كمبرمج وخبير تقني. مهاراتي تشمل:",
-                skill_1: "إعداد وبرمجة جميع الأجهزة الإلكترونية.",
-                skill_2: "حماية حسابات وسائل التواصل الاجتماعي.",
-                skill_3: "إعداد أنظمة الإعلانات الممولة.",
-                skill_4: "تطوير البرمجيات وتحسينها.",
-                qr_title: "منشئ QR الاحترافي",
-                qr_desc: "أدخل الرابط، خصص التصميم، وقم بتنزيله بجودة عالية.",
-                qr_lbl_link: "الرابط (URL)",
-                qr_lbl_color: "لون النقاط",
-                qr_lbl_bg: "لون الخلفية",
-                qr_lbl_style: "شكل النقاط",
-                qr_opt_square: "مربع",
-                qr_opt_dots: "نقاط",
-                qr_opt_rounded: "دائري",
-                qr_opt_classy: "كلاسيكي",
-                qr_btn_gen: "إنشاء"
-            },
-            fa: {
-                site_name: "بیژار رشید",
-                nav_home: "خانه",
-                nav_about: "درباره من",
-                nav_skills: "مهارت‌ها",
-                nav_qrcode: "کد QR",
-                nav_contact: "تماس",
-                home_desc: "پیشرو در نوآوری‌های فناوری و توسعه نرم‌افزار. به عنوان یک متخصص فناوری اطلاعات و برنامه‌نویس، ایده‌ها را به پروژه‌های دیجیتال مدرن تبدیل می‌کنم.",
-                about_p1: "من بیژار رشید هستم: متخصص در علوم کامپیوتر، به عنوان مدیر فناوری اطلاعات کار می‌کنم.",
-                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p3: "همچنین به عنوان برنامه‌نویس در",
-                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p5: "ایجاد حساب‌های شبکه‌های اجتماعی، مدیریت تبلیغات و طراحی کدهای QR مدرن.",
-                skills_desc: "تخصص‌های من شامل موارد زیر است:",
-                skill_1: "راه‌اندازی دستگاه‌های الکترونیکی.",
-                skill_2: "امنیت شبکه‌های اجتماعی.",
-                skill_3: "راه‌اندازی سیستم‌های تبلیغاتی.",
-                skill_4: "توسعه نرم‌افزارها.",
-                qr_title: "سازنده QR حرفه‌ای",
-                qr_desc: "لینک خود را وارد کنید، طراحی کنید و با کیفیت بالا دانلود کنید.",
-                qr_lbl_link: "لینک (URL)",
-                qr_lbl_color: "رنگ نقاط",
-                qr_lbl_bg: "رنگ پس‌زمینه",
-                qr_lbl_style: "سبک نقاط",
-                qr_opt_square: "مربع",
-                qr_opt_dots: "نقاط",
-                qr_opt_rounded: "گرد",
-                qr_opt_classy: "کلاسیک",
-                qr_btn_gen: "ایجاد"
-            },
-            en: {
-                site_name: "Bizhar Rasheed",
-                nav_home: "Home",
-                nav_about: "About",
-                nav_skills: "Skills",
-                nav_qrcode: "QR Code",
-                nav_contact: "Contact",
-                home_desc: "Leading in technological innovations and software development. As an experienced IT expert and programmer, I transform ideas into modern digital projects.",
-                about_p1: "I am Bizhar Rasheed: an IT expert specializing in computer science, working as an IT Director.",
-                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p3: "I also work as a programmer at",
-                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p5: "Creating social media accounts, managing ad campaigns, and designing modern QR codes.",
-                skills_desc: "Working as a programmer, IT, and tech expert. My skills include:",
-                skill_1: "Electronic device setup and programming.",
-                skill_2: "Securing social media accounts.",
-                skill_3: "Setting up sponsorship/ad systems.",
-                skill_4: "Software development and improvement.",
-                qr_title: "Pro QR Generator",
-                qr_desc: "Enter your link, customize, and download in high quality.",
-                qr_lbl_link: "Link (URL)",
-                qr_lbl_color: "Dots Color",
-                qr_lbl_bg: "Background Color",
-                qr_lbl_style: "Dots Style",
-                qr_opt_square: "Square",
-                qr_opt_dots: "Dots",
-                qr_opt_rounded: "Rounded",
-                qr_opt_classy: "Classy",
-                qr_btn_gen: "Generate"
-            },
-            tr: {
-                site_name: "Bizhar Rasheed",
-                nav_home: "Ana Sayfa",
-                nav_about: "Hakkımda",
-                nav_skills: "Yetenekler",
-                nav_qrcode: "QR Kodu",
-                nav_contact: "İletişim",
-                home_desc: "Teknolojik yenilikler ve yazılım geliştirmede öncü. Deneyimli bir BT uzmanı ve programcı olarak, fikirleri modern dijital projelere dönüştürüyorum.",
-                about_p1: "Ben Bizhar Rasheed: Bilgisayar bilimleri uzmanı, BT Direktörü olarak çalışıyorum.",
-                about_p2: '<a href="https://bizhar-cloud.github.io/NoshNews/" target="_blank" class="link-nosh"><i class="fa-regular fa-newspaper link-icon"></i> Nosh News <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p3: "Ayrıca programcı olarak şurada çalışıyorum:",
-                about_p4: '<a href="https://bizhar-cloud.github.io/KurdITpc/" target="_blank" class="link-kurd"><i class="fa-solid fa-laptop-code link-icon"></i> KurdITpc <i class="fa-solid fa-arrow-up-right-from-square link-icon-out"></i></a>',
-                about_p5: "Sosyal medya hesapları oluşturma, reklam kampanyaları yönetme ve modern QR kodlar tasarlama.",
-                skills_desc: "Yeteneklerim şunlardır:",
-                skill_1: "Elektronik cihazların kurulumu.",
-                skill_2: "Sosyal medya hesaplarının güvenliği.",
-                skill_3: "Reklam sistemlerinin kurulması.",
-                skill_4: "Yazılım geliştirme.",
-                qr_title: "Profesyonel QR Oluşturucu",
-                qr_desc: "Bağlantınızı girin, tasarımı özelleştirin ve yüksek kalitede indirin.",
-                qr_lbl_link: "Bağlantı (URL)",
-                qr_lbl_color: "Nokta Rengi",
-                qr_lbl_bg: "Arka Plan Rengi",
-                qr_lbl_style: "Nokta Stili",
-                qr_opt_square: "Kare",
-                qr_opt_dots: "Nokta",
-                qr_opt_rounded: "Yuvarlak",
-                qr_opt_classy: "Klasik",
-                qr_btn_gen: "Oluştur"
-            }
-        };
-
-        function changeLanguage(code) {
-            const isRtl = ['kub', 'kus', 'ar', 'fa'].includes(code);
-            document.body.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[code] && translations[code][key] !== undefined) {
-                    el.innerHTML = translations[code][key];
-                }
-            });
-            try { localStorage.setItem('siteLang', code); } catch (e) {}
-        }
-
-        // ============================================================
-        // 6. 3D Tilt
-        // ============================================================
-        const tiltBoxes = document.querySelectorAll('.tilt-box');
-        document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth < 850) return;
-            const x = (window.innerWidth / 2 - e.pageX) / 40;
-            const y = (window.innerHeight / 2 - e.pageY) / 40;
-            tiltBoxes.forEach(box => {
-                if (box.closest('.tab-content') && box.closest('.tab-content').classList.contains('active')) {
-                    box.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg)`;
-                }
-            });
-        });
-        document.addEventListener('mouseleave', () => {
-            tiltBoxes.forEach(box => { box.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)'; });
-        });
-
-        // ============================================================
-        // 7. Particles
-        // ============================================================
-        const canvas = document.getElementById('bg-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let mouse = { x: null, y: null, radius: 150 };
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            mouse.radius = Math.min(canvas.width, canvas.height) / 5;
-            initParticles();
-        }
-        window.addEventListener('mousemove', e => { mouse.x = e.x;
-            mouse.y = e.y; });
-
-        class Particle {
-            constructor() {
-                this.size = Math.random() * 2 + 0.8;
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.dx = (Math.random() - 0.5) * 1.8;
-                this.dy = (Math.random() - 0.5) * 1.8;
-                this.color = document.body.classList.contains('light-mode') ? '#0284c7' : '#64ffda';
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.fill();
-            }
-            update() {
-                if (this.x < 0 || this.x > canvas.width) this.dx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.dy *= -1;
-                const dx = mouse.x - this.x,
-                    dy = mouse.y - this.y,
-                    dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < mouse.radius) {
-                    const force = (mouse.radius - dist) / mouse.radius;
-                    this.x -= dx * force * 0.02;
-                    this.y -= dy * force * 0.02;
-                }
-                this.x += this.dx;
-                this.y += this.dy;
-                this.draw();
-            }
-        }
-
-        function initParticles() {
-            const count = Math.min(200, Math.floor((canvas.width * canvas.height) / 12000));
-            particles = [];
-            for (let i = 0; i < count; i++) particles.push(new Particle());
-        }
-
-        function connectParticles() {
-            const maxDist = Math.min(canvas.width, canvas.height) / 6;
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = dx * dx + dy * dy;
-                    if (dist < maxDist * maxDist) {
-                        const opacity = 1 - Math.sqrt(dist) / maxDist;
-                        ctx.strokeStyle = document.body.classList.contains('light-mode') ?
-                            `rgba(2,132,199,${opacity * 0.6})` :
-                            `rgba(100,255,218,${opacity * 0.6})`;
-                        ctx.lineWidth = 0.6;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => p.update());
-            connectParticles();
-        }
-        window.addEventListener('resize', resizeCanvas);
-
-        // ============================================================
-        // 8. QR Code Engine
-        // ============================================================
-        let qrInstance = null;
-
-        function generateQRCode() {
-            const url = document.getElementById('qr-url-input').value || 'https://bizhar-cloud.github.io';
-            const color = document.getElementById('qr-color-input').value;
-            const bg = document.getElementById('qr-bg-input').value;
-            const style = document.getElementById('qr-style-input').value;
-            const container = document.getElementById('qr-preview-container');
-            container.innerHTML = '';
-            try {
-                qrInstance = new QRCodeStyling({
-                    width: 340,
-                    height: 340,
-                    data: url,
-                    margin: 12,
-                    dotsOptions: { color, type: style },
-                    backgroundOptions: { color: bg },
-                    imageOptions: { crossOrigin: 'anonymous', margin: 10 }
-                });
-                qrInstance.append(container);
-            } catch (e) {
-                container.innerHTML =
-                    '<p style="color:var(--it-red);padding:20px;font-weight:800;">⚠️ QR kod nehat çêkirin.</p>';
-                console.error('QR Error:', e);
-            }
-        }
-
-        function downloadQR(size) {
-            const url = document.getElementById('qr-url-input').value || 'https://bizhar-cloud.github.io';
-            const color = document.getElementById('qr-color-input').value;
-            const bg = document.getElementById('qr-bg-input').value;
-            const style = document.getElementById('qr-style-input').value;
-            if (typeof QRCodeStyling === 'undefined') {
-                alert('⚠️ پەڕگەی QR Code Styling بارنەبوو. تکایە پەڕە نوێ بکە.');
-                return;
-            }
-            try {
-                const hd = new QRCodeStyling({
-                    width: size,
-                    height: size,
-                    data: url,
-                    margin: Math.round(size * 0.03),
-                    dotsOptions: { color, type: style },
-                    backgroundOptions: { color: bg },
-                    imageOptions: { crossOrigin: 'anonymous', margin: 10 }
-                });
-                let label = 'QR';
-                if (size === 1920) label = 'FullHD';
-                else if (size === 2560) label = '2K';
-                else if (size === 4096) label = '4K';
-                hd.download({ name: `Bizhar_QR_${label}_${size}px`, extension: 'png' });
-            } catch (e) {
-                alert('⚠️ داونلۆد نەکرا. تکایە هەوڵ بدە پێشتر QR کۆد دروست بکەیت.');
-                console.error('Download Error:', e);
-            }
-        }
-
-        // ============================================================
-        // 9. Service Card Rotator
-        // ============================================================
-        const sunSVG =
-            `<svg class="kurdish-flag-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><circle cx="250" cy="250" r="85" fill="#FEB811" /><g fill="#FEB811">${Array.from({length:21}, (_,i) => `<polygon points="250,40 220,190 280,190" transform="rotate(${i*(360/21)},250,250)" />`).join('')}</g></svg>`;
-
-        const services = [
-            { text: 'SYSTEMS', desc: 'Advanced Devices Configuration<br />بو دانان و پروگرامکرنا هەمی جیهازێن ئەلکترونی', icon: 'fa-layer-group',
-                theme: 'theme-green', anim: 'anim-systems' },
-            { text: 'SECURITY', desc: 'Social Media Protection & Security<br />بو پاراستنا ئەکاونتێن سوشیال میدیایێ',
-                icon: 'fa-shield-halved', theme: 'theme-red', anim: 'anim-security' },
-            { text: 'ADS CREATOR', desc: 'Professional Sponsored Campaigns<br />دروستکرن و دانانا سیستەمێن سپونسەریێ',
-                icon: 'fa-rectangle-ad', theme: 'theme-blue', anim: 'anim-security' },
-            { text: 'DEV_OPS', desc: 'Software Development & Optimization<br />گەشە پێدانا پروگرامان و پێشخستنا وان',
-                icon: 'fa-code-branch', theme: 'theme-green', anim: 'anim-systems' },
-            { text: 'KURDISTAN', desc: 'National Digital Heritage<br />پاراستنا ناسنامەیا نەتەوەیی', isFlag: true,
-                theme: 'theme-kurdish' }
-        ];
-
-        let sIdx = 0;
-        setInterval(() => {
-            const content = document.getElementById('service-content');
-            const iconWrap = document.getElementById('service-icon');
-            const text = document.getElementById('service-text');
-            const desc = document.getElementById('service-desc');
-            const btn = document.getElementById('service-btn');
-            if (!content || !iconWrap || !text || !desc || !btn) return;
-            content.classList.add('exit-up');
             setTimeout(() => {
-                sIdx = (sIdx + 1) % services.length;
-                const s = services[sIdx];
-                if (s.isFlag) {
-                    iconWrap.parentElement.innerHTML = sunSVG;
-                    text.style.color = 'var(--kurd-sun)';
-                } else {
-                    iconWrap.parentElement.innerHTML =
-                        `<i id="service-icon" class="fa-solid ${s.icon} ${s.anim}" style="font-size:2rem;"></i>`;
-                    text.style.color = 'var(--text-main)';
-                }
-                text.innerText = s.text;
-                desc.innerHTML = s.desc;
-                btn.className = 'service-card ' + s.theme;
-                content.classList.remove('exit-up');
-                content.classList.add('enter-bottom');
-                setTimeout(() => content.classList.remove('enter-bottom'), 50);
-            }, 400);
-        }, 4800);
+                content.classList.remove("enter-bottom");
+            }, 100);
+        }, 600);
+    }, 5000);
 
-        // ============================================================
-        // 10. Service Worker — بۆ کارکردنی ئۆفلاین
-        // ============================================================
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(() => console.log('✅ Service Worker تۆمارکرا'))
-                .catch(err => console.log('⚠️ Service Worker تۆمارنەکرا:', err));
-        }
+    // دەستپێکردن بە کارتی یەکەم
+    setService(0);
+</script>
 
-        // ============================================================
-        // 11. Init
-        // ============================================================
-        window.onload = function() {
-            let savedTheme = 'dark';
-            try { savedTheme = localStorage.getItem('siteTheme') || 'dark'; } catch (e) {}
-            if (savedTheme === 'light') {
-                document.body.classList.add('light-mode');
-                document.getElementById('themeToggle').innerText = '🌙';
-            } else {
-                document.getElementById('themeToggle').innerText = '☀️';
-            }
-
-            let savedLang = 'kub';
-            try { savedLang = localStorage.getItem('siteLang') || 'kub'; } catch (e) {}
-            const map = {
-                kub: 'KU | Badini',
-                kus: 'KU | سورانی',
-                kuk: 'KU | Kurmanci',
-                ar: 'AR | العربية',
-                fa: 'FA | فارسی',
-                en: 'EN | English',
-                tr: 'TR | Türkçe'
-            };
-            document.getElementById('selectedLangText').innerText = map[savedLang] || map['kub'];
-            document.querySelectorAll('.dropdown-item').forEach(el => {
-                el.classList.toggle('active', el.getAttribute('data-lang') === savedLang);
-            });
-            changeLanguage(savedLang);
-
-            resizeCanvas();
-            animateParticles();
-            setTimeout(generateQRCode, 500);
-        };
-    </script>
 </body>
 </html>
